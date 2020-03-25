@@ -1,20 +1,15 @@
-.. Barcode Buddy Documentation documentation master file, created by
-   sphinx-quickstart on Wed Mar 25 11:52:37 2020.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+.. _index:
 
-Welcome to Barcode Buddy Documentation's documentation!
+Barcode Buddy for Grocy
 =======================================================
+
+Barcode Buddy for Grocy is an extension for `Grocy`_, allowing to pass barcodes to Grocy. It supports barcodes for products and chores. If you own a physical barcode scanner, it can be integrated, so that all barcodes scanned are automatically pushed to BarcodeBuddy/Grocy.
+
+.. _Grocy: https://github.com/grocy/grocy
+
+
+Contents
+========
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
-
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
