@@ -27,7 +27,9 @@ Contents
    :maxdepth: 2
 
    setup
+   usage
 
 #   consumption
 #   usage
+#   update
 #   changelog

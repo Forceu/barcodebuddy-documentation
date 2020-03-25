@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Usage" href="usage.html" />
     <link rel="prev" title="Barcode Buddy for Grocy" href="index.html" /> 
 </head>
 
@@ -83,14 +84,24 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Setup</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#docker">Docker</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#installation">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#starting-the-container">Starting the Container</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#bare-metal">Bare Metal</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id2">Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Installation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#stable-version">Stable version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unstable-version">Unstable version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#webserver-setup">Webserver setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#starting-the-websocket-service">Starting the websocket service</a></li>
 </ul>
 </li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
 </ul>
 
             
@@ -166,6 +177,88 @@
 <li><p>A host running docker</p></li>
 </ul>
 </div>
+<div class="section" id="installation">
+<h3>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h3>
+<p>To download, run the following command, and replace YOURTAG with one from the list below:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">pull</span> <span class="n">f0rc3</span><span class="o">/</span><span class="n">barcodebuddy</span><span class="o">-</span><span class="n">docker</span><span class="p">:</span><span class="n">YOURTAG</span>
+</pre></div>
+</div>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 35%" />
+<col style="width: 25%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Tag</p></td>
+<td><p>Architecture</p></td>
+<td><p>Version</p></td>
+</tr>
+<tr class="row-even"><td><p>latest</p></td>
+<td><p>x86-64</p></td>
+<td><p>stable</p></td>
+</tr>
+<tr class="row-odd"><td><p>arm32v7-latest</p></td>
+<td><p>armhf</p></td>
+<td><p>stable</p></td>
+</tr>
+<tr class="row-even"><td><p>arm64v8-latest</p></td>
+<td><p>arm64</p></td>
+<td><p>stable</p></td>
+</tr>
+<tr class="row-odd"><td><p>latest-dev</p></td>
+<td><p>x86-64</p></td>
+<td><p>unstable</p></td>
+</tr>
+</tbody>
+</table>
+<p>Most of the time, you will need the <em>latest</em> tag. If you are running docker on a Raspberry Pi, you will need the <em>arm32v7-latest</em> tag.</p>
+<p><em>Stable</em> indicates, that you are using the latest release which should work without any bugs. <em>Unstable</em> is the latest developer version, which might include more features, but could also contain bugs.</p>
+<p>If you don’t want to download the prebuilt image, you can find the Dockerfile on the <a class="reference external" href="https://github.com/Forceu/barcodebuddy-docker">Github project page</a>
+.</p>
+</div>
+<div class="section" id="starting-the-container">
+<h3>Starting the Container<a class="headerlink" href="#starting-the-container" title="Permalink to this headline">¶</a></h3>
+<p>To start the container, run the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">d</span> <span class="o">-</span><span class="n">v</span> <span class="n">bbconfig</span><span class="p">:</span><span class="o">/</span><span class="n">config</span> <span class="o">-</span><span class="n">p</span> <span class="mi">80</span><span class="p">:</span><span class="mi">80</span> <span class="o">-</span><span class="n">p</span> <span class="mi">443</span><span class="p">:</span><span class="mi">443</span> <span class="n">f0rc3</span><span class="o">/</span><span class="n">barcodebuddy</span><span class="o">-</span><span class="n">docker</span><span class="p">:</span><span class="n">YOURTAG</span>
+</pre></div>
+</div>
+<p>You can now open <code class="docutils literal notranslate"><span class="pre">http://DOCKER_HOST_IP/</span></code> to set up BarcodeBuddy. If you are already serving a webserver on your Docker host, you need to change the ports, eg.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">d</span> <span class="o">-</span><span class="n">v</span> <span class="n">bbconfig</span><span class="p">:</span><span class="o">/</span><span class="n">config</span> <span class="o">-</span><span class="n">p</span> <span class="mi">8080</span><span class="p">:</span><span class="mi">80</span> <span class="o">-</span><span class="n">p</span> <span class="mi">9443</span><span class="p">:</span><span class="mi">443</span> <span class="n">f0rc3</span><span class="o">/</span><span class="n">barcodebuddy</span><span class="o">-</span><span class="n">docker</span><span class="p">:</span><span class="n">latest</span>
+</pre></div>
+</div>
+<p>The following arguments can also be passed:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 17%" />
+<col style="width: 51%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Argument</p></td>
+<td><p>Value</p></td>
+<td><p>Effect</p></td>
+</tr>
+<tr class="row-even"><td><p>ATTACH_BARCODESCANNER</p></td>
+<td><p>true/false</p></td>
+<td><p>Attach barcodescanner, see SECTION</p></td>
+</tr>
+<tr class="row-odd"><td><p>IGNORE_SSL_CA</p></td>
+<td><p>true/false</p></td>
+<td><p>Accept self-signed SSL certificates</p></td>
+</tr>
+<tr class="row-even"><td><p>IGNORE_SSL_HOST</p></td>
+<td><p>true/false</p></td>
+<td><p>Accept SSL certificates where the
+host does not match</p></td>
+</tr>
+</tbody>
+</table>
+<p>To pass an argument, use the -e function, eg:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">d</span> <span class="o">-</span><span class="n">v</span> <span class="n">bbconfig</span><span class="p">:</span><span class="o">/</span><span class="n">config</span> <span class="o">-</span><span class="n">e</span> <span class="n">ATTACH_BARCODESCANNER</span><span class="o">=</span><span class="n">true</span> <span class="o">-</span><span class="n">p</span> <span class="mi">80</span><span class="p">:</span><span class="mi">80</span> <span class="o">-</span><span class="n">p</span> <span class="mi">443</span><span class="p">:</span><span class="mi">443</span> <span class="n">f0rc3</span><span class="o">/</span><span class="n">barcodebuddy</span><span class="o">-</span><span class="n">docker</span><span class="p">:</span><span class="n">latest</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="bare-metal">
 <h2>Bare Metal<a class="headerlink" href="#bare-metal" title="Permalink to this headline">¶</a></h2>
@@ -175,29 +268,57 @@
 <li><p>webserver (eg. NGINX, Apache)</p></li>
 <li><p>curl</p></li>
 <li><p>Access to the command line</p></li>
-<li><p>PHP (5.0 min, 7.0+ highly recommended)</p></li>
-<li><p>The following PHP modules:</p></li>
-</ul>
-<blockquote>
-<div><ul class="simple">
+<li><p>PHP (PHP5 min, however PHP7+ highly recommended)</p></li>
+<li><p>The following PHP modules:</p>
+<ul>
 <li><p>curl</p></li>
 <li><p>date</p></li>
 <li><p>json</p></li>
 <li><p>sqlite3</p></li>
 <li><p>sockets</p></li>
 </ul>
-</div></blockquote>
-<ul class="simple">
-<li><p>When using a barcode scanner:</p></li>
-</ul>
-<blockquote>
-<div><ul class="simple">
+</li>
+<li><p>When using a barcode scanner:</p>
+<ul>
 <li><p>Root access!</p></li>
 <li><p>sudo</p></li>
 <li><p>screen</p></li>
 <li><p>evtest</p></li>
 </ul>
-</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h3>Installation<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p><em>Stable</em> indicates, that you are using the latest release which should work without any bugs. <em>Unstable</em> is the latest developer version, which might include more features, but could also contain bugs.</p>
+<div class="section" id="stable-version">
+<h4>Stable version<a class="headerlink" href="#stable-version" title="Permalink to this headline">¶</a></h4>
+<p><a class="reference external" href="https://github.com/Forceu/barcodebuddy/releases/">Download the project</a> and copy all files into your webserver.</p>
+</div>
+<div class="section" id="unstable-version">
+<h4>Unstable version<a class="headerlink" href="#unstable-version" title="Permalink to this headline">¶</a></h4>
+<p>Execute</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">Forceu</span><span class="o">/</span><span class="n">barcodebuddy</span><span class="o">.</span><span class="n">git</span>
+</pre></div>
+</div>
+<p>and move the folder into your webserver directory.</p>
+</div>
+<div class="section" id="webserver-setup">
+<h4>Webserver setup<a class="headerlink" href="#webserver-setup" title="Permalink to this headline">¶</a></h4>
+<p>Make sure that all permissions are set, so the script can create a database file. For Linux servers, you could execute the command <code class="docutils literal notranslate"><span class="pre">sudo</span> <span class="pre">chown</span> <span class="pre">www-data:www-data</span> <span class="pre">-R</span> <span class="pre">/path/to/the/barcodebuddy/folder</span></code> for the folder that you just created. Make sure to disallow the download of the database by using the .htaccess file for Apache or the part from the <a class="reference external" href="https://github.com/Forceu/barcodebuddy/blob/master/example/nginxConfiguration.conf">Nginx example file</a>.</p>
+</div>
+<div class="section" id="starting-the-websocket-service">
+<h4>Starting the websocket service<a class="headerlink" href="#starting-the-websocket-service" title="Permalink to this headline">¶</a></h4>
+<p>If you have access to your webservers command line, make sure to start the websocket server. This way you can use the Screen module and if there are any changes, BarcodeBuddy will automatically refresh.</p>
+<p>Navigate to your installation folder and execute <code class="docutils literal notranslate"><span class="pre">php</span> <span class="pre">wsserver.php</span></code> to start the server. To have it run in the background, either use the screen application (recommended)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">screen</span> <span class="o">-</span><span class="n">S</span> <span class="n">bbuddyserver</span> <span class="o">-</span><span class="n">d</span> <span class="o">-</span><span class="n">m</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">php</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">the</span><span class="o">/</span><span class="n">barcodebuddy</span><span class="o">/</span><span class="n">folder</span><span class="o">/</span><span class="n">wsserver</span><span class="o">.</span><span class="n">php</span>
+</pre></div>
+</div>
+<p>or the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nohup</span> <span class="n">php</span> <span class="n">wsserver</span><span class="o">.</span><span class="n">php</span> <span class="o">&amp;</span>
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -209,6 +330,8 @@
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="usage.html" class="btn btn-neutral float-right" title="Usage" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="index.html" class="btn btn-neutral float-left" title="Barcode Buddy for Grocy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
