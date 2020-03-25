@@ -28,6 +28,7 @@ Contents
 
    setup
    usage
+   update
    plugins
    contributions
    changelog

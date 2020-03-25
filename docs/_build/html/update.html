@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Search &mdash; Barcode Buddy Documentation 1.4.0.0 documentation</title>
+  <title>Updating Barcode Buddy &mdash; Barcode Buddy Documentation 1.4.0.0 documentation</title>
   
 
   
@@ -25,7 +25,6 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/language_data.js"></script>
-        <script src="_static/searchtools.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -35,7 +34,9 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="#" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Plugins" href="plugins.html" />
+    <link rel="prev" title="Usage" href="usage.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -62,7 +63,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -79,10 +80,18 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
-<li class="toctree-l1"><a class="reference internal" href="update.html">Updating Barcode Buddy</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Updating Barcode Buddy</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#docker">Docker</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bare-metal">Bare Metal</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#stable-version">Stable version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#unstable-version">Unstable version</a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributions.html">Contributions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
@@ -131,12 +140,14 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Search</li>
+      <li>Updating Barcode Buddy</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
+            <a href="_sources/update.rst.txt" rel="nofollow"> View page source</a>
+          
         
       </li>
     
@@ -148,24 +159,43 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <noscript>
-  <div id="fallback" class="admonition warning">
-    <p class="last">
-      Please activate JavaScript to enable the search
-      functionality.
-    </p>
-  </div>
-  </noscript>
+  <div class="section" id="updating-barcode-buddy">
+<span id="update"></span><h1>Updating Barcode Buddy<a class="headerlink" href="#updating-barcode-buddy" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="docker">
+<h2>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h2>
+<p>To update, run the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">pull</span> <span class="n">f0rc3</span><span class="o">/</span><span class="n">barcodebuddy</span><span class="o">-</span><span class="n">docker</span><span class="p">:</span><span class="n">YOURTAG</span>
+</pre></div>
+</div>
+<p>Then stop the running container and follow the same steps as in SETUP. All userdata will be preserved, as it is saved to the bbuddy volume (-v command)</p>
+</div>
+<div class="section" id="bare-metal">
+<h2>Bare Metal<a class="headerlink" href="#bare-metal" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="stable-version">
+<h3>Stable version<a class="headerlink" href="#stable-version" title="Permalink to this headline">¶</a></h3>
+<p>To update, download the lastest release and unzip it to the directory that contains the old version. Overwrite any existing files.</p>
+</div>
+<div class="section" id="unstable-version">
+<h3>Unstable version<a class="headerlink" href="#unstable-version" title="Permalink to this headline">¶</a></h3>
+<p>To update, execute the command <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code></p>
+</div>
+</div>
+</div>
 
-  
-  <div id="search-results">
-  
-  </div>
 
            </div>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="plugins.html" class="btn btn-neutral float-right" title="Plugins" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="usage.html" class="btn btn-neutral float-left" title="Usage" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -198,14 +228,7 @@
   
   
     
-  
-  <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script type="text/javascript" id="searchindexloader"></script>
    
-
 
 </body>
 </html>
