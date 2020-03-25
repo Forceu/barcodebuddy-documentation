@@ -81,6 +81,8 @@ The preferred way. Most barcode scanners register as a USB keyboard. That way, i
 Using a physical barcode scanner
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+*Important: The mentioned script is currently only available in the UNSTABLE channel! It will be included in the next release!*
+
 Plug in your barcode scanner to the linux computer / server you will be using. Run the command ``evtest`` as root. You will see a list of devices, select the one that is your barcode scanner and remember the number (eg. event6). Scan a barcode. You will now see output in the evtest programm. If not, you have selected the wrong source.
 
 Docker
