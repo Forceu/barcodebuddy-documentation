@@ -102,6 +102,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="update.html">Updating Barcode Buddy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributions.html">Contributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 </ul>
 
             
@@ -292,6 +296,7 @@ host does not match</p></td>
 <div class="section" id="id3">
 <h3>Installation<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
 <p><em>Stable</em> indicates, that you are using the latest release which should work without any bugs. <em>Unstable</em> is the latest developer version, which might include more features, but could also contain bugs.</p>
+<p>It is strongly recommended to change <code class="docutils literal notranslate"><span class="pre">pm.max_children</span></code> to a value of 15 or higher in <code class="docutils literal notranslate"><span class="pre">/etc/php7/php-fpm.d/www.conf</span></code> (path might be different, depending on PHP version and distribution). Generally speaking, choose the amount of RAM divided by 100, so for example if you have 2GB of RAM, you can enter 20 as a value.</p>
 <div class="section" id="stable-version">
 <h4>Stable version<a class="headerlink" href="#stable-version" title="Permalink to this headline">¶</a></h4>
 <p><a class="reference external" href="https://github.com/Forceu/barcodebuddy/releases/">Download the project</a> and copy all files into your webserver.</p>

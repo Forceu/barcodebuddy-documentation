@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Plugins" href="plugins.html" />
+    <link rel="next" title="Updating Barcode Buddy" href="update.html" />
     <link rel="prev" title="Setup" href="setup.html" /> 
 </head>
 
@@ -115,6 +115,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#web-ui-quantities">Web UI: Quantities</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="update.html">Updating Barcode Buddy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugins</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributions.html">Contributions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
@@ -266,6 +267,7 @@ time you scan the carton barcode, it will register as 10 units.</p></td>
 <p>The preferred way. Most barcode scanners register as a USB keyboard. That way, it is possible to grab the input and send it to Barcode Buddy.</p>
 <div class="section" id="using-a-physical-barcode-scanner">
 <span id="attachingscanner"></span><h4>Using a physical barcode scanner<a class="headerlink" href="#using-a-physical-barcode-scanner" title="Permalink to this headline">¶</a></h4>
+<p><em>Important: The mentioned script is currently only available in the UNSTABLE channel! It will be included in the next release!</em></p>
 <p>Plug in your barcode scanner to the linux computer / server you will be using. Run the command <code class="docutils literal notranslate"><span class="pre">evtest</span></code> as root. You will see a list of devices, select the one that is your barcode scanner and remember the number (eg. event6). Scan a barcode. You will now see output in the evtest programm. If not, you have selected the wrong source.</p>
 <div class="section" id="docker">
 <h5>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h5>
@@ -392,7 +394,7 @@ time you scan the carton barcode, it will register as 10 units.</p></td>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="plugins.html" class="btn btn-neutral float-right" title="Plugins" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="update.html" class="btn btn-neutral float-right" title="Updating Barcode Buddy" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="setup.html" class="btn btn-neutral float-left" title="Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
