@@ -35,6 +35,7 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Plugins" href="plugins.html" />
     <link rel="prev" title="Setup" href="setup.html" /> 
 </head>
 
@@ -99,8 +100,24 @@
 </li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#web-ui-settings-menu">Web UI: Settings menu</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#general-settings">General Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#grocy-api">Grocy API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#websocket-status">Websocket Status</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#web-ui-settings-chores">Web UI: Settings Chores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#web-ui-tags">Web UI: Tags</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#adding-tags">Adding tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#managing-tags">Managing tags</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#web-ui-quantities">Web UI: Quantities</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributions.html">Contributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 </ul>
 
             
@@ -168,7 +185,7 @@
   <div class="section" id="usage">
 <span id="id1"></span><h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="first-start">
-<h2>First Start<a class="headerlink" href="#first-start" title="Permalink to this headline">¶</a></h2>
+<span id="firststart"></span><h2>First Start<a class="headerlink" href="#first-start" title="Permalink to this headline">¶</a></h2>
 <p>Open your Grocy website. Click on Settings in the top right corner and then click on <em>Manage API keys</em>. Click on <em>add</em> and copy the long API key to your clipboard. You can now open Barcode Buddy by visiting your webservers URL. The setup will ask you to enter the API details. Make sure to have the trailing “/api/” for your Grocy URL at the end.</p>
 </div>
 <div class="section" id="using-the-web-ui">
@@ -248,7 +265,7 @@ time you scan the carton barcode, it will register as 10 units.</p></td>
 <h3>Adding Barcodes automatically<a class="headerlink" href="#adding-barcodes-automatically" title="Permalink to this headline">¶</a></h3>
 <p>The preferred way. Most barcode scanners register as a USB keyboard. That way, it is possible to grab the input and send it to Barcode Buddy.</p>
 <div class="section" id="using-a-physical-barcode-scanner">
-<h4>Using a physical barcode scanner<a class="headerlink" href="#using-a-physical-barcode-scanner" title="Permalink to this headline">¶</a></h4>
+<span id="attachingscanner"></span><h4>Using a physical barcode scanner<a class="headerlink" href="#using-a-physical-barcode-scanner" title="Permalink to this headline">¶</a></h4>
 <p>Plug in your barcode scanner to the linux computer / server you will be using. Run the command <code class="docutils literal notranslate"><span class="pre">evtest</span></code> as root. You will see a list of devices, select the one that is your barcode scanner and remember the number (eg. event6). Scan a barcode. You will now see output in the evtest programm. If not, you have selected the wrong source.</p>
 <div class="section" id="docker">
 <h5>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h5>
@@ -320,9 +337,50 @@ time you scan the carton barcode, it will register as 10 units.</p></td>
 </div>
 <div class="section" id="using-a-3rd-party-mobile-app">
 <h4>Using a 3rd party mobile app<a class="headerlink" href="#using-a-3rd-party-mobile-app" title="Permalink to this headline">¶</a></h4>
-<p>Although we have not released an app (yet), you can use the <a class="reference external" href="https://play.google.com/store/apps/details?id=com.scanner.kataykin.icamesscaner.free">Android app QR &amp; Barcode Scanner</a> and point it to the index.php file. BarcodeBuddy supports the <code class="docutils literal notranslate"><span class="pre">text</span></code> GET variable that is used by the app since version 1.4.1.0. <em>Note: Currently 1.4.1.0 is unreleased and the feature only available in the unstable version</em></p>
+<p>Although we have not released an app (yet), you can use the <a class="reference external" href="https://play.google.com/store/apps/details?id=com.scanner.kataykin.icamesscaner.free">Android app QR &amp; Barcode Scanner</a> and point it to the index.php file. BarcodeBuddy supports the <code class="docutils literal notranslate"><span class="pre">text</span></code> GET variable that is used by the app since version 1.4.1.0. <em>Note: Currently 1.4.1.0 is unreleased and the feature is only available in the unstable version</em></p>
 </div>
 </div>
+</div>
+<div class="section" id="web-ui-settings-menu">
+<h2>Web UI: Settings menu<a class="headerlink" href="#web-ui-settings-menu" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="general-settings">
+<h3>General Settings<a class="headerlink" href="#general-settings" title="Permalink to this headline">¶</a></h3>
+<p>In this tab you can set the barcodes for changing Barcode Buddy modes. For example, if you scan the barcode “BBUDDY-P”, Barcode Buddy will change to “Purchase” mode and add all following items to your Grocy inventory. By default it is in “Consume” mode. The edit field below allows you to set the time in minutes, which is required to pass in order to revert back to the default “Consume” mode. E.g. if “Purchase” mode is active and the field is set to 10 minutes, Barcode Buddy will revert back to “Consume” mode 10 minutes later.</p>
+<p>If you scan the “Inventory” barcode, Barcode Buddy will simply output the current stock, but not change any values. If an unknown barcode is scanned, it is added to the regular list.</p>
+<p>The “Add to shopping list” barcode adds all future barcodes to the default shopping list.</p>
+<p>With the “Revert after single item scan in “Open” or “Spoiled” mode” checkbox ticked, Barcode Buddy only stays in this mode for one scan and then reverts back to the default “Consume” mode. It does not affect the “Purchase” mode however!</p>
+<p>With “Remove purchased items from shoppinglist” enabled, items that are scanned in purchase mode are removed from all Grocy shopping lists.</p>
+<p>When “more verbose logs” is disabled, only barcode scans are logged in the log part of the main page.</p>
+</div>
+<div class="section" id="grocy-api">
+<h3>Grocy API<a class="headerlink" href="#grocy-api" title="Permalink to this headline">¶</a></h3>
+<p>Here you can change your Grocy API details. Refer to <a class="reference internal" href="#firststart"><span class="std std-ref">First Start</span></a>.</p>
+</div>
+<div class="section" id="websocket-status">
+<h3>Websocket Status<a class="headerlink" href="#websocket-status" title="Permalink to this headline">¶</a></h3>
+<p>This section gives the status of the websocket server and if BarcodeBuddy is able to connect to it</p>
+</div>
+</div>
+<div class="section" id="web-ui-settings-chores">
+<h2>Web UI: Settings Chores<a class="headerlink" href="#web-ui-settings-chores" title="Permalink to this headline">¶</a></h2>
+<p>This menu lists all available Grocy chores. Simply enter a barcode for a chore and press “Add”. The next time you scan this barcode, the chore will be executed. To change the barcode, simply edit it and press “Edit”. To remove, delete the barcode and press “Edit”.</p>
+</div>
+<div class="section" id="web-ui-tags">
+<h2>Web UI: Tags<a class="headerlink" href="#web-ui-tags" title="Permalink to this headline">¶</a></h2>
+<p>All saved tags are listed here</p>
+<div class="section" id="adding-tags">
+<h3>Adding tags<a class="headerlink" href="#adding-tags" title="Permalink to this headline">¶</a></h3>
+<p>Scan a barcode that was not recognized by Grocy yet, but could be looked up. Before pressing “Add” or “Consume” in the main menu, select a word from the list to the right. The next time a barcode is looked up that contains the word, the product is preselected.</p>
+</div>
+<div class="section" id="managing-tags">
+<h3>Managing tags<a class="headerlink" href="#managing-tags" title="Permalink to this headline">¶</a></h3>
+<p>The list shows an overview of the tags. Click on “Delete” to remove the tag.</p>
+</div>
+</div>
+<div class="section" id="web-ui-quantities">
+<h2>Web UI: Quantities<a class="headerlink" href="#web-ui-quantities" title="Permalink to this headline">¶</a></h2>
+<p>This features is for products that come in packs containing more than one item.</p>
+<p>In the settings you see the quantity barcode (default “BBUDDY-Q-“). If you scan a barcode that starts with this text and has a number at the end, Barcode Buddy sets the quantity of the units from the previously scanned barcode to the number. For example: You scan Barcode “123”, which is a pack of 6 eggs. Then you scan the barcode “BBUDDY-Q-6”. The next time you scan the barcode “123” in purchase mode, Barcode Buddy will automatically add 6 eggs.</p>
 </div>
 </div>
 
@@ -333,6 +391,8 @@ time you scan the carton barcode, it will register as 10 units.</p></td>
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="plugins.html" class="btn btn-neutral float-right" title="Plugins" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="setup.html" class="btn btn-neutral float-left" title="Setup" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

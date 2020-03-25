@@ -31,6 +31,7 @@ release = '1.4.0.0'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
+#    'sphinx.ext.autosectionlabel',
     "sphinx_rtd_theme"
 ]
 
@@ -56,3 +57,4 @@ html_theme = "sphinx_rtd_theme"
 html_static_path = ['_static']
 
 master_doc = 'index'
+#autosectionlabel_prefix_document = True

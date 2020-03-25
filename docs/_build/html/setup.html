@@ -241,7 +241,7 @@
 </tr>
 <tr class="row-even"><td><p>ATTACH_BARCODESCANNER</p></td>
 <td><p>true/false</p></td>
-<td><p>Attach barcodescanner, see SECTION</p></td>
+<td><p>Attach barcodescanner</p></td>
 </tr>
 <tr class="row-odd"><td><p>IGNORE_SSL_CA</p></td>
 <td><p>true/false</p></td>
@@ -254,6 +254,7 @@ host does not match</p></td>
 </tr>
 </tbody>
 </table>
+<p><em>For more information on how to attach a barcode scanner, see</em> <a class="reference internal" href="usage.html#attachingscanner"><span class="std std-ref">Using a physical barcode scanner</span></a></p>
 <p>To pass an argument, use the -e function, eg:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">d</span> <span class="o">-</span><span class="n">v</span> <span class="n">bbconfig</span><span class="p">:</span><span class="o">/</span><span class="n">config</span> <span class="o">-</span><span class="n">e</span> <span class="n">ATTACH_BARCODESCANNER</span><span class="o">=</span><span class="n">true</span> <span class="o">-</span><span class="n">p</span> <span class="mi">80</span><span class="p">:</span><span class="mi">80</span> <span class="o">-</span><span class="n">p</span> <span class="mi">443</span><span class="p">:</span><span class="mi">443</span> <span class="n">f0rc3</span><span class="o">/</span><span class="n">barcodebuddy</span><span class="o">-</span><span class="n">docker</span><span class="p">:</span><span class="n">latest</span>
 </pre></div>

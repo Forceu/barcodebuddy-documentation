@@ -61,13 +61,15 @@ The following arguments can also be passed:
 +-----------------------+------------+-------------------------------------+
 |        Argument       |    Value   |                Effect               |
 +-----------------------+------------+-------------------------------------+
-| ATTACH_BARCODESCANNER | true/false | Attach barcodescanner, see SECTION  |
+| ATTACH_BARCODESCANNER | true/false | Attach barcodescanner               |
 +-----------------------+------------+-------------------------------------+
 | IGNORE_SSL_CA         | true/false | Accept self-signed SSL certificates |
 +-----------------------+------------+-------------------------------------+
 | IGNORE_SSL_HOST       | true/false | Accept SSL certificates where the   |
 |                       |            | host does not match                 |
 +-----------------------+------------+-------------------------------------+
+
+*For more information on how to attach a barcode scanner, see* :ref:`attachingscanner`
 
 To pass an argument, use the -e function, eg:
 ::
@@ -77,7 +79,6 @@ To pass an argument, use the -e function, eg:
 **********
 Bare Metal
 **********
-
 
 Requirements
 ^^^^^^^^^^^^

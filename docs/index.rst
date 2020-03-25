@@ -28,8 +28,6 @@ Contents
 
    setup
    usage
-
-#   consumption
-#   usage
-#   update
-#   changelog
+   plugins
+   contributions
+   changelog

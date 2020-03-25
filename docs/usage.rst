@@ -4,6 +4,8 @@
 Usage
 =====
 
+.. _firststart:
+
 First Start
 ===============
 
@@ -74,6 +76,8 @@ Adding Barcodes automatically
 
 The preferred way. Most barcode scanners register as a USB keyboard. That way, it is possible to grab the input and send it to Barcode Buddy.
 
+.. _attachingscanner:
+
 Using a physical barcode scanner
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -143,6 +147,61 @@ To show the current stock on the webui of the Product "Pizza" which already has 
 Using a 3rd party mobile app
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Although we have not released an app (yet), you can use the `Android app QR & Barcode Scanner <https://play.google.com/store/apps/details?id=com.scanner.kataykin.icamesscaner.free>`_ and point it to the index.php file. BarcodeBuddy supports the ``text`` GET variable that is used by the app since version 1.4.1.0. *Note: Currently 1.4.1.0 is unreleased and the feature only available in the unstable version*
+Although we have not released an app (yet), you can use the `Android app QR & Barcode Scanner <https://play.google.com/store/apps/details?id=com.scanner.kataykin.icamesscaner.free>`_ and point it to the index.php file. BarcodeBuddy supports the ``text`` GET variable that is used by the app since version 1.4.1.0. *Note: Currently 1.4.1.0 is unreleased and the feature is only available in the unstable version*
 
 
+Web UI: Settings menu
+=====================
+
+General Settings
+----------------
+
+In this tab you can set the barcodes for changing Barcode Buddy modes. For example, if you scan the barcode "BBUDDY-P", Barcode Buddy will change to "Purchase" mode and add all following items to your Grocy inventory. By default it is in "Consume" mode. The edit field below allows you to set the time in minutes, which is required to pass in order to revert back to the default "Consume" mode. E.g. if "Purchase" mode is active and the field is set to 10 minutes, Barcode Buddy will revert back to "Consume" mode 10 minutes later.
+
+If you scan the "Inventory" barcode, Barcode Buddy will simply output the current stock, but not change any values. If an unknown barcode is scanned, it is added to the regular list.
+
+The "Add to shopping list" barcode adds all future barcodes to the default shopping list.
+
+With the "Revert after single item scan in "Open" or "Spoiled" mode" checkbox ticked, Barcode Buddy only stays in this mode for one scan and then reverts back to the default "Consume" mode. It does not affect the "Purchase" mode however!
+
+With "Remove purchased items from shoppinglist" enabled, items that are scanned in purchase mode are removed from all Grocy shopping lists.
+
+When "more verbose logs" is disabled, only barcode scans are logged in the log part of the main page.
+
+Grocy API
+---------
+Here you can change your Grocy API details. Refer to :ref:`firststart`.
+
+Websocket Status
+----------------
+This section gives the status of the websocket server and if BarcodeBuddy is able to connect to it
+
+
+Web UI: Settings Chores
+========================
+
+This menu lists all available Grocy chores. Simply enter a barcode for a chore and press "Add". The next time you scan this barcode, the chore will be executed. To change the barcode, simply edit it and press "Edit". To remove, delete the barcode and press "Edit".
+
+
+Web UI: Tags
+========================
+
+All saved tags are listed here
+
+Adding tags
+------------
+
+Scan a barcode that was not recognized by Grocy yet, but could be looked up. Before pressing "Add" or "Consume" in the main menu, select a word from the list to the right. The next time a barcode is looked up that contains the word, the product is preselected.
+
+Managing tags
+-------------
+
+The list shows an overview of the tags. Click on "Delete" to remove the tag.
+
+
+Web UI: Quantities
+========================
+
+This features is for products that come in packs containing more than one item.
+
+In the settings you see the quantity barcode (default "BBUDDY-Q-"). If you scan a barcode that starts with this text and has a number at the end, Barcode Buddy sets the quantity of the units from the previously scanned barcode to the number. For example: You scan Barcode "123", which is a pack of 6 eggs. Then you scan the barcode "BBUDDY-Q-6". The next time you scan the barcode "123" in purchase mode, Barcode Buddy will automatically add 6 eggs.
