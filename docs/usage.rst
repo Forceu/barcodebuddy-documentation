@@ -81,7 +81,6 @@ The preferred way. Most barcode scanners register as a USB keyboard. That way, i
 Using a physical barcode scanner
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-*Important: The mentioned script is currently only available in the UNSTABLE channel! It will be included in the next release!*
 
 Plug in your barcode scanner to the linux computer / server you will be using. Run the command ``evtest`` as root. You will see a list of devices, select the one that is your barcode scanner and remember the number (eg. event6). Scan a barcode. You will now see output in the evtest programm. If not, you have selected the wrong source.
 
@@ -149,7 +148,7 @@ To show the current stock on the webui of the Product "Pizza" which already has 
 Using a 3rd party mobile app
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Although we have not released an app (yet), you can use the `Android app QR & Barcode Scanner <https://play.google.com/store/apps/details?id=com.scanner.kataykin.icamesscaner.free>`_ and point it to the index.php file. BarcodeBuddy supports the ``text`` GET variable that is used by the app since version 1.4.1.0. *Note: Currently 1.4.1.0 is unreleased and the feature is only available in the unstable version*
+Although we have not released an app (yet), you can use the `Android app QR & Barcode Scanner <https://play.google.com/store/apps/details?id=com.scanner.kataykin.icamesscaner.free>`_ and point it to the index.php file. BarcodeBuddy supports the ``text`` GET variable that is used by the app since version 1.4.1.0.
 
 
 Web UI: Settings menu
