@@ -7,11 +7,28 @@ Changelog
 Overview of all Changes
 -----------------------
 
+v1.4.1.1: 26 Mar 2020
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Fixed problems with SSE, in some cases it was stuck in a feedback loop, causing PHP-FPM to freeze
+* Fixed bug that fullscreen setting was not acknowledged
+* Added "text" GET variable (alias of "add") so it can used with the Android App QR & Barcode Scanner
+* Added option to ignore invalid SSL certificates (config.php)
+* Added bash script for grabbing barcode scanner input
+* Moved documentation to ReadTheDocs
+* Detect if API key is rejected by Grocy
+* Items that were added by clicking on "Add" in the UI were not removed from the shoppinglist
+* Ignore case for sorting products
+* Display errors in log view as well
+* Set HTTP Agent to BarcodeBuddy
+* Check if php-sockets is installed
+* Added more docker options
+* Minor UI changes
+
 v1.4.0.0: 20 Mar 2020
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * External websockets have been replaced with Server Sent Events. This means that you finally don't need any complicated configuration anymore and that all the websocket features should work without setting anything up. You still need to start the websocket server however, as it is used for internal communication. (SEE is basically a proxy for the websockets)
-
 * Docker image available at https://github.com/Forceu/barcodebuddy-docker
 
 
