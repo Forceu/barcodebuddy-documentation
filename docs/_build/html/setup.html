@@ -97,6 +97,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#starting-the-websocket-service">Starting the websocket service</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#further-setup">Further Setup</a></li>
 </ul>
 </li>
 </ul>
@@ -189,9 +190,9 @@
 </div>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 35%" />
-<col style="width: 25%" />
+<col style="width: 45%" />
+<col style="width: 32%" />
+<col style="width: 23%" />
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p>Tag</p></td>
@@ -212,6 +213,14 @@
 </tr>
 <tr class="row-odd"><td><p>latest-dev</p></td>
 <td><p>x86-64</p></td>
+<td><p>unstable</p></td>
+</tr>
+<tr class="row-even"><td><p>arm32v7-latest-dev</p></td>
+<td><p>armhf</p></td>
+<td><p>unstable</p></td>
+</tr>
+<tr class="row-odd"><td><p>arm64v8-latest-dev</p></td>
+<td><p>arm64</p></td>
 <td><p>unstable</p></td>
 </tr>
 </tbody>
@@ -325,6 +334,43 @@ host does not match</p></td>
 </pre></div>
 </div>
 </div>
+</div>
+<div class="section" id="further-setup">
+<h3>Further Setup<a class="headerlink" href="#further-setup" title="Permalink to this headline">¶</a></h3>
+<p>You will find the file <code class="docutils literal notranslate"><span class="pre">config.php</span></code> in the folder “incl”. This file is for further configuration - the following values can be changed:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 15%" />
+<col style="width: 9%" />
+<col style="width: 76%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Argument</p></td>
+<td><p>Value</p></td>
+<td><p>Effect</p></td>
+</tr>
+<tr class="row-even"><td><p>PORT_WEBSOCKET_SERVER</p></td>
+<td><p>1024-65535</p></td>
+<td><p>The port that the websocket server listens to. Change if you running multiple instances or the default port is already used by another application.</p></td>
+</tr>
+<tr class="row-odd"><td><p>DATABASE_PATH</p></td>
+<td><p>A writable path</p></td>
+<td><p>The path were the database file is written to. Make sure that the webserver does not allow the download of the file.</p></td>
+</tr>
+<tr class="row-even"><td><p>CURL_TIMEOUT_S</p></td>
+<td><p>5-60</p></td>
+<td><p>How long to wait for a request</p></td>
+</tr>
+<tr class="row-odd"><td><p>CURL_ALLOW_INSECURE_SSL_CA</p></td>
+<td><p>true/false</p></td>
+<td><p>Accept self-signed SSL certificates</p></td>
+</tr>
+<tr class="row-even"><td><p>CURL_ALLOW_INSECURE_SSL_HOST</p></td>
+<td><p>true/false</p></td>
+<td><p>Accept SSL certificates where the host does not match</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>

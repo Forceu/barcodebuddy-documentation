@@ -25,17 +25,21 @@ To download, run the following command, and replace YOURTAG with one from the li
 
   docker pull f0rc3/barcodebuddy-docker:YOURTAG
 
-+----------------+--------------+----------+
-|       Tag      | Architecture |  Version |
-+----------------+--------------+----------+
-|     latest     |    x86-64    |  stable  |
-+----------------+--------------+----------+
-| arm32v7-latest |     armhf    |  stable  |
-+----------------+--------------+----------+
-| arm64v8-latest |     arm64    |  stable  |
-+----------------+--------------+----------+
-|   latest-dev   |    x86-64    | unstable |
-+----------------+--------------+----------+
++--------------------+--------------+----------+
+|         Tag        | Architecture |  Version |
++--------------------+--------------+----------+
+|       latest       |    x86-64    |  stable  |
++--------------------+--------------+----------+
+|   arm32v7-latest   |     armhf    |  stable  |
++--------------------+--------------+----------+
+|   arm64v8-latest   |     arm64    |  stable  |
++--------------------+--------------+----------+
+|     latest-dev     |    x86-64    | unstable |
++--------------------+--------------+----------+
+| arm32v7-latest-dev |     armhf    | unstable |
++--------------------+--------------+----------+
+| arm64v8-latest-dev |     arm64    | unstable |
++--------------------+--------------+----------+
 
 Most of the time, you will need the *latest* tag. If you are running docker on a Raspberry Pi, you will need the *arm32v7-latest* tag.
 
@@ -141,3 +145,27 @@ or the following command:
 ::
 
  nohup php wsserver.php &
+
+
+
+Further Setup
+^^^^^^^^^^^^^^
+
+You will find the file ``config.php`` in the folder "incl". This file is for further configuration - the following values can be changed:
+
+
++------------------------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+|           Argument           |      Value      |                                                                        Effect                                                                       |
++------------------------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+|     PORT_WEBSOCKET_SERVER    |    1024-65535   | The port that the websocket server listens to. Change if you running multiple instances or the default port is already used by another application. |
++------------------------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+|         DATABASE_PATH        | A writable path | The path were the database file is written to. Make sure that the webserver does not allow the download of the file.                                |
++------------------------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+|        CURL_TIMEOUT_S        |       5-60      | How long to wait for a request                                                                                                                      |
++------------------------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+|  CURL_ALLOW_INSECURE_SSL_CA  |    true/false   | Accept self-signed SSL certificates                                                                                                                 |
++------------------------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+| CURL_ALLOW_INSECURE_SSL_HOST |    true/false   | Accept SSL certificates where the host does not match                                                                                               |
++------------------------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+
+
