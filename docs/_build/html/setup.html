@@ -100,6 +100,10 @@
 <li class="toctree-l3"><a class="reference internal" href="#further-setup">Further Setup</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#hass-io">Hass.IO</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#connecting-to-grocy">Connecting to Grocy</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
@@ -371,6 +375,13 @@ host does not match</p></td>
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<div class="section" id="hass-io">
+<h2>Hass.IO<a class="headerlink" href="#hass-io" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="connecting-to-grocy">
+<h3>Connecting to Grocy<a class="headerlink" href="#connecting-to-grocy" title="Permalink to this headline">¶</a></h3>
+<p>If you are running Grocy in a HASS.io container, further configuration is needed. Open HASS and go to the Grocy plugin section (not Grocy itself). Scroll down and enter <code class="docutils literal notranslate"><span class="pre">9192</span></code> in the <code class="docutils literal notranslate"><span class="pre">Network</span></code> section and press save. Make sure that you disable SSL in the Grocy config section above, if you are not using a proper certificate. Then restart Grocy. You will now be able to access Grocy under the URL <code class="docutils literal notranslate"><span class="pre">http://hassio.local:9192</span></code>. In BarcodeBuddy setup, enter <code class="docutils literal notranslate"><span class="pre">http://hassio.local:9192/api/</span></code> as URL.</p>
 </div>
 </div>
 </div>

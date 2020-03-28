@@ -169,3 +169,14 @@ You will find the file ``config.php`` in the folder "incl". This file is for fur
 +------------------------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
+********
+Hass.IO
+********
+
+
+Connecting to Grocy
+^^^^^^^^^^^^^^^^^^^^
+
+If you are running Grocy in a HASS.io container, further configuration is needed. Open HASS and go to the Grocy plugin section (not Grocy itself). Scroll down and enter ``9192`` in the ``Network`` section and press save. Make sure that you disable SSL in the Grocy config section above, if you are not using a proper certificate. Then restart Grocy. You will now be able to access Grocy under the URL ``http://hassio.local:9192``. In BarcodeBuddy setup, enter ``http://hassio.local:9192/api/`` as URL.  
+
+
