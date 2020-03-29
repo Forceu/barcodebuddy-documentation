@@ -169,6 +169,24 @@ You will find the file ``config.php`` in the folder "incl". This file is for fur
 +------------------------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
+
+***********
+VirtualBox
+***********
+
+We have also released a `VirtualBox <https://www.virtualbox.org/>`_ image, which automatically downloads the latest docker image and runs it.
+
+
+Installation
+^^^^^^^^^^^^
+
+Open VirtualBox, and go to ``File/Host Network Manager``. If there is no network listed yet, click on "Create" and make sure that the box for ``DHCP Server`` is ticked. `Download the image <https://mega.nz/#!0dg1HbyD!gWHDReNfyJ7SE0JwPt8EylpsZEenQVHRBFEhWSLjcbI>`_ and open it with VirtualBox, then click on "Import" in the new window.
+
+Start the image - once it is completely running, you will see a login prompt. Above that, you will see two IP addresses. Normally with the second one you can reach the server, so simply connect in your webbrowser to ``http://THE_IP/``.
+
+If you need to log in to the image, the default username is ``root`` and the default password is ``barcode``.
+
+
 ********
 Hass.IO
 ********

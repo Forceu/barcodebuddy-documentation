@@ -100,6 +100,10 @@
 <li class="toctree-l3"><a class="reference internal" href="#further-setup">Further Setup</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#virtualbox">VirtualBox</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Installation</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="#hass-io">Hass.IO</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#connecting-to-grocy">Connecting to Grocy</a></li>
 </ul>
@@ -375,6 +379,16 @@ host does not match</p></td>
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<div class="section" id="virtualbox">
+<h2>VirtualBox<a class="headerlink" href="#virtualbox" title="Permalink to this headline">¶</a></h2>
+<p>We have also released a <a class="reference external" href="https://www.virtualbox.org/">VirtualBox</a> image, which automatically downloads the latest docker image and runs it.</p>
+<div class="section" id="id5">
+<h3>Installation<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Open VirtualBox, and go to <code class="docutils literal notranslate"><span class="pre">File/Host</span> <span class="pre">Network</span> <span class="pre">Manager</span></code>. If there is no network listed yet, click on “Create” and make sure that the box for <code class="docutils literal notranslate"><span class="pre">DHCP</span> <span class="pre">Server</span></code> is ticked. <a class="reference external" href="https://mega.nz/#!0dg1HbyD!gWHDReNfyJ7SE0JwPt8EylpsZEenQVHRBFEhWSLjcbI">Download the image</a> and open it with VirtualBox, then click on “Import” in the new window.</p>
+<p>Start the image - once it is completely running, you will see a login prompt. Above that, you will see two IP addresses. Normally with the second one you can reach the server, so simply connect in your webbrowser to <code class="docutils literal notranslate"><span class="pre">http://THE_IP/</span></code>.</p>
+<p>If you need to log in to the image, the default username is <code class="docutils literal notranslate"><span class="pre">root</span></code> and the default password is <code class="docutils literal notranslate"><span class="pre">barcode</span></code>.</p>
 </div>
 </div>
 <div class="section" id="hass-io">
