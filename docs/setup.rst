@@ -4,7 +4,7 @@
 Setup
 =====
 
-There are two different ways to setup BarcodeBuddy: Either a bare metal approach or docker
+There are two different ways to setup Barcode Buddy: Either a bare metal approach or docker
 
 ******
 Docker
@@ -155,7 +155,7 @@ and move the folder into your webserver directory.
 Starting the websocket service
 """"""""""""""""""""""""""""""
 
-If you have access to your webservers command line, make sure to start the websocket server. This way you can use the Screen module and if there are any changes, BarcodeBuddy will automatically refresh.
+If you have access to your webservers command line, make sure to start the websocket server. This way you can use the Screen module and if there are any changes, Barcode Buddy will automatically refresh.
 
 Navigate to your installation folder and execute ``php wsserver.php`` to start the server. To have it run in the background, either use the screen application (recommended)
 ::
@@ -216,6 +216,6 @@ Hass.IO
 Connecting to Grocy
 ^^^^^^^^^^^^^^^^^^^^
 
-If you are running Grocy in a HASS.io container, further configuration is needed. Open HASS and go to the Grocy plugin section (not Grocy itself). Scroll down and enter ``9192`` in the ``Network`` section and press save. Make sure that you disable SSL in the Grocy config section above, if you are not using a proper certificate. Then restart Grocy. You will now be able to access Grocy under the URL ``http://hassio.local:9192``. In BarcodeBuddy setup, enter ``http://hassio.local:9192/api/`` as URL.  
+If you are running Grocy in a HASS.io container, further configuration is needed. Open HASS and go to the Grocy plugin section (not Grocy itself). Scroll down and enter ``9192`` in the ``Network`` section and press save. Make sure that you disable SSL in the Grocy config section above, if you are not using a proper certificate. Then restart Grocy. You will now be able to access Grocy under the URL ``http://hassio.local:9192``. In Barcode Buddy setup, enter ``http://hassio.local:9192/api/`` as URL.  
 
 
