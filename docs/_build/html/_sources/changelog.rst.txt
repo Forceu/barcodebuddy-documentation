@@ -7,6 +7,25 @@ Changelog
 Overview of all Changes
 -----------------------
 
+
+v1.5.0.0: unreleased
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Added authenticaton, can be disabled through config.php
+* Config.php now found in the data directory
+* Added API
+* Support for official Barcode Buddy App TODO
+* Fixed race condition
+* Show more detailed errors if they occur
+* Barcode Buddy settings can be set through environment variables
+* Barcode grabber bash variables can be set through environment variables Thanks. @Biont
+* Add logs when adding/consuming new products through UI
+* New theme for Screen module. Thanks @hanerd
+* Python barcode grabber script for devices that disconnect frequently. Thanks @vondit
+* Main ui refreshes through AJAX now without reloading
+* Refactoring
+
+
 v1.4.1.1: 26 Mar 2020
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

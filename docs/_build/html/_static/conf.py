@@ -22,7 +22,7 @@ copyright = '2020, Marc Ole Bulling'
 author = 'Marc Ole Bulling'
 
 # The full version, including alpha/beta/rc tags
-release = '1.4.1.1'
+release = '1.4.5.0'
 
 
 # -- General configuration ---------------------------------------------------
