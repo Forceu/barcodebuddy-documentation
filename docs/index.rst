@@ -29,6 +29,6 @@ Contents
    setup
    usage
    update
-   plugins
+   advanced
    contributions
    changelog

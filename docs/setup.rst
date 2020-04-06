@@ -117,7 +117,7 @@ It is strongly recommended to change ``pm.max_children`` to a value of 10 or hig
 Webserver setup
 """""""""""""""""
 
-This guide is written for a Debian based server, including Ubuntu. If you already have a webserver setup, you can skip this section.
+This guide is written for a Debian based server, including Ubuntu. If you already have a webserver setup, please make sure to have a look at the `Nginx example file <https://github.com/Forceu/barcodebuddy/blob/master/example/nginxConfiguration.conf>`_.
 
 Installing NGINX
 ------------------
@@ -167,27 +167,17 @@ or the following command:
 
  nohup php wsserver.php &
 
+To start the websocket server after a reboot, you can use cron. Make sure to use the crontab for the webserver user (on Debian/Ubuntu this the user ``www-data``.
 
+Open the crontab for the user:
+::
 
-Further Setup
-^^^^^^^^^^^^^^
+ sudo crontab -e -u www-data
 
-You will find the file ``config.php`` in the folder "incl". This file is for further configuration - the following values can be changed:
+And insert the following new line (you might need to adjust the paths):
+::
 
-
-+------------------------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-|           Argument           |      Value      |                                                                        Effect                                                                       |
-+------------------------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-|     PORT_WEBSOCKET_SERVER    |    1024-65535   | The port that the websocket server listens to. Change if you running multiple instances or the default port is already used by another application. |
-+------------------------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-|         DATABASE_PATH        | A writable path | The path were the database file is written to. Make sure that the webserver does not allow the download of the file.                                |
-+------------------------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-|        CURL_TIMEOUT_S        |       5-60      | How long to wait for a request                                                                                                                      |
-+------------------------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-|  CURL_ALLOW_INSECURE_SSL_CA  |    true/false   | Accept self-signed SSL certificates                                                                                                                 |
-+------------------------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-| CURL_ALLOW_INSECURE_SSL_HOST |    true/false   | Accept SSL certificates where the host does not match                                                                                               |
-+------------------------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+ @reboot /usr/bin/screen -S wsserver -d -m /usr/bin/php /var/www/html/barcodebuddy/wsserver.php
 
 
 
@@ -217,5 +207,3 @@ Connecting to Grocy
 ^^^^^^^^^^^^^^^^^^^^
 
 If you are running Grocy in a HASS.io container, further configuration is needed. Open HASS and go to the Grocy plugin section (not Grocy itself). Scroll down and enter ``9192`` in the ``Network`` section and press save. Make sure that you disable SSL in the Grocy config section above, if you are not using a proper certificate. Then restart Grocy. You will now be able to access Grocy under the URL ``http://hassio.local:9192``. In Barcode Buddy setup, enter ``http://hassio.local:9192/api/`` as URL.  
-
-

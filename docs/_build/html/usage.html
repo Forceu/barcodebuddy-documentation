@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Usage &mdash; Barcode Buddy Documentation 1.4.0.0 documentation</title>
+  <title>Usage &mdash; Barcode Buddy Documentation 1.4.1.1 documentation</title>
   
 
   
@@ -197,12 +197,12 @@
 <ul class="simple">
 <li><p>New Barcodes: Barcodes that are unknown to Grocy, but the name could be looked up</p></li>
 <li><p>Unknown Barcodes: Barcodes that are unknown to Grocy and could not be looked up</p></li>
-<li><p>Processed Barcodes: A history of all barcodes that were processed by BarcodeBuddy</p></li>
+<li><p>Processed Barcodes: A history of all barcodes that were processed by Barcode Buddy</p></li>
 </ul>
 </div>
 <div class="section" id="special-barcodes">
 <h3>Special Barcodes<a class="headerlink" href="#special-barcodes" title="Permalink to this headline">¶</a></h3>
-<p>There are seven special barcodes - if you scan the barcode, BarcodeBuddy goes into a different mode: Eg. in Purchase mode all barcodes that are scanned will be added to Grocys inventory.</p>
+<p>There are seven special barcodes - if you scan the barcode, Barcode Buddy goes into a different mode: Eg. in Purchase mode all barcodes that are scanned will be added to Grocys inventory.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 17%" />
@@ -260,7 +260,7 @@ time you scan the carton barcode, it will register as 10 units.</p></td>
 <div class="section" id="adding-barcodes-manually">
 <h3>Adding Barcodes Manually<a class="headerlink" href="#adding-barcodes-manually" title="Permalink to this headline">¶</a></h3>
 <p>The easiest option, ideally for testing out Barcode Buddy: Simply open the web ui and click on “Add barcode”. Enter the barcode (use one line per barcode) and click on “Add”.</p>
-<p>If you are using a barcode scanner, but don’t want to attach it to BarcodeBuddy (yet), you can also plug it into the device that runs the webbrowser and use it to enter the barcodes in the textfield. Each line is parsed as a barcode.</p>
+<p>If you are using a barcode scanner, but don’t want to attach it to Barcode Buddy (yet), you can also plug it into the device that runs the webbrowser and use it to enter the barcodes in the textfield. Each line is parsed as a barcode.</p>
 </div>
 <div class="section" id="adding-barcodes-automatically">
 <h3>Adding Barcodes automatically<a class="headerlink" href="#adding-barcodes-automatically" title="Permalink to this headline">¶</a></h3>
@@ -274,11 +274,11 @@ time you scan the carton barcode, it will register as 10 units.</p></td>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">v</span> <span class="n">bbconfig</span><span class="p">:</span><span class="o">/</span><span class="n">config</span> <span class="o">-</span><span class="n">e</span> <span class="n">ATTACH_BARCODESCANNER</span><span class="o">=</span><span class="n">true</span> <span class="o">-</span><span class="n">p</span> <span class="mi">80</span><span class="p">:</span><span class="mi">80</span> <span class="o">-</span><span class="n">p</span> <span class="mi">443</span><span class="p">:</span><span class="mi">443</span> <span class="o">--</span><span class="n">device</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="nb">input</span><span class="o">/</span><span class="n">eventX</span> <span class="n">f0rc3</span><span class="o">/</span><span class="n">barcodebuddy</span><span class="o">-</span><span class="n">docker</span><span class="p">:</span><span class="n">YOURTAG</span>
 </pre></div>
 </div>
-<p>where X in <code class="docutils literal notranslate"><span class="pre">--device</span> <span class="pre">/dev/input/eventX</span></code> is the number of your event you selected previously. You might need to change the values for the ports. Scan a barcode - it should be sent directly to BarcodeBuddy.</p>
+<p>where X in <code class="docutils literal notranslate"><span class="pre">--device</span> <span class="pre">/dev/input/eventX</span></code> is the number of your event you selected previously. You might need to change the values for the ports. Scan a barcode - it should be sent directly to Barcode Buddy.</p>
 </div>
 <div class="section" id="bare-metal">
 <h5>Bare Metal<a class="headerlink" href="#bare-metal" title="Permalink to this headline">¶</a></h5>
-<p>Navigate to the example folder in the BarcodeBuddy directory. In the file <code class="docutils literal notranslate"><span class="pre">grabInput.sh</span></code> edit the following values:</p>
+<p>Navigate to the example folder in the Barcode Buddy directory. In the file <code class="docutils literal notranslate"><span class="pre">grabInput.sh</span></code> edit the following values:</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt>If your barcode scanner is attached to the same computer / server:</dt><dd><ul>
@@ -307,7 +307,7 @@ time you scan the carton barcode, it will register as 10 units.</p></td>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bash</span> <span class="n">grabInput</span><span class="o">.</span><span class="n">sh</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="nb">input</span><span class="o">/</span><span class="n">eventX</span>
 </pre></div>
 </div>
-<p>where X is the number of your event you selected previously. Scan a barcode - it should be sent directly to BarcodeBuddy.</p>
+<p>where X is the number of your event you selected previously. Scan a barcode - it should be sent directly to Barcode Buddy.</p>
 <p>To run the script in the background, run</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">screen</span> <span class="o">-</span><span class="n">S</span> <span class="n">barcodegrabber</span> <span class="o">-</span><span class="n">d</span> <span class="o">-</span><span class="n">m</span> <span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">the</span><span class="o">/</span><span class="n">barcodebuddy</span><span class="o">/</span><span class="n">folder</span><span class="o">/</span><span class="n">example</span><span class="o">/</span><span class="n">grabInput</span><span class="o">.</span><span class="n">sh</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="nb">input</span><span class="o">/</span><span class="n">eventX</span>
 </pre></div>
@@ -338,7 +338,7 @@ time you scan the carton barcode, it will register as 10 units.</p></td>
 </div>
 <div class="section" id="using-a-3rd-party-mobile-app">
 <h4>Using a 3rd party mobile app<a class="headerlink" href="#using-a-3rd-party-mobile-app" title="Permalink to this headline">¶</a></h4>
-<p>Although we have not released an app (yet), you can use the <a class="reference external" href="https://play.google.com/store/apps/details?id=com.scanner.kataykin.icamesscaner.free">Android app QR &amp; Barcode Scanner</a> and point it to the index.php file. BarcodeBuddy supports the <code class="docutils literal notranslate"><span class="pre">text</span></code> GET variable that is used by the app since version 1.4.1.0.</p>
+<p>Although we have not released an app (yet), you can use the <a class="reference external" href="https://play.google.com/store/apps/details?id=com.scanner.kataykin.icamesscaner.free">Android app QR &amp; Barcode Scanner</a> and point it to the index.php file. Barcode Buddy supports the <code class="docutils literal notranslate"><span class="pre">text</span></code> GET variable that is used by the app since version 1.4.1.0.</p>
 </div>
 </div>
 </div>
@@ -359,7 +359,7 @@ time you scan the carton barcode, it will register as 10 units.</p></td>
 </div>
 <div class="section" id="websocket-status">
 <h3>Websocket Status<a class="headerlink" href="#websocket-status" title="Permalink to this headline">¶</a></h3>
-<p>This section gives the status of the websocket server and if BarcodeBuddy is able to connect to it</p>
+<p>This section gives the status of the websocket server and if Barcode Buddy is able to connect to it</p>
 </div>
 </div>
 <div class="section" id="web-ui-settings-chores">

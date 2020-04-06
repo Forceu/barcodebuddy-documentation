@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Setup &mdash; Barcode Buddy Documentation 1.4.0.0 documentation</title>
+  <title>Setup &mdash; Barcode Buddy Documentation 1.4.1.1 documentation</title>
   
 
   
@@ -97,11 +97,10 @@
 <li class="toctree-l4"><a class="reference internal" href="#starting-the-websocket-service">Starting the websocket service</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#further-setup">Further Setup</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#virtualbox">VirtualBox</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id5">Installation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Installation</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#hass-io">Hass.IO</a><ul>
@@ -112,7 +111,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="update.html">Updating Barcode Buddy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced usage and configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributions.html">Contributions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 </ul>
@@ -181,7 +180,7 @@
             
   <div class="section" id="setup">
 <span id="id1"></span><h1>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h1>
-<p>There are two different ways to setup BarcodeBuddy: Either a bare metal approach or docker</p>
+<p>There are two different ways to setup Barcode Buddy: Either a bare metal approach or docker</p>
 <div class="section" id="docker">
 <h2>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="requirements">
@@ -316,7 +315,7 @@ host does not match</p></td>
 <p>It is strongly recommended to change <code class="docutils literal notranslate"><span class="pre">pm.max_children</span></code> to a value of 10 or higher in <code class="docutils literal notranslate"><span class="pre">/etc/php7/php-fpm.d/www.conf</span></code> (path might be different, depending on PHP version and distribution; for Ubuntu 18.04 it is <code class="docutils literal notranslate"><span class="pre">/etc/php/7.2/fpm/pool.d/www.conf</span></code>).</p>
 <div class="section" id="webserver-setup">
 <h4>Webserver setup<a class="headerlink" href="#webserver-setup" title="Permalink to this headline">¶</a></h4>
-<p>This guide is written for a Debian based server, including Ubuntu. If you already have a webserver setup, you can skip this section.</p>
+<p>This guide is written for a Debian based server, including Ubuntu. If you already have a webserver setup, please make sure to have a look at the <a class="reference external" href="https://github.com/Forceu/barcodebuddy/blob/master/example/nginxConfiguration.conf">Nginx example file</a>.</p>
 <div class="section" id="installing-nginx">
 <h5>Installing NGINX<a class="headerlink" href="#installing-nginx" title="Permalink to this headline">¶</a></h5>
 <ul>
@@ -355,7 +354,7 @@ host does not match</p></td>
 </div>
 <div class="section" id="starting-the-websocket-service">
 <h4>Starting the websocket service<a class="headerlink" href="#starting-the-websocket-service" title="Permalink to this headline">¶</a></h4>
-<p>If you have access to your webservers command line, make sure to start the websocket server. This way you can use the Screen module and if there are any changes, BarcodeBuddy will automatically refresh.</p>
+<p>If you have access to your webservers command line, make sure to start the websocket server. This way you can use the Screen module and if there are any changes, Barcode Buddy will automatically refresh.</p>
 <p>Navigate to your installation folder and execute <code class="docutils literal notranslate"><span class="pre">php</span> <span class="pre">wsserver.php</span></code> to start the server. To have it run in the background, either use the screen application (recommended)</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">screen</span> <span class="o">-</span><span class="n">S</span> <span class="n">bbuddyserver</span> <span class="o">-</span><span class="n">d</span> <span class="o">-</span><span class="n">m</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">php</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">the</span><span class="o">/</span><span class="n">barcodebuddy</span><span class="o">/</span><span class="n">folder</span><span class="o">/</span><span class="n">wsserver</span><span class="o">.</span><span class="n">php</span>
 </pre></div>
@@ -364,51 +363,23 @@ host does not match</p></td>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">nohup</span> <span class="n">php</span> <span class="n">wsserver</span><span class="o">.</span><span class="n">php</span> <span class="o">&amp;</span>
 </pre></div>
 </div>
+<p>To start the websocket server after a reboot, you can use cron. Make sure to use the crontab for the webserver user (on Debian/Ubuntu this the user <code class="docutils literal notranslate"><span class="pre">www-data</span></code>.</p>
+<p>Open the crontab for the user:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">crontab</span> <span class="o">-</span><span class="n">e</span> <span class="o">-</span><span class="n">u</span> <span class="n">www</span><span class="o">-</span><span class="n">data</span>
+</pre></div>
+</div>
+<p>And insert the following new line (you might need to adjust the paths):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@reboot</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">screen</span> <span class="o">-</span><span class="n">S</span> <span class="n">wsserver</span> <span class="o">-</span><span class="n">d</span> <span class="o">-</span><span class="n">m</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">php</span> <span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">www</span><span class="o">/</span><span class="n">html</span><span class="o">/</span><span class="n">barcodebuddy</span><span class="o">/</span><span class="n">wsserver</span><span class="o">.</span><span class="n">php</span>
+</pre></div>
 </div>
 </div>
-<div class="section" id="further-setup">
-<h3>Further Setup<a class="headerlink" href="#further-setup" title="Permalink to this headline">¶</a></h3>
-<p>You will find the file <code class="docutils literal notranslate"><span class="pre">config.php</span></code> in the folder “incl”. This file is for further configuration - the following values can be changed:</p>
-<table class="docutils align-default">
-<colgroup>
-<col style="width: 15%" />
-<col style="width: 9%" />
-<col style="width: 76%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p>Argument</p></td>
-<td><p>Value</p></td>
-<td><p>Effect</p></td>
-</tr>
-<tr class="row-even"><td><p>PORT_WEBSOCKET_SERVER</p></td>
-<td><p>1024-65535</p></td>
-<td><p>The port that the websocket server listens to. Change if you running multiple instances or the default port is already used by another application.</p></td>
-</tr>
-<tr class="row-odd"><td><p>DATABASE_PATH</p></td>
-<td><p>A writable path</p></td>
-<td><p>The path were the database file is written to. Make sure that the webserver does not allow the download of the file.</p></td>
-</tr>
-<tr class="row-even"><td><p>CURL_TIMEOUT_S</p></td>
-<td><p>5-60</p></td>
-<td><p>How long to wait for a request</p></td>
-</tr>
-<tr class="row-odd"><td><p>CURL_ALLOW_INSECURE_SSL_CA</p></td>
-<td><p>true/false</p></td>
-<td><p>Accept self-signed SSL certificates</p></td>
-</tr>
-<tr class="row-even"><td><p>CURL_ALLOW_INSECURE_SSL_HOST</p></td>
-<td><p>true/false</p></td>
-<td><p>Accept SSL certificates where the host does not match</p></td>
-</tr>
-</tbody>
-</table>
 </div>
 </div>
 <div class="section" id="virtualbox">
 <h2>VirtualBox<a class="headerlink" href="#virtualbox" title="Permalink to this headline">¶</a></h2>
 <p>We have also released a <a class="reference external" href="https://www.virtualbox.org/">VirtualBox</a> image, which automatically downloads the latest docker image and runs it.</p>
-<div class="section" id="id5">
-<h3>Installation<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id6">
+<h3>Installation<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
 <p>Open VirtualBox, and go to <code class="docutils literal notranslate"><span class="pre">File/Host</span> <span class="pre">Network</span> <span class="pre">Manager</span></code>. If there is no network listed yet, click on “Create” and make sure that the box for <code class="docutils literal notranslate"><span class="pre">DHCP</span> <span class="pre">Server</span></code> is ticked. <a class="reference external" href="https://mega.nz/#!0dg1HbyD!gWHDReNfyJ7SE0JwPt8EylpsZEenQVHRBFEhWSLjcbI">Download the image</a> and open it with VirtualBox, then click on “Import” in the new window.</p>
 <p>Start the image - once it is completely running, you will see a login prompt. Above that, you will see two IP addresses. Normally with the second one you can reach the server, so simply connect in your webbrowser to <code class="docutils literal notranslate"><span class="pre">http://THE_IP/</span></code>.</p>
 <p>If you need to log in to the image, the default username is <code class="docutils literal notranslate"><span class="pre">root</span></code> and the default password is <code class="docutils literal notranslate"><span class="pre">barcode</span></code>.</p>
@@ -418,7 +389,7 @@ host does not match</p></td>
 <h2>Hass.IO<a class="headerlink" href="#hass-io" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="connecting-to-grocy">
 <h3>Connecting to Grocy<a class="headerlink" href="#connecting-to-grocy" title="Permalink to this headline">¶</a></h3>
-<p>If you are running Grocy in a HASS.io container, further configuration is needed. Open HASS and go to the Grocy plugin section (not Grocy itself). Scroll down and enter <code class="docutils literal notranslate"><span class="pre">9192</span></code> in the <code class="docutils literal notranslate"><span class="pre">Network</span></code> section and press save. Make sure that you disable SSL in the Grocy config section above, if you are not using a proper certificate. Then restart Grocy. You will now be able to access Grocy under the URL <code class="docutils literal notranslate"><span class="pre">http://hassio.local:9192</span></code>. In BarcodeBuddy setup, enter <code class="docutils literal notranslate"><span class="pre">http://hassio.local:9192/api/</span></code> as URL.</p>
+<p>If you are running Grocy in a HASS.io container, further configuration is needed. Open HASS and go to the Grocy plugin section (not Grocy itself). Scroll down and enter <code class="docutils literal notranslate"><span class="pre">9192</span></code> in the <code class="docutils literal notranslate"><span class="pre">Network</span></code> section and press save. Make sure that you disable SSL in the Grocy config section above, if you are not using a proper certificate. Then restart Grocy. You will now be able to access Grocy under the URL <code class="docutils literal notranslate"><span class="pre">http://hassio.local:9192</span></code>. In Barcode Buddy setup, enter <code class="docutils literal notranslate"><span class="pre">http://hassio.local:9192/api/</span></code> as URL.</p>
 </div>
 </div>
 </div>

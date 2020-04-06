@@ -1,0 +1,334 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Advanced usage and configuration &mdash; Barcode Buddy Documentation 1.4.1.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Contributions" href="contributions.html" />
+    <link rel="prev" title="Updating Barcode Buddy" href="update.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Barcode Buddy Documentation
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
+<li class="toctree-l1"><a class="reference internal" href="update.html">Updating Barcode Buddy</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Advanced usage and configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#further-configuration">Further configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#config-php">config.php</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configprocessing-inc-php">configProcessing.inc.php</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#environment-variables">Environment variables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#using-environment-variables">Using environment variables</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#api">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#plugins">Plugins</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="contributions.html">Contributions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Barcode Buddy Documentation</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Advanced usage and configuration</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/advanced.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="advanced-usage-and-configuration">
+<span id="advanced"></span><h1>Advanced usage and configuration<a class="headerlink" href="#advanced-usage-and-configuration" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="further-configuration">
+<h2>Further configuration<a class="headerlink" href="#further-configuration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="config-php">
+<h3>config.php<a class="headerlink" href="#config-php" title="Permalink to this headline">¶</a></h3>
+<p>Once you started Barcode Buddy for the first time, you will find the file <code class="docutils literal notranslate"><span class="pre">config.php</span></code> in the folder <code class="docutils literal notranslate"><span class="pre">data</span></code>. This file is for further configuration - the following values can be changed:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 14%" />
+<col style="width: 8%" />
+<col style="width: 68%" />
+<col style="width: 11%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Argument</p></td>
+<td><p>Value</p></td>
+<td><p>Effect</p></td>
+<td><p>Default</p></td>
+</tr>
+<tr class="row-even"><td><p>PORT_WEBSOCKET_SERVER</p></td>
+<td><p>1024-65535</p></td>
+<td><p>The port that the websocket server listens to. Change if you running multiple instances or the default port is already used by another application.</p></td>
+<td><p>47631</p></td>
+</tr>
+<tr class="row-odd"><td><p>DATABASE_PATH</p></td>
+<td><p>A writable path</p></td>
+<td><p>The path were the database file is written to. Make sure that the webserver does not allow the download of the file. Path includes filename.</p></td>
+<td><p>./data/barcodebuddy.db</p></td>
+</tr>
+<tr class="row-even"><td><p>CURL_TIMEOUT_S</p></td>
+<td><p>5-60</p></td>
+<td><p>How long to wait for a request</p></td>
+<td><p>20</p></td>
+</tr>
+<tr class="row-odd"><td><p>CURL_ALLOW_INSECURE_SSL_CA</p></td>
+<td><p>true/false</p></td>
+<td><p>Accept self-signed SSL certificates</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-even"><td><p>CURL_ALLOW_INSECURE_SSL_HOST</p></td>
+<td><p>true/false</p></td>
+<td><p>Accept SSL certificates where the host does not match</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-odd"><td><p>REQUIRE_API_KEY</p></td>
+<td><p>true/false</p></td>
+<td><p>Require API key for authentication when using API</p></td>
+<td><p>true</p></td>
+</tr>
+<tr class="row-even"><td><p>DISABLE_AUTHENTICATION</p></td>
+<td><p>true/false</p></td>
+<td><p>Disables user management, if enabled, Barcode Buddy will not ask for local username/password</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-odd"><td><p>IS_DEBUG</p></td>
+<td><p>true/false</p></td>
+<td><p>Enable verbose error messages. If you think something is wrong, you can enable this and send a bugreport</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-even"><td><p>OVERRIDDEN_USER_CONFIG</p></td>
+<td><p>mapped array</p></td>
+<td><p>To override settings that can be set in the UI, uncomment the specific line. Overridden values cannot be changed in the UI afterwards</p></td>
+<td><p>empty</p></td>
+</tr>
+</tbody>
+</table>
+<p><em>Note:</em> <code class="docutils literal notranslate"><span class="pre">config.php</span></code> <em>is a copy of</em> <code class="docutils literal notranslate"><span class="pre">config-dist.php</span></code> <em>in the root directory, which is tracked by version control, but not included by php. Any changes in</em> <code class="docutils literal notranslate"><span class="pre">config-dist.php</span></code> <em>will be ignored by Barcode Buddy</em></p>
+</div>
+<div class="section" id="configprocessing-inc-php">
+<h3>configProcessing.inc.php<a class="headerlink" href="#configprocessing-inc-php" title="Permalink to this headline">¶</a></h3>
+<p>If you need to change the paths of the <code class="docutils literal notranslate"><span class="pre">config.php</span></code> or the user database location, you can do this in the <code class="docutils literal notranslate"><span class="pre">configProcessing.inc.php</span></code> file, found in the <code class="docutils literal notranslate"><span class="pre">incl</span></code> folder. As editing the file might break updating Barcode Buddy, it is rather recommended to use <a class="reference internal" href="#envvar"><span class="std std-ref">Environment variables</span></a> instead of editing this file. The following values can be changed:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 9%" />
+<col style="width: 75%" />
+<col style="width: 10%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Argument</p></td>
+<td><p>Value</p></td>
+<td><p>Effect</p></td>
+<td><p>Default</p></td>
+</tr>
+<tr class="row-even"><td><p>CONFIG_PATH</p></td>
+<td><p>A writable path</p></td>
+<td><p>The path were the config.php file is written to. Path includes filename.</p></td>
+<td><p>./data/config.php</p></td>
+</tr>
+<tr class="row-odd"><td><p>AUTHDB_PATH</p></td>
+<td><p>A writable path</p></td>
+<td><p>The path were the user database file is written to. Make sure that the webserver does not allow the download of the file. Path includes filename.</p></td>
+<td><p>./data/users.db</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="environment-variables">
+<span id="envvar"></span><h2>Environment variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline">¶</a></h2>
+<p>Environment variables can be passed to Barcode Buddy - that way you can configure it without editing any files.</p>
+<div class="section" id="using-environment-variables">
+<h3>Using environment variables<a class="headerlink" href="#using-environment-variables" title="Permalink to this headline">¶</a></h3>
+<p>TODO</p>
+</div>
+</div>
+<div class="section" id="api">
+<h2>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
+<p>TODO</p>
+</div>
+<div class="section" id="plugins">
+<h2>Plugins<a class="headerlink" href="#plugins" title="Permalink to this headline">¶</a></h2>
+<p>Barcode Buddy offers plugin support. All PHP scripts in the folder “plugins” are automatically loaded. See also the <a class="reference external" href="https://github.com/Forceu/barcodebuddy/blob/master/plugins/EventReceiver.php">example script</a>
+.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="contributions.html" class="btn btn-neutral float-right" title="Contributions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="update.html" class="btn btn-neutral float-left" title="Updating Barcode Buddy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Marc Ole Bulling
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

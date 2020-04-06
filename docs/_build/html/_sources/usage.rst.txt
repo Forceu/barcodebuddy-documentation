@@ -21,11 +21,11 @@ When you open the web ui, you will see three cards:
 
 * New Barcodes: Barcodes that are unknown to Grocy, but the name could be looked up
 * Unknown Barcodes: Barcodes that are unknown to Grocy and could not be looked up
-* Processed Barcodes: A history of all barcodes that were processed by BarcodeBuddy
+* Processed Barcodes: A history of all barcodes that were processed by Barcode Buddy
 
 Special Barcodes
 ----------------
-There are seven special barcodes - if you scan the barcode, BarcodeBuddy goes into a different mode: Eg. in Purchase mode all barcodes that are scanned will be added to Grocys inventory.
+There are seven special barcodes - if you scan the barcode, Barcode Buddy goes into a different mode: Eg. in Purchase mode all barcodes that are scanned will be added to Grocys inventory.
 
 
 +---------------------+-----------------+-----------------------------------------------------------------------------------------+
@@ -69,7 +69,7 @@ Adding Barcodes Manually
 
 The easiest option, ideally for testing out Barcode Buddy: Simply open the web ui and click on "Add barcode". Enter the barcode (use one line per barcode) and click on "Add".
 
-If you are using a barcode scanner, but don't want to attach it to BarcodeBuddy (yet), you can also plug it into the device that runs the webbrowser and use it to enter the barcodes in the textfield. Each line is parsed as a barcode.
+If you are using a barcode scanner, but don't want to attach it to Barcode Buddy (yet), you can also plug it into the device that runs the webbrowser and use it to enter the barcodes in the textfield. Each line is parsed as a barcode.
 
 Adding Barcodes automatically
 -----------------------------
@@ -92,12 +92,12 @@ Create a docker container with
 
  docker run -v bbconfig:/config -e ATTACH_BARCODESCANNER=true -p 80:80 -p 443:443 --device /dev/input/eventX f0rc3/barcodebuddy-docker:YOURTAG
 
-where X in ``--device /dev/input/eventX`` is the number of your event you selected previously. You might need to change the values for the ports. Scan a barcode - it should be sent directly to BarcodeBuddy.
+where X in ``--device /dev/input/eventX`` is the number of your event you selected previously. You might need to change the values for the ports. Scan a barcode - it should be sent directly to Barcode Buddy.
 
 Bare Metal
 """""""""""""""""
 
-Navigate to the example folder in the BarcodeBuddy directory. In the file ``grabInput.sh`` edit the following values:
+Navigate to the example folder in the Barcode Buddy directory. In the file ``grabInput.sh`` edit the following values:
 
 * If your barcode scanner is attached to the same computer / server:
    * ``SCRIPT_LOCATION``: Replace with the location where your index.php file is located
@@ -112,7 +112,7 @@ Then run as root
 
  bash grabInput.sh /dev/input/eventX
 
-where X is the number of your event you selected previously. Scan a barcode - it should be sent directly to BarcodeBuddy.
+where X is the number of your event you selected previously. Scan a barcode - it should be sent directly to Barcode Buddy.
 
 To run the script in the background, run
 ::
@@ -148,7 +148,7 @@ To show the current stock on the webui of the Product "Pizza" which already has 
 Using a 3rd party mobile app
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Although we have not released an app (yet), you can use the `Android app QR & Barcode Scanner <https://play.google.com/store/apps/details?id=com.scanner.kataykin.icamesscaner.free>`_ and point it to the index.php file. BarcodeBuddy supports the ``text`` GET variable that is used by the app since version 1.4.1.0.
+Although we have not released an app (yet), you can use the `Android app QR & Barcode Scanner <https://play.google.com/store/apps/details?id=com.scanner.kataykin.icamesscaner.free>`_ and point it to the index.php file. Barcode Buddy supports the ``text`` GET variable that is used by the app since version 1.4.1.0.
 
 
 Web UI: Settings menu
@@ -175,7 +175,7 @@ Here you can change your Grocy API details. Refer to :ref:`firststart`.
 
 Websocket Status
 ----------------
-This section gives the status of the websocket server and if BarcodeBuddy is able to connect to it
+This section gives the status of the websocket server and if Barcode Buddy is able to connect to it
 
 
 Web UI: Settings Chores

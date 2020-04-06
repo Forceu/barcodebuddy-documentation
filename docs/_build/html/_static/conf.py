@@ -22,7 +22,7 @@ copyright = '2020, Marc Ole Bulling'
 author = 'Marc Ole Bulling'
 
 # The full version, including alpha/beta/rc tags
-release = '1.4.0.0'
+release = '1.4.1.1'
 
 
 # -- General configuration ---------------------------------------------------
@@ -31,7 +31,6 @@ release = '1.4.0.0'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-#    'sphinx.ext.autosectionlabel',
     "sphinx_rtd_theme"
 ]
 
