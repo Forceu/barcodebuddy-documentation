@@ -1,19 +1,18 @@
 .. _advanced:
 
-
 ================================
 Advanced usage and configuration
 ================================
-
-
 
 ********************************
 Further configuration
 ********************************
 
+.. _configphp:
 
 config.php
-^^^^^^^^^^
+==========
+
 
 Once you started Barcode Buddy for the first time, you will find the file ``config.php`` in the folder ``data``. This file is for further configuration - the following values can be changed:
 
@@ -44,7 +43,7 @@ Once you started Barcode Buddy for the first time, you will find the file ``conf
 
 
 configProcessing.inc.php
-^^^^^^^^^^^^^^^^^^^^^^^^^
+==============================
 
 If you need to change the paths of the ``config.php`` or the user database location, you can do this in the ``configProcessing.inc.php`` file, found in the ``incl`` folder. As editing the file might break updating Barcode Buddy, it is rather recommended to use :ref:`envvar` instead of editing this file. The following values can be changed:
 
@@ -65,10 +64,69 @@ Environment variables
 
 Environment variables can be passed to Barcode Buddy - that way you can configure it without editing any files.
 
-Using environment variables
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+All ``const`` declarations found in :ref:`configphp` can be passed as an environment variable, but must have the prefix ``BBUDDY_``.
 
-TODO
+Example: To disable authentication, you need to set ``DISABLE_AUTHENTICATION`` to ``true``. Therefore you need to pass the variable ``BBUDDY_DISABLE_AUTHENTICATION`` with the value ``true`` (see :ref:`passingenv`)
+
+**Note:** ``OVERRIDDEN_USER_CONFIG`` is declared as an array in ``config.php``. This is the only environment variable you need to pass as an array with the delimiter ``;``.
+
+Example: To set the Grocy API details you need to declare ``GROCY_API_URL`` and ``GROCY_API_KEY``. As you can see in ``config.php``, they are part of the ``OVERRIDDEN_USER_CONFIG`` declaration (basically all configurations that can be changed through the web ui are part of that). You therefore need to pass the environment variable ``OVERRIDDEN_USER_CONFIG`` with the value ``GROCY_API_URL=https://myurl/api/;GROCY_API_KEY=1234``
+
+
+.. _passingenv:
+
+Passing environment variables to Barcode Buddy
+===============================================
+
+
+Docker
+------
+
+Pass the variable with the ``-e`` argument. Example for disabling authentication and setting curl timeout to 30:
+::
+
+ docker run -d -v bbconfig:/config -e BBUDDY_DISABLE_AUTHENTICATION=true -e BBUDDY_CURL_TIMEOUT_S=30 -p 80:80 f0rc3/barcodebuddy-docker:latest
+
+Example for passing API details:
+::
+
+ docker run -d -v bbconfig:/config -e BBUDDY_OVERRIDDEN_USER_CONFIG="GROCY_API_URL=https://myurl/api/;GROCY_API_KEY=1234" -p 80:80 f0rc3/barcodebuddy-docker:latest
+
+
+Bare Metal
+----------
+
+You need to add the variable to your Nginx configuration that you created in :ref:`webserverinit`. For each environment variable, add the following line in the ``location ~ \.php$`` block:
+::
+
+ fastcgi_param BBUDDY_XXXXX 'value';
+
+Example: Disabling authentication and setting curl timeout to 30:
+::
+
+ 	[...]
+ 	location ~ \.php$ {
+                fastcgi_param BBUDDY_DISABLE_AUTHENTICATION 'true';
+                fastcgi_param BBUDDY_CURL_TIMEOUT_S '30';
+                fastcgi_read_timeout 80; 
+                include fastcgi_params;
+                include snippets/fastcgi-php.conf;
+                fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
+        }
+ 	[...]
+
+Example: Passing API details:
+::
+
+ 	[...]
+ 	location ~ \.php$ {
+                fastcgi_param BBUDDY_OVERRIDDEN_USER_CONFIG 'GROCY_API_URL=https://myurl/api/;GROCY_API_KEY=1234';
+                fastcgi_read_timeout 80; 
+                include fastcgi_params;
+                include snippets/fastcgi-php.conf;
+                fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
+        }
+ 	[...]
 
 
 
@@ -82,5 +140,5 @@ TODO
 Plugins
 *******
 
-Barcode Buddy offers plugin support. All PHP scripts in the folder "plugins" are automatically loaded. See also the `example script <https://github.com/Forceu/barcodebuddy/blob/master/plugins/EventReceiver.php>`_
+Barcode Buddy offers plugin support. All PHP scripts in the folder ``plugins`` are automatically loaded. See also the `example script <https://github.com/Forceu/barcodebuddy/blob/master/plugins/EventReceiver.php>`_
 .

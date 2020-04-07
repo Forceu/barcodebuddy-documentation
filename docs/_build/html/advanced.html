@@ -91,7 +91,11 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#environment-variables">Environment variables</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#using-environment-variables">Using environment variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#passing-environment-variables-to-barcode-buddy">Passing environment variables to Barcode Buddy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#docker">Docker</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bare-metal">Bare Metal</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#api">API</a></li>
@@ -169,7 +173,7 @@
 <div class="section" id="further-configuration">
 <h2>Further configuration<a class="headerlink" href="#further-configuration" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="config-php">
-<h3>config.php<a class="headerlink" href="#config-php" title="Permalink to this headline">¶</a></h3>
+<span id="configphp"></span><h3>config.php<a class="headerlink" href="#config-php" title="Permalink to this headline">¶</a></h3>
 <p>Once you started Barcode Buddy for the first time, you will find the file <code class="docutils literal notranslate"><span class="pre">config.php</span></code> in the folder <code class="docutils literal notranslate"><span class="pre">data</span></code>. This file is for further configuration - the following values can be changed:</p>
 <table class="docutils align-default">
 <colgroup>
@@ -266,9 +270,55 @@
 <div class="section" id="environment-variables">
 <span id="envvar"></span><h2>Environment variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline">¶</a></h2>
 <p>Environment variables can be passed to Barcode Buddy - that way you can configure it without editing any files.</p>
-<div class="section" id="using-environment-variables">
-<h3>Using environment variables<a class="headerlink" href="#using-environment-variables" title="Permalink to this headline">¶</a></h3>
-<p>TODO</p>
+<p>All <code class="docutils literal notranslate"><span class="pre">const</span></code> declarations found in <a class="reference internal" href="#configphp"><span class="std std-ref">config.php</span></a> can be passed as an environment variable, but must have the prefix <code class="docutils literal notranslate"><span class="pre">BBUDDY_</span></code>.</p>
+<p>Example: To disable authentication, you need to set <code class="docutils literal notranslate"><span class="pre">DISABLE_AUTHENTICATION</span></code> to <code class="docutils literal notranslate"><span class="pre">true</span></code>. Therefore you need to pass the variable <code class="docutils literal notranslate"><span class="pre">BBUDDY_DISABLE_AUTHENTICATION</span></code> with the value <code class="docutils literal notranslate"><span class="pre">true</span></code> (see <a class="reference internal" href="#passingenv"><span class="std std-ref">Passing environment variables to Barcode Buddy</span></a>)</p>
+<p><strong>Note:</strong> <code class="docutils literal notranslate"><span class="pre">OVERRIDDEN_USER_CONFIG</span></code> is declared as an array in <code class="docutils literal notranslate"><span class="pre">config.php</span></code>. This is the only environment variable you need to pass as an array with the delimiter <code class="docutils literal notranslate"><span class="pre">;</span></code>.</p>
+<p>Example: To set the Grocy API details you need to declare <code class="docutils literal notranslate"><span class="pre">GROCY_API_URL</span></code> and <code class="docutils literal notranslate"><span class="pre">GROCY_API_KEY</span></code>. As you can see in <code class="docutils literal notranslate"><span class="pre">config.php</span></code>, they are part of the <code class="docutils literal notranslate"><span class="pre">OVERRIDDEN_USER_CONFIG</span></code> declaration (basically all configurations that can be changed through the web ui are part of that). You therefore need to pass the environment variable <code class="docutils literal notranslate"><span class="pre">OVERRIDDEN_USER_CONFIG</span></code> with the value <code class="docutils literal notranslate"><span class="pre">GROCY_API_URL=https://myurl/api/;GROCY_API_KEY=1234</span></code></p>
+<div class="section" id="passing-environment-variables-to-barcode-buddy">
+<span id="passingenv"></span><h3>Passing environment variables to Barcode Buddy<a class="headerlink" href="#passing-environment-variables-to-barcode-buddy" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="docker">
+<h4>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h4>
+<p>Pass the variable with the <code class="docutils literal notranslate"><span class="pre">-e</span></code> argument. Example for disabling authentication and setting curl timeout to 30:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">d</span> <span class="o">-</span><span class="n">v</span> <span class="n">bbconfig</span><span class="p">:</span><span class="o">/</span><span class="n">config</span> <span class="o">-</span><span class="n">e</span> <span class="n">BBUDDY_DISABLE_AUTHENTICATION</span><span class="o">=</span><span class="n">true</span> <span class="o">-</span><span class="n">e</span> <span class="n">BBUDDY_CURL_TIMEOUT_S</span><span class="o">=</span><span class="mi">30</span> <span class="o">-</span><span class="n">p</span> <span class="mi">80</span><span class="p">:</span><span class="mi">80</span> <span class="n">f0rc3</span><span class="o">/</span><span class="n">barcodebuddy</span><span class="o">-</span><span class="n">docker</span><span class="p">:</span><span class="n">latest</span>
+</pre></div>
+</div>
+<p>Example for passing API details:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">d</span> <span class="o">-</span><span class="n">v</span> <span class="n">bbconfig</span><span class="p">:</span><span class="o">/</span><span class="n">config</span> <span class="o">-</span><span class="n">e</span> <span class="n">BBUDDY_OVERRIDDEN_USER_CONFIG</span><span class="o">=</span><span class="s2">&quot;GROCY_API_URL=https://myurl/api/;GROCY_API_KEY=1234&quot;</span> <span class="o">-</span><span class="n">p</span> <span class="mi">80</span><span class="p">:</span><span class="mi">80</span> <span class="n">f0rc3</span><span class="o">/</span><span class="n">barcodebuddy</span><span class="o">-</span><span class="n">docker</span><span class="p">:</span><span class="n">latest</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="bare-metal">
+<h4>Bare Metal<a class="headerlink" href="#bare-metal" title="Permalink to this headline">¶</a></h4>
+<p>You need to add the variable to your Nginx configuration that you created in <a class="reference internal" href="setup.html#webserverinit"><span class="std std-ref">Webserver setup</span></a>. For each environment variable, add the following line in the <code class="docutils literal notranslate"><span class="pre">location</span> <span class="pre">~</span> <span class="pre">\.php$</span></code> block:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fastcgi_param</span> <span class="n">BBUDDY_XXXXX</span> <span class="s1">&#39;value&#39;</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Example: Disabling authentication and setting curl timeout to 30:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[...]
+location ~ \.php$ {
+        fastcgi_param BBUDDY_DISABLE_AUTHENTICATION &#39;true&#39;;
+        fastcgi_param BBUDDY_CURL_TIMEOUT_S &#39;30&#39;;
+        fastcgi_read_timeout 80;
+        include fastcgi_params;
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
+}
+[...]
+</pre></div>
+</div>
+<p>Example: Passing API details:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>[...]
+location ~ \.php$ {
+        fastcgi_param BBUDDY_OVERRIDDEN_USER_CONFIG &#39;GROCY_API_URL=https://myurl/api/;GROCY_API_KEY=1234&#39;;
+        fastcgi_read_timeout 80;
+        include fastcgi_params;
+        include snippets/fastcgi-php.conf;
+        fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
+}
+[...]
+</pre></div>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="api">
@@ -277,7 +327,7 @@
 </div>
 <div class="section" id="plugins">
 <h2>Plugins<a class="headerlink" href="#plugins" title="Permalink to this headline">¶</a></h2>
-<p>Barcode Buddy offers plugin support. All PHP scripts in the folder “plugins” are automatically loaded. See also the <a class="reference external" href="https://github.com/Forceu/barcodebuddy/blob/master/plugins/EventReceiver.php">example script</a>
+<p>Barcode Buddy offers plugin support. All PHP scripts in the folder <code class="docutils literal notranslate"><span class="pre">plugins</span></code> are automatically loaded. See also the <a class="reference external" href="https://github.com/Forceu/barcodebuddy/blob/master/plugins/EventReceiver.php">example script</a>
 .</p>
 </div>
 </div>

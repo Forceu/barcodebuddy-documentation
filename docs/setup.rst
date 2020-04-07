@@ -113,6 +113,7 @@ Installation
 
 It is strongly recommended to change ``pm.max_children`` to a value of 10 or higher in ``/etc/php7/php-fpm.d/www.conf`` (path might be different, depending on PHP version and distribution; for Ubuntu 18.04 it is ``/etc/php/7.2/fpm/pool.d/www.conf``).
 
+.. _webserverinit:
 
 Webserver setup
 """""""""""""""""
