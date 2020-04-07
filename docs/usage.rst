@@ -71,7 +71,7 @@ The easiest option, ideally for testing out Barcode Buddy: Simply open the web u
 
 If you are using a barcode scanner, but don't want to attach it to Barcode Buddy (yet), you can also plug it into the device that runs the webbrowser and use it to enter the barcodes in the textfield. Each line is parsed as a barcode.
 
-Adding Barcodes automatically
+Adding Barcodes Automatically
 -----------------------------
 
 The preferred way. Most barcode scanners register as a USB keyboard. That way, it is possible to grab the input and send it to Barcode Buddy.
@@ -120,35 +120,24 @@ To run the script in the background, run
  screen -S barcodegrabber -d -m /bin/bash /path/to/the/barcodebuddy/folder/example/grabInput.sh /dev/input/eventX
 
 
+Using Barcode Buddy app for Android
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Download the app here: TODO TODO
+
+Once installed, open Barcode Buddy and navigate to the menu ``API``. There click on the three dots in the top right corner and select ``Add mobile app``. Open your Barcode Buddy app and then scan the displayed QR code.
+
+
 Using a 3rd party application / script
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-If you want to write your own script, there are two ways to send the barcodes to Barcode Buddy: either by calling ``php index.php yourBarcode`` or by calling the URL: ``https://url.to.barcode.buddy/index.php?add=123456789``. Only one barcode can be given with each call. You will only receive a return value if there was an error. If you are using the URL method, you can display the UI with the additional parameter ``showui``. For example:
-::
-
- https://your.webhost.com/index.php?showui&add=123456789
-
-You can also specify the mode for each barcode with a GET parameter. Simply add ``&mode=NEWMODE`` and replace ``NEWMODE`` with one of the following modes:
-
-* consume
-* consume_s (Consume spoiled)
-* purchase
-* open
-* inventory
-
-Example
-"""""""
-
-To show the current stock on the webui of the Product "Pizza" which already has the barcode "123456" assigned:
-::
-
- https://your.webhost.com/index.php?showui&add=123456&mode=inventory
+If you want to write your own script, there are two ways to send the barcodes to Barcode Buddy: either by calling ``php index.php yourBarcode`` or by calling the URL: ``https://your.bbuddy.url/api/action/scan?apikey=myApiKey&add=123456``. Only one barcode can be given with each call. Replace myApiKey with an API key generated in the main menu. For more information about the API visit :ref:`api`.
 
 
 Using a 3rd party mobile app
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Although we have not released an app (yet), you can use the `Android app QR & Barcode Scanner <https://play.google.com/store/apps/details?id=com.scanner.kataykin.icamesscaner.free>`_ and point it to the index.php file. Barcode Buddy supports the ``text`` GET variable that is used by the app since version 1.4.1.0.
+Although we have not released an app (yet), you can use the `Android app QR & Barcode Scanner <https://play.google.com/store/apps/details?id=com.scanner.kataykin.icamesscaner.free>`_ and point it to ``/api/action/scan``. Make sure to add the paramter ``apikey`` with the correct API key.
 
 
 Web UI: Settings menu

@@ -92,8 +92,9 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#adding-barcodes">Adding Barcodes</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#adding-barcodes-manually">Adding Barcodes Manually</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#adding-barcodes-automatically">Adding Barcodes automatically</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#adding-barcodes-automatically">Adding Barcodes Automatically</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#using-a-physical-barcode-scanner">Using a physical barcode scanner</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#using-barcode-buddy-app-for-android">Using Barcode Buddy app for Android</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#using-a-3rd-party-application-script">Using a 3rd party application / script</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#using-a-3rd-party-mobile-app">Using a 3rd party mobile app</a></li>
 </ul>
@@ -263,7 +264,7 @@ time you scan the carton barcode, it will register as 10 units.</p></td>
 <p>If you are using a barcode scanner, but don’t want to attach it to Barcode Buddy (yet), you can also plug it into the device that runs the webbrowser and use it to enter the barcodes in the textfield. Each line is parsed as a barcode.</p>
 </div>
 <div class="section" id="adding-barcodes-automatically">
-<h3>Adding Barcodes automatically<a class="headerlink" href="#adding-barcodes-automatically" title="Permalink to this headline">¶</a></h3>
+<h3>Adding Barcodes Automatically<a class="headerlink" href="#adding-barcodes-automatically" title="Permalink to this headline">¶</a></h3>
 <p>The preferred way. Most barcode scanners register as a USB keyboard. That way, it is possible to grab the input and send it to Barcode Buddy.</p>
 <div class="section" id="using-a-physical-barcode-scanner">
 <span id="attachingscanner"></span><h4>Using a physical barcode scanner<a class="headerlink" href="#using-a-physical-barcode-scanner" title="Permalink to this headline">¶</a></h4>
@@ -314,31 +315,18 @@ time you scan the carton barcode, it will register as 10 units.</p></td>
 </div>
 </div>
 </div>
+<div class="section" id="using-barcode-buddy-app-for-android">
+<h4>Using Barcode Buddy app for Android<a class="headerlink" href="#using-barcode-buddy-app-for-android" title="Permalink to this headline">¶</a></h4>
+<p>Download the app here: TODO TODO</p>
+<p>Once installed, open Barcode Buddy and navigate to the menu <code class="docutils literal notranslate"><span class="pre">API</span></code>. There click on the three dots in the top right corner and select <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">mobile</span> <span class="pre">app</span></code>. Open your Barcode Buddy app and then scan the displayed QR code.</p>
+</div>
 <div class="section" id="using-a-3rd-party-application-script">
 <h4>Using a 3rd party application / script<a class="headerlink" href="#using-a-3rd-party-application-script" title="Permalink to this headline">¶</a></h4>
-<p>If you want to write your own script, there are two ways to send the barcodes to Barcode Buddy: either by calling <code class="docutils literal notranslate"><span class="pre">php</span> <span class="pre">index.php</span> <span class="pre">yourBarcode</span></code> or by calling the URL: <code class="docutils literal notranslate"><span class="pre">https://url.to.barcode.buddy/index.php?add=123456789</span></code>. Only one barcode can be given with each call. You will only receive a return value if there was an error. If you are using the URL method, you can display the UI with the additional parameter <code class="docutils literal notranslate"><span class="pre">showui</span></code>. For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://your.webhost.com/index.php?showui&amp;add=123456789
-</pre></div>
-</div>
-<p>You can also specify the mode for each barcode with a GET parameter. Simply add <code class="docutils literal notranslate"><span class="pre">&amp;mode=NEWMODE</span></code> and replace <code class="docutils literal notranslate"><span class="pre">NEWMODE</span></code> with one of the following modes:</p>
-<ul class="simple">
-<li><p>consume</p></li>
-<li><p>consume_s (Consume spoiled)</p></li>
-<li><p>purchase</p></li>
-<li><p>open</p></li>
-<li><p>inventory</p></li>
-</ul>
-<div class="section" id="example">
-<h5>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h5>
-<p>To show the current stock on the webui of the Product “Pizza” which already has the barcode “123456” assigned:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://your.webhost.com/index.php?showui&amp;add=123456&amp;mode=inventory
-</pre></div>
-</div>
-</div>
+<p>If you want to write your own script, there are two ways to send the barcodes to Barcode Buddy: either by calling <code class="docutils literal notranslate"><span class="pre">php</span> <span class="pre">index.php</span> <span class="pre">yourBarcode</span></code> or by calling the URL: <code class="docutils literal notranslate"><span class="pre">https://your.bbuddy.url/api/action/scan?apikey=myApiKey&amp;add=123456</span></code>. Only one barcode can be given with each call. Replace myApiKey with an API key generated in the main menu. For more information about the API visit <a class="reference internal" href="advanced.html#api"><span class="std std-ref">API</span></a>.</p>
 </div>
 <div class="section" id="using-a-3rd-party-mobile-app">
 <h4>Using a 3rd party mobile app<a class="headerlink" href="#using-a-3rd-party-mobile-app" title="Permalink to this headline">¶</a></h4>
-<p>Although we have not released an app (yet), you can use the <a class="reference external" href="https://play.google.com/store/apps/details?id=com.scanner.kataykin.icamesscaner.free">Android app QR &amp; Barcode Scanner</a> and point it to the index.php file. Barcode Buddy supports the <code class="docutils literal notranslate"><span class="pre">text</span></code> GET variable that is used by the app since version 1.4.1.0.</p>
+<p>Although we have not released an app (yet), you can use the <a class="reference external" href="https://play.google.com/store/apps/details?id=com.scanner.kataykin.icamesscaner.free">Android app QR &amp; Barcode Scanner</a> and point it to <code class="docutils literal notranslate"><span class="pre">/api/action/scan</span></code>. Make sure to add the paramter <code class="docutils literal notranslate"><span class="pre">apikey</span></code> with the correct API key.</p>
 </div>
 </div>
 </div>

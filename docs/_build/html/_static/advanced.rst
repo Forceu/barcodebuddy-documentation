@@ -129,12 +129,46 @@ Example: Passing API details:
  	[...]
 
 
+.. _api:
 
 ********************************
 API
 ********************************
 
-TODO
+Barcode Buddy offers an API that can be reached at ``http(s)://your.bbinstall.url/api``. By visiting the URL, you will get current the documentation website with an overview of all API functions.
+
+
+Interacting with the API
+-------------------------
+
+
+Unless disabled, all API calls will need an API key as authentication. A key can be generated in the web UI in the menu "API". The API key needs to be passed in the body or can be added as a GET variable. Example getting info with curl:
+::
+
+ curl -X GET -H "BBUDDY_API_KEY: myApiKey" "https://your.bbuddy.url/api/system/info"
+
+Manually getting the info by adding the GET variable:
+::
+
+ https://your.bbuddy.url/api/system/info?apikey=myApiKey
+
+
+All functions that require parameters *(except* ``/action/scan`` *)*, expect them as a form/post parameter.
+Example: Setting the current mode to STATE_PURCHASE(2):
+::
+
+ curl -X POST -H "BBUDDY_API_KEY: [[apiKey]]" -F 'state=2' "https://your.bbuddy.url/api/state/setmode" 
+
+
+Non-standard API: /action/scan
+-------------------------------
+
+As mentioned above, the ``/action/scan`` also looks for GET paramters, in addition to the regular form/post paramters. This is to make it easier for scripts / apps to pass barcodes to Barcode Buddy.
+
+Instead of the POST parameter ``barcode`` you can also pass the GET parameter ``add`` or ``text`` instead. Example Passing the barcode 123456 by just requesting the url:
+::
+
+ https://your.bbuddy.url/api/action/scan?apikey=myApiKey&add=123456
 
 *******
 Plugins

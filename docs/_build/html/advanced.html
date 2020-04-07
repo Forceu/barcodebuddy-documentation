@@ -322,8 +322,26 @@ location ~ \.php$ {
 </div>
 </div>
 <div class="section" id="api">
-<h2>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
-<p>TODO</p>
+<span id="id1"></span><h2>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
+<p>Barcode Buddy offers an API that can be reached at <code class="docutils literal notranslate"><span class="pre">http(s)://your.bbinstall.url/api</span></code>. By visiting the URL, you will get current the documentation website with an overview of all API functions.</p>
+<p>Unless disabled, all API calls will need an API key as authentication. A key can be generated in the web UI in the menu “API”. The API key needs to be passed in the body or can be added as a GET variable. Example getting info with curl:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">GET</span> <span class="o">-</span><span class="n">H</span> <span class="s2">&quot;BBUDDY_API_KEY: myApiKey&quot;</span> <span class="s2">&quot;https://your.bbuddy.url/api/system/info&quot;</span>
+</pre></div>
+</div>
+<p>Manually getting the info by adding the GET variable:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://your.bbuddy.url/api/system/info?apikey=myApiKey
+</pre></div>
+</div>
+<p>All functions that require parameters <em>(except</em> <code class="docutils literal notranslate"><span class="pre">/action/scan</span></code> <em>)</em>, expect them as a form/post parameter.
+Example: Setting the current mode to STATE_PURCHASE(2):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="o">-</span><span class="n">H</span> <span class="s2">&quot;BBUDDY_API_KEY: [[apiKey]]&quot;</span> <span class="o">-</span><span class="n">F</span> <span class="s1">&#39;state=2&#39;</span> <span class="s2">&quot;https://your.bbuddy.url/api/state/setmode&quot;</span>
+</pre></div>
+</div>
+<p>As mentioned above, the <code class="docutils literal notranslate"><span class="pre">/action/scan</span></code> also looks for GET paramters, in addition to the regular form/post paramters. This is to make it easier for scripts / apps to pass barcodes to Barcode Buddy.</p>
+<p>Instead of the POST parameter <code class="docutils literal notranslate"><span class="pre">barcode</span></code> you can also pass the GET parameter <code class="docutils literal notranslate"><span class="pre">add</span></code> or <code class="docutils literal notranslate"><span class="pre">text</span></code> instead. Example Passing the barcode 123456 by just requesting the url:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://your.bbuddy.url/api/action/scan?apikey=myApiKey&amp;add=123456
+</pre></div>
+</div>
 </div>
 <div class="section" id="plugins">
 <h2>Plugins<a class="headerlink" href="#plugins" title="Permalink to this headline">¶</a></h2>
