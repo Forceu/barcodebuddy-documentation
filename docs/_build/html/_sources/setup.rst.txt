@@ -118,7 +118,7 @@ It is strongly recommended to change ``pm.max_children`` to a value of 10 or hig
 Webserver setup
 """""""""""""""""
 
-This guide is written for a Debian based server, including Ubuntu. If you already have a webserver setup, please make sure to have a look at the `Nginx example file <https://github.com/Forceu/barcodebuddy/blob/master/example/nginxConfiguration.conf>`_.
+This guide is written for a Debian based server, including Ubuntu. If you already have a webserver setup, please make sure to have a look at the `Nginx example file <https://github.com/Forceu/barcodebuddy/blob/master/example/nginxConfiguration.conf>`_, as for the folder /api/ a rewrite rule has to be added.
 
 Installing NGINX
 ------------------
@@ -139,6 +139,28 @@ Installing NGINX
 * Restart NGINX ``service nginx restart``
 
 
+
+Configuring Apache2
+--------------------
+
+We recommend using Nginx. If you are already an Apache2 user, follow these steps to make sure that Barcode Buddy is working correctly:
+
+* Execute ``a2enmod rewrite`` to make sure that the rewrite module is active
+* Make sure that you can use .htaccess files for rewriting. For that the option ``AllowOverride`` for the directory must be set to ``All``. You can normally find this configuration in the ``apache2.conf`` file. For Ubuntu this file is located at ``/etc/apache2/apache2.conf``. Search for ``AllowOverride`` and set it to ``All`` for the root directory where Barcode Buddy is installed.
+
+Example:
+::
+
+ [...]
+ <Directory /var/www/>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+ </Directory>
+ [...]
+
+
+
 Stable version
 """""""""""""""""
 `Download the project <https://github.com/Forceu/barcodebuddy/releases/>`_ and copy all files into your webserver.
@@ -148,9 +170,9 @@ Unstable version
 Execute 
 ::
 
- git clone https://github.com/Forceu/barcodebuddy.git
+ git clone https://github.com/Forceu/barcodebuddy.git .
 
-and move the folder into your webserver directory.
+in the folder where you want to install Barcode Buddy to.
 
 
 Starting the websocket service
@@ -196,7 +218,7 @@ Open VirtualBox, and go to ``File/Host Network Manager``. If there is no network
 
 Start the image - once it is completely running, you will see a login prompt. Above that, you will see two IP addresses. Normally with the second one you can reach the server, so simply connect in your webbrowser to ``http://THE_IP/``.
 
-If you need to log in to the image, the default username is ``root`` and the default password is ``barcode``.
+If you need to log in to the image, the default username is ``root`` and the default password is ``barcode``. For security reasons, SSH is disabled, to enable it, execute  ``rc-update add sshd`` (make sure to change your password and to add a non-root user!)
 
 
 ********

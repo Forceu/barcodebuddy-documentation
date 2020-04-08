@@ -123,7 +123,7 @@ To run the script in the background, run
 Using Barcode Buddy app for Android
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Download the app here: TODO TODO
+Download the app here: `Google Play Store <https://play.google.com/store/apps/details?id=de.bulling.barcodebuddyscanner>`_
 
 Once installed, open Barcode Buddy and navigate to the menu ``API``. There click on the three dots in the top right corner and select ``Add mobile app``. Open your Barcode Buddy app and then scan the displayed QR code.
 
