@@ -195,3 +195,16 @@ Web UI: Quantities
 This features is for products that come in packs containing more than one item.
 
 In the settings you see the quantity barcode (default "BBUDDY-Q-"). If you scan a barcode that starts with this text and has a number at the end, Barcode Buddy sets the quantity of the units from the previously scanned barcode to the number. For example: You scan Barcode "123", which is a pack of 6 eggs. Then you scan the barcode "BBUDDY-Q-6". The next time you scan the barcode "123" in purchase mode, Barcode Buddy will automatically add 6 eggs.
+
+Web UI: API
+========================
+
+In this menu you can create and revoke Barcode Buddy API keys. Refer to :ref:`api`
+
+
+Web UI: Admin
+========================
+
+In this menu you can download a backup of your database file. To restore a backup, simply overwrite your current database file (default: ``/data/barcodebuddy.db``.
+
+It is also possible to logout, so that you need to enter your username and password again.
