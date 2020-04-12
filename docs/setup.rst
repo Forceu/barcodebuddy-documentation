@@ -65,7 +65,7 @@ The following arguments can also be passed:
 +-----------------------+------------+-------------------------------------+
 |        Argument       |    Value   |                Effect               |
 +-----------------------+------------+-------------------------------------+
-| ATTACH_BARCODESCANNER | true/false | Attach barcode scanner               |
+| ATTACH_BARCODESCANNER | true/false | Attach barcode scanner              |
 +-----------------------+------------+-------------------------------------+
 | IGNORE_SSL_CA         | true/false | Accept self-signed SSL certificates |
 +-----------------------+------------+-------------------------------------+

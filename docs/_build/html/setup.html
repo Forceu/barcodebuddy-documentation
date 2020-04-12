@@ -248,6 +248,32 @@
 </pre></div>
 </div>
 <p>The following arguments can also be passed:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 32%" />
+<col style="width: 17%" />
+<col style="width: 51%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>Argument</p></td>
+<td><p>Value</p></td>
+<td><p>Effect</p></td>
+</tr>
+<tr class="row-even"><td><p>ATTACH_BARCODESCANNER</p></td>
+<td><p>true/false</p></td>
+<td><p>Attach barcode scanner</p></td>
+</tr>
+<tr class="row-odd"><td><p>IGNORE_SSL_CA</p></td>
+<td><p>true/false</p></td>
+<td><p>Accept self-signed SSL certificates</p></td>
+</tr>
+<tr class="row-even"><td><p>IGNORE_SSL_HOST</p></td>
+<td><p>true/false</p></td>
+<td><p>Accept SSL certificates where the
+host does not match</p></td>
+</tr>
+</tbody>
+</table>
 <p><em>For more information on how to attach a barcode scanner, see</em> <a class="reference internal" href="usage.html#attachingscanner"><span class="std std-ref">Using a physical barcode scanner</span></a></p>
 <p>To pass an argument, use the -e function, eg:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">d</span> <span class="o">-</span><span class="n">v</span> <span class="n">bbconfig</span><span class="p">:</span><span class="o">/</span><span class="n">config</span> <span class="o">-</span><span class="n">e</span> <span class="n">ATTACH_BARCODESCANNER</span><span class="o">=</span><span class="n">true</span> <span class="o">-</span><span class="n">p</span> <span class="mi">80</span><span class="p">:</span><span class="mi">80</span> <span class="o">-</span><span class="n">p</span> <span class="mi">443</span><span class="p">:</span><span class="mi">443</span> <span class="n">f0rc3</span><span class="o">/</span><span class="n">barcodebuddy</span><span class="o">-</span><span class="n">docker</span><span class="p">:</span><span class="n">latest</span>
