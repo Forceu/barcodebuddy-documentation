@@ -22,7 +22,7 @@ Bare Metal
 Stable version
 ==============
 
-To update, download the lastest release and unzip it to the directory that contains the old version. Overwrite any existing files.
+To update, download the latest release and unzip it to the directory that contains the old version. Overwrite any existing files.
 
 
 Unstable version

@@ -163,9 +163,9 @@ Example: Setting the current mode to STATE_PURCHASE(2):
 Non-standard API: /action/scan
 -------------------------------
 
-As mentioned above, the ``/action/scan`` also looks for GET paramters, in addition to the regular form/post paramters. This is to make it easier for scripts / apps to pass barcodes to Barcode Buddy.
+As mentioned above, the ``/action/scan`` also looks for GET parameters, in addition to the regular form/post parameters. This is to make it easier for scripts / apps to pass barcodes to Barcode Buddy.
 
-Instead of the POST parameter ``barcode`` you can also pass the GET parameter ``add`` or ``text`` instead. Example Passing the barcode 123456 by just requesting the url:
+Instead of the POST parameter ``barcode`` you can also pass the GET parameter ``add`` or ``text`` instead. Example Passing the barcode 123456 by just requesting the URL:
 ::
 
  https://your.bbuddy.url/api/action/scan?apikey=myApiKey&add=123456

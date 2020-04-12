@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Usage &mdash; Barcode Buddy Documentation 1.4.5.0 documentation</title>
+  <title>Usage &mdash; Barcode Buddy Documentation 1.5.0.0 documentation</title>
   
 
   
@@ -114,6 +114,8 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#web-ui-quantities">Web UI: Quantities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#web-ui-api">Web UI: API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#web-ui-admin">Web UI: Admin</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="update.html">Updating Barcode Buddy</a></li>
@@ -188,7 +190,7 @@
 <span id="id1"></span><h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="first-start">
 <span id="firststart"></span><h2>First Start<a class="headerlink" href="#first-start" title="Permalink to this headline">¶</a></h2>
-<p>Open your Grocy website. Click on Settings in the top right corner and then click on <em>Manage API keys</em>. Click on <em>add</em> and copy the long API key to your clipboard. You can now open Barcode Buddy by visiting your webservers URL. The setup will ask you to enter the API details. Make sure to have the trailing “/api/” for your Grocy URL at the end.</p>
+<p>Open your Grocy website. Click on Settings in the top right corner and then click on <em>Manage API keys</em>. Click on <em>add</em> and copy the long API key to your clipboard. You can now open Barcode Buddy by visiting your webservers URL. The setup will first let you create a user and then ask you to enter the API details. Make sure to have the trailing “/api/” for your Grocy URL at the end.</p>
 </div>
 <div class="section" id="using-the-web-ui">
 <h2>Using The Web UI<a class="headerlink" href="#using-the-web-ui" title="Permalink to this headline">¶</a></h2>
@@ -268,7 +270,7 @@ time you scan the carton barcode, it will register as 10 units.</p></td>
 <p>The preferred way. Most barcode scanners register as a USB keyboard. That way, it is possible to grab the input and send it to Barcode Buddy.</p>
 <div class="section" id="using-a-physical-barcode-scanner">
 <span id="attachingscanner"></span><h4>Using a physical barcode scanner<a class="headerlink" href="#using-a-physical-barcode-scanner" title="Permalink to this headline">¶</a></h4>
-<p>Plug in your barcode scanner to the linux computer / server you will be using. Run the command <code class="docutils literal notranslate"><span class="pre">evtest</span></code> as root. You will see a list of devices, select the one that is your barcode scanner and remember the number (eg. event6). Scan a barcode. You will now see output in the evtest programm. If not, you have selected the wrong source.</p>
+<p>Plug in your barcode scanner to the linux computer / server you will be using. Run the command <code class="docutils literal notranslate"><span class="pre">evtest</span></code> as root. You will see a list of devices, select the one that is your barcode scanner and remember the number (eg. event6). Scan a barcode. You will now see output in the evtest program. If not, you have selected the wrong source.</p>
 <div class="section" id="docker">
 <h5>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h5>
 <p>Create a docker container with</p>
@@ -370,6 +372,15 @@ time you scan the carton barcode, it will register as 10 units.</p></td>
 <h2>Web UI: Quantities<a class="headerlink" href="#web-ui-quantities" title="Permalink to this headline">¶</a></h2>
 <p>This features is for products that come in packs containing more than one item.</p>
 <p>In the settings you see the quantity barcode (default “BBUDDY-Q-“). If you scan a barcode that starts with this text and has a number at the end, Barcode Buddy sets the quantity of the units from the previously scanned barcode to the number. For example: You scan Barcode “123”, which is a pack of 6 eggs. Then you scan the barcode “BBUDDY-Q-6”. The next time you scan the barcode “123” in purchase mode, Barcode Buddy will automatically add 6 eggs.</p>
+</div>
+<div class="section" id="web-ui-api">
+<h2>Web UI: API<a class="headerlink" href="#web-ui-api" title="Permalink to this headline">¶</a></h2>
+<p>In this menu you can create and revoke Barcode Buddy API keys. Refer to <a class="reference internal" href="advanced.html#api"><span class="std std-ref">API</span></a></p>
+</div>
+<div class="section" id="web-ui-admin">
+<h2>Web UI: Admin<a class="headerlink" href="#web-ui-admin" title="Permalink to this headline">¶</a></h2>
+<p>In this menu you can download a backup of your database file. To restore a backup, simply overwrite your current database file (default: <code class="docutils literal notranslate"><span class="pre">/data/barcodebuddy.db</span></code>.</p>
+<p>It is also possible to logout, so that you need to enter your username and password again.</p>
 </div>
 </div>
 

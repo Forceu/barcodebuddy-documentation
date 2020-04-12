@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Advanced usage and configuration &mdash; Barcode Buddy Documentation 1.4.5.0 documentation</title>
+  <title>Advanced usage and configuration &mdash; Barcode Buddy Documentation 1.5.0.0 documentation</title>
   
 
   
@@ -337,8 +337,8 @@ Example: Setting the current mode to STATE_PURCHASE(2):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="o">-</span><span class="n">H</span> <span class="s2">&quot;BBUDDY_API_KEY: [[apiKey]]&quot;</span> <span class="o">-</span><span class="n">F</span> <span class="s1">&#39;state=2&#39;</span> <span class="s2">&quot;https://your.bbuddy.url/api/state/setmode&quot;</span>
 </pre></div>
 </div>
-<p>As mentioned above, the <code class="docutils literal notranslate"><span class="pre">/action/scan</span></code> also looks for GET paramters, in addition to the regular form/post paramters. This is to make it easier for scripts / apps to pass barcodes to Barcode Buddy.</p>
-<p>Instead of the POST parameter <code class="docutils literal notranslate"><span class="pre">barcode</span></code> you can also pass the GET parameter <code class="docutils literal notranslate"><span class="pre">add</span></code> or <code class="docutils literal notranslate"><span class="pre">text</span></code> instead. Example Passing the barcode 123456 by just requesting the url:</p>
+<p>As mentioned above, the <code class="docutils literal notranslate"><span class="pre">/action/scan</span></code> also looks for GET parameters, in addition to the regular form/post parameters. This is to make it easier for scripts / apps to pass barcodes to Barcode Buddy.</p>
+<p>Instead of the POST parameter <code class="docutils literal notranslate"><span class="pre">barcode</span></code> you can also pass the GET parameter <code class="docutils literal notranslate"><span class="pre">add</span></code> or <code class="docutils literal notranslate"><span class="pre">text</span></code> instead. Example Passing the barcode 123456 by just requesting the URL:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://your.bbuddy.url/api/action/scan?apikey=myApiKey&amp;add=123456
 </pre></div>
 </div>

@@ -9,7 +9,7 @@ Usage
 First Start
 ===============
 
-Open your Grocy website. Click on Settings in the top right corner and then click on *Manage API keys*. Click on *add* and copy the long API key to your clipboard. You can now open Barcode Buddy by visiting your webservers URL. The setup will ask you to enter the API details. Make sure to have the trailing "/api/" for your Grocy URL at the end.
+Open your Grocy website. Click on Settings in the top right corner and then click on *Manage API keys*. Click on *add* and copy the long API key to your clipboard. You can now open Barcode Buddy by visiting your webservers URL. The setup will first let you create a user and then ask you to enter the API details. Make sure to have the trailing "/api/" for your Grocy URL at the end.
 
 
 Using The Web UI
@@ -82,7 +82,7 @@ Using a physical barcode scanner
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-Plug in your barcode scanner to the linux computer / server you will be using. Run the command ``evtest`` as root. You will see a list of devices, select the one that is your barcode scanner and remember the number (eg. event6). Scan a barcode. You will now see output in the evtest programm. If not, you have selected the wrong source.
+Plug in your barcode scanner to the linux computer / server you will be using. Run the command ``evtest`` as root. You will see a list of devices, select the one that is your barcode scanner and remember the number (eg. event6). Scan a barcode. You will now see output in the evtest program. If not, you have selected the wrong source.
 
 Docker
 """""""""""""""""
@@ -195,3 +195,16 @@ Web UI: Quantities
 This features is for products that come in packs containing more than one item.
 
 In the settings you see the quantity barcode (default "BBUDDY-Q-"). If you scan a barcode that starts with this text and has a number at the end, Barcode Buddy sets the quantity of the units from the previously scanned barcode to the number. For example: You scan Barcode "123", which is a pack of 6 eggs. Then you scan the barcode "BBUDDY-Q-6". The next time you scan the barcode "123" in purchase mode, Barcode Buddy will automatically add 6 eggs.
+
+Web UI: API
+========================
+
+In this menu you can create and revoke Barcode Buddy API keys. Refer to :ref:`api`
+
+
+Web UI: Admin
+========================
+
+In this menu you can download a backup of your database file. To restore a backup, simply overwrite your current database file (default: ``/data/barcodebuddy.db``.
+
+It is also possible to logout, so that you need to enter your username and password again.

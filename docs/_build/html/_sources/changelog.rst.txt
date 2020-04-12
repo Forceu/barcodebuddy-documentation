@@ -11,7 +11,7 @@ Overview of all Changes
 v1.5.0.0: unreleased
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-* Added authenticaton, can be disabled through config.php
+* Added authentication, can be disabled through config.php
 * Config.php now found in the data directory
 * Added API
 * Support for official `Barcode Buddy App <https://play.google.com/store/apps/details?id=de.bulling.barcodebuddyscanner>`_
