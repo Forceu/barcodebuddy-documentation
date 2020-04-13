@@ -23,6 +23,8 @@ When you open the web ui, you will see three cards:
 * Unknown Barcodes: Barcodes that are unknown to Grocy and could not be looked up
 * Processed Barcodes: A history of all barcodes that were processed by Barcode Buddy
 
+If you have entered a barcode that is linked to a Grocy product with the tare feature enabled, a fourth section will popup named "Actions required", where you can enter the weight for the product.
+
 Special Barcodes
 ----------------
 There are seven special barcodes - if you scan the barcode, Barcode Buddy goes into a different mode: Eg. in Purchase mode all barcodes that are scanned will be added to Grocys inventory.
@@ -140,11 +142,14 @@ Using a 3rd party mobile app
 Although we have not released an app (yet), you can use the `Android app QR & Barcode Scanner <https://play.google.com/store/apps/details?id=com.scanner.kataykin.icamesscaner.free>`_ and point it to ``/api/action/scan``. Make sure to add the paramter ``apikey`` with the correct API key.
 
 
-Web UI: Settings menu
-=====================
+Menus
+======
+
+Settings menu
+----------------
 
 General Settings
-----------------
+^^^^^^^^^^^^^^^^^^^^^^
 
 In this tab you can set the barcodes for changing Barcode Buddy modes. For example, if you scan the barcode "BBUDDY-P", Barcode Buddy will change to "Purchase" mode and add all following items to your Grocy inventory. By default it is in "Consume" mode. The edit field below allows you to set the time in minutes, which is required to pass in order to revert back to the default "Consume" mode. E.g. if "Purchase" mode is active and the field is set to 10 minutes, Barcode Buddy will revert back to "Consume" mode 10 minutes later.
 
@@ -159,51 +164,51 @@ With "Remove purchased items from shoppinglist" enabled, items that are scanned 
 When "more verbose logs" is disabled, only barcode scans are logged in the log part of the main page.
 
 Grocy API
----------
+^^^^^^^^^^^
 Here you can change your Grocy API details. Refer to :ref:`firststart`.
 
 Websocket Status
-----------------
+^^^^^^^^^^^^^^^^^^^^^^
 This section gives the status of the websocket server and if Barcode Buddy is able to connect to it
 
 
-Web UI: Settings Chores
-========================
+Chores
+--------------------------
 
 This menu lists all available Grocy chores. Simply enter a barcode for a chore and press "Add". The next time you scan this barcode, the chore will be executed. To change the barcode, simply edit it and press "Edit". To remove, delete the barcode and press "Edit".
 
 
-Web UI: Tags
-========================
+Tags
+----------------
 
 All saved tags are listed here
 
 Adding tags
-------------
+^^^^^^^^^^^
 
 Scan a barcode that was not recognized by Grocy yet, but could be looked up. Before pressing "Add" or "Consume" in the main menu, select a word from the list to the right. The next time a barcode is looked up that contains the word, the product is preselected.
 
 Managing tags
--------------
+^^^^^^^^^^^^^^
 
 The list shows an overview of the tags. Click on "Delete" to remove the tag.
 
 
-Web UI: Quantities
-========================
+Quantities
+--------------------
 
 This features is for products that come in packs containing more than one item.
 
 In the settings you see the quantity barcode (default "BBUDDY-Q-"). If you scan a barcode that starts with this text and has a number at the end, Barcode Buddy sets the quantity of the units from the previously scanned barcode to the number. For example: You scan Barcode "123", which is a pack of 6 eggs. Then you scan the barcode "BBUDDY-Q-6". The next time you scan the barcode "123" in purchase mode, Barcode Buddy will automatically add 6 eggs.
 
-Web UI: API
-========================
+API
+--------------------
 
 In this menu you can create and revoke Barcode Buddy API keys. Refer to :ref:`api`
 
 
-Web UI: Admin
-========================
+Admin
+--------------------
 
 In this menu you can download a backup of your database file. To restore a backup, simply overwrite your current database file (default: ``/data/barcodebuddy.db``.
 

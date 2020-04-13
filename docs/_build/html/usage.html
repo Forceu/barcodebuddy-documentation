@@ -101,21 +101,24 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#web-ui-settings-menu">Web UI: Settings menu</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#general-settings">General Settings</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#grocy-api">Grocy API</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#websocket-status">Websocket Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#menus">Menus</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#settings-menu">Settings menu</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#general-settings">General Settings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#grocy-api">Grocy API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#websocket-status">Websocket Status</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#web-ui-settings-chores">Web UI: Settings Chores</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#web-ui-tags">Web UI: Tags</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#adding-tags">Adding tags</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#managing-tags">Managing tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chores">Chores</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tags">Tags</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#adding-tags">Adding tags</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#managing-tags">Managing tags</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#web-ui-quantities">Web UI: Quantities</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#web-ui-api">Web UI: API</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#web-ui-admin">Web UI: Admin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quantities">Quantities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#api">API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#admin">Admin</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="update.html">Updating Barcode Buddy</a></li>
@@ -202,6 +205,7 @@
 <li><p>Unknown Barcodes: Barcodes that are unknown to Grocy and could not be looked up</p></li>
 <li><p>Processed Barcodes: A history of all barcodes that were processed by Barcode Buddy</p></li>
 </ul>
+<p>If you have entered a barcode that is linked to a Grocy product with the tare feature enabled, a fourth section will popup named “Actions required”, where you can enter the weight for the product.</p>
 </div>
 <div class="section" id="special-barcodes">
 <h3>Special Barcodes<a class="headerlink" href="#special-barcodes" title="Permalink to this headline">¶</a></h3>
@@ -332,10 +336,12 @@ time you scan the carton barcode, it will register as 10 units.</p></td>
 </div>
 </div>
 </div>
-<div class="section" id="web-ui-settings-menu">
-<h2>Web UI: Settings menu<a class="headerlink" href="#web-ui-settings-menu" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="menus">
+<h2>Menus<a class="headerlink" href="#menus" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="settings-menu">
+<h3>Settings menu<a class="headerlink" href="#settings-menu" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="general-settings">
-<h3>General Settings<a class="headerlink" href="#general-settings" title="Permalink to this headline">¶</a></h3>
+<h4>General Settings<a class="headerlink" href="#general-settings" title="Permalink to this headline">¶</a></h4>
 <p>In this tab you can set the barcodes for changing Barcode Buddy modes. For example, if you scan the barcode “BBUDDY-P”, Barcode Buddy will change to “Purchase” mode and add all following items to your Grocy inventory. By default it is in “Consume” mode. The edit field below allows you to set the time in minutes, which is required to pass in order to revert back to the default “Consume” mode. E.g. if “Purchase” mode is active and the field is set to 10 minutes, Barcode Buddy will revert back to “Consume” mode 10 minutes later.</p>
 <p>If you scan the “Inventory” barcode, Barcode Buddy will simply output the current stock, but not change any values. If an unknown barcode is scanned, it is added to the regular list.</p>
 <p>The “Add to shopping list” barcode adds all future barcodes to the default shopping list.</p>
@@ -344,43 +350,44 @@ time you scan the carton barcode, it will register as 10 units.</p></td>
 <p>When “more verbose logs” is disabled, only barcode scans are logged in the log part of the main page.</p>
 </div>
 <div class="section" id="grocy-api">
-<h3>Grocy API<a class="headerlink" href="#grocy-api" title="Permalink to this headline">¶</a></h3>
+<h4>Grocy API<a class="headerlink" href="#grocy-api" title="Permalink to this headline">¶</a></h4>
 <p>Here you can change your Grocy API details. Refer to <a class="reference internal" href="#firststart"><span class="std std-ref">First Start</span></a>.</p>
 </div>
 <div class="section" id="websocket-status">
-<h3>Websocket Status<a class="headerlink" href="#websocket-status" title="Permalink to this headline">¶</a></h3>
+<h4>Websocket Status<a class="headerlink" href="#websocket-status" title="Permalink to this headline">¶</a></h4>
 <p>This section gives the status of the websocket server and if Barcode Buddy is able to connect to it</p>
 </div>
 </div>
-<div class="section" id="web-ui-settings-chores">
-<h2>Web UI: Settings Chores<a class="headerlink" href="#web-ui-settings-chores" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="chores">
+<h3>Chores<a class="headerlink" href="#chores" title="Permalink to this headline">¶</a></h3>
 <p>This menu lists all available Grocy chores. Simply enter a barcode for a chore and press “Add”. The next time you scan this barcode, the chore will be executed. To change the barcode, simply edit it and press “Edit”. To remove, delete the barcode and press “Edit”.</p>
 </div>
-<div class="section" id="web-ui-tags">
-<h2>Web UI: Tags<a class="headerlink" href="#web-ui-tags" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="tags">
+<h3>Tags<a class="headerlink" href="#tags" title="Permalink to this headline">¶</a></h3>
 <p>All saved tags are listed here</p>
 <div class="section" id="adding-tags">
-<h3>Adding tags<a class="headerlink" href="#adding-tags" title="Permalink to this headline">¶</a></h3>
+<h4>Adding tags<a class="headerlink" href="#adding-tags" title="Permalink to this headline">¶</a></h4>
 <p>Scan a barcode that was not recognized by Grocy yet, but could be looked up. Before pressing “Add” or “Consume” in the main menu, select a word from the list to the right. The next time a barcode is looked up that contains the word, the product is preselected.</p>
 </div>
 <div class="section" id="managing-tags">
-<h3>Managing tags<a class="headerlink" href="#managing-tags" title="Permalink to this headline">¶</a></h3>
+<h4>Managing tags<a class="headerlink" href="#managing-tags" title="Permalink to this headline">¶</a></h4>
 <p>The list shows an overview of the tags. Click on “Delete” to remove the tag.</p>
 </div>
 </div>
-<div class="section" id="web-ui-quantities">
-<h2>Web UI: Quantities<a class="headerlink" href="#web-ui-quantities" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="quantities">
+<h3>Quantities<a class="headerlink" href="#quantities" title="Permalink to this headline">¶</a></h3>
 <p>This features is for products that come in packs containing more than one item.</p>
 <p>In the settings you see the quantity barcode (default “BBUDDY-Q-“). If you scan a barcode that starts with this text and has a number at the end, Barcode Buddy sets the quantity of the units from the previously scanned barcode to the number. For example: You scan Barcode “123”, which is a pack of 6 eggs. Then you scan the barcode “BBUDDY-Q-6”. The next time you scan the barcode “123” in purchase mode, Barcode Buddy will automatically add 6 eggs.</p>
 </div>
-<div class="section" id="web-ui-api">
-<h2>Web UI: API<a class="headerlink" href="#web-ui-api" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="api">
+<h3>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h3>
 <p>In this menu you can create and revoke Barcode Buddy API keys. Refer to <a class="reference internal" href="advanced.html#api"><span class="std std-ref">API</span></a></p>
 </div>
-<div class="section" id="web-ui-admin">
-<h2>Web UI: Admin<a class="headerlink" href="#web-ui-admin" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="admin">
+<h3>Admin<a class="headerlink" href="#admin" title="Permalink to this headline">¶</a></h3>
 <p>In this menu you can download a backup of your database file. To restore a backup, simply overwrite your current database file (default: <code class="docutils literal notranslate"><span class="pre">/data/barcodebuddy.db</span></code>.</p>
 <p>It is also possible to logout, so that you need to enter your username and password again.</p>
+</div>
 </div>
 </div>
 
