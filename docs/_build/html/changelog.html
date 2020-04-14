@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Changelog &mdash; Barcode Buddy Documentation 1.4.0.0 documentation</title>
+  <title>Changelog &mdash; Barcode Buddy Documentation 1.5.0.0 documentation</title>
   
 
   
@@ -83,10 +83,11 @@
 <li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="update.html">Updating Barcode Buddy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced usage and configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributions.html">Contributions</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#overview-of-all-changes">Overview of all Changes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#v1-5-0-0-14-apr-2020">v1.5.0.0: 14 Apr 2020</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#v1-4-1-1-26-mar-2020">v1.4.1.1: 26 Mar 2020</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#v1-4-0-0-20-mar-2020">v1.4.0.0: 20 Mar 2020</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#v1-3-2-0-16-mar-2020">v1.3.2.0: 16 Mar 2020</a></li>
@@ -173,6 +174,29 @@
 <span id="id1"></span><h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview-of-all-changes">
 <h2>Overview of all Changes<a class="headerlink" href="#overview-of-all-changes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="v1-5-0-0-14-apr-2020">
+<h3>v1.5.0.0: 14 Apr 2020<a class="headerlink" href="#v1-5-0-0-14-apr-2020" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Added authentication, can be disabled through config.php</p></li>
+<li><p>Added support for Grocys tare feature</p></li>
+<li><p>Config.php now found in the data directory</p></li>
+<li><p>Added API (if you are adding barcodes with GET, you will need to use the API instead)</p></li>
+<li><p>Support for official <a class="reference external" href="https://play.google.com/store/apps/details?id=de.bulling.barcodebuddyscanner">Barcode Buddy App</a></p></li>
+<li><p>Fixed race conditions</p></li>
+<li><p>Show more detailed errors if they occur</p></li>
+<li><p>Barcode Buddy settings can be set through environment variables</p></li>
+<li><p>Barcode grabber bash variables can be set through environment variables Thanks. &#64;Biont</p></li>
+<li><p>Add logs when adding/consuming new products through UI</p></li>
+<li><p>New theme for Screen module. Thanks &#64;hanerd</p></li>
+<li><p>Python barcode grabber script for devices that disconnect frequently. Thanks &#64;vondit</p></li>
+<li><p>Main ui refreshes through AJAX now without reloading</p></li>
+<li><p>Better support for iOS13</p></li>
+<li><p>Created robots.txt. Thanks &#64;bbrenton09</p></li>
+<li><p>Added favicon</p></li>
+<li><p>Added admin menu for dowloading database backup</p></li>
+<li><p>Refactoring / Minor fixes</p></li>
+</ul>
+</div>
 <div class="section" id="v1-4-1-1-26-mar-2020">
 <h3>v1.4.1.1: 26 Mar 2020<a class="headerlink" href="#v1-4-1-1-26-mar-2020" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">

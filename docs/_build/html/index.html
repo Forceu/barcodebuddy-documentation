@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Barcode Buddy for Grocy &mdash; Barcode Buddy Documentation 1.4.0.0 documentation</title>
+  <title>Barcode Buddy for Grocy &mdash; Barcode Buddy Documentation 1.5.0.0 documentation</title>
   
 
   
@@ -83,7 +83,7 @@
 <li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
 <li class="toctree-l1"><a class="reference internal" href="update.html">Updating Barcode Buddy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced usage and configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributions.html">Contributions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 </ul>
@@ -155,8 +155,8 @@
 <p>Barcode Buddy for Grocy is an extension for <a class="reference external" href="https://github.com/grocy/grocy">Grocy</a>, allowing to pass barcodes to Grocy. It supports barcodes for products and chores. If you own a physical barcode scanner, it can be integrated, so that all barcodes scanned are automatically pushed to BarcodeBuddy/Grocy.</p>
 <div class="section" id="why-use-barcode-buddy-and-how-does-it-work">
 <h2>Why use Barcode Buddy and how does it work<a class="headerlink" href="#why-use-barcode-buddy-and-how-does-it-work" title="Permalink to this headline">¶</a></h2>
-<p>Barcode Buddy makes using a barcode scanner a lot easier - ideally the barcode scanner is connected to a server / computer so it can send the barcodes to the programm. Alternatively the barcodes can be manually added with the web ui.
-In contrast to Grocy, unknown barcodes are looked up with OpenFoodFacts.org first, in order to find out the product name / category. If found, BarcodeBuddy checks if the user has stored any tags associated with the name: For example, if the name is “Chocolate bar”, it can automatically be set to the Grocy product “Chocolate”.</p>
+<p>Barcode Buddy makes using a barcode scanner a lot easier - ideally the barcode scanner is connected to a server / computer so it can send the barcodes to the program. Alternatively the barcodes can be manually added with the web UI.
+In contrast to Grocy, unknown barcodes are looked up with OpenFoodFacts.org first, in order to find out the product name / category. If found, Barcode Buddy checks if the user has stored any tags associated with the name: For example, if the name is “Chocolate bar”, it can automatically be set to the Grocy product “Chocolate”.</p>
 <p>A known barcode will be processed, so it reduces / increases the inventory or manipulates the shopping list.</p>
 <p>If the product could not be looked up, the user can select it manually.</p>
 <p>Chores can also be executed with barcodes.</p>
@@ -177,10 +177,7 @@ In contrast to Grocy, unknown barcodes are looked up with OpenFoodFacts.org firs
 <li class="toctree-l2"><a class="reference internal" href="usage.html#first-start">First Start</a></li>
 <li class="toctree-l2"><a class="reference internal" href="usage.html#using-the-web-ui">Using The Web UI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="usage.html#adding-barcodes">Adding Barcodes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#web-ui-settings-menu">Web UI: Settings menu</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#web-ui-settings-chores">Web UI: Settings Chores</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#web-ui-tags">Web UI: Tags</a></li>
-<li class="toctree-l2"><a class="reference internal" href="usage.html#web-ui-quantities">Web UI: Quantities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage.html#menus">Menus</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="update.html">Updating Barcode Buddy</a><ul>
@@ -188,7 +185,13 @@ In contrast to Grocy, unknown barcodes are looked up with OpenFoodFacts.org firs
 <li class="toctree-l2"><a class="reference internal" href="update.html#bare-metal">Bare Metal</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced usage and configuration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html#further-configuration">Further configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html#environment-variables">Environment variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html#api">API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced.html#plugins">Plugins</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="contributions.html">Contributions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="changelog.html#overview-of-all-changes">Overview of all Changes</a></li>

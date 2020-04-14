@@ -7,6 +7,30 @@ Changelog
 Overview of all Changes
 -----------------------
 
+
+v1.5.0.0: 14 Apr 2020
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Added authentication, can be disabled through config.php
+* Added support for Grocys tare feature
+* Config.php now found in the data directory
+* Added API (if you are adding barcodes with GET, you will need to use the API instead)
+* Support for official `Barcode Buddy App <https://play.google.com/store/apps/details?id=de.bulling.barcodebuddyscanner>`_
+* Fixed race conditions
+* Show more detailed errors if they occur
+* Barcode Buddy settings can be set through environment variables
+* Barcode grabber bash variables can be set through environment variables Thanks. @Biont
+* Add logs when adding/consuming new products through UI
+* New theme for Screen module. Thanks @hanerd
+* Python barcode grabber script for devices that disconnect frequently. Thanks @vondit
+* Main ui refreshes through AJAX now without reloading
+* Better support for iOS13
+* Created robots.txt. Thanks @bbrenton09
+* Added favicon
+* Added admin menu for dowloading database backup
+* Refactoring / Minor fixes
+
+
 v1.4.1.1: 26 Mar 2020
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

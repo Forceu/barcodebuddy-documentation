@@ -4,7 +4,7 @@
 Setup
 =====
 
-There are two different ways to setup BarcodeBuddy: Either a bare metal approach or docker
+There are two different ways to setup Barcode Buddy: Either a bare metal approach or docker
 
 ******
 Docker
@@ -65,7 +65,7 @@ The following arguments can also be passed:
 +-----------------------+------------+-------------------------------------+
 |        Argument       |    Value   |                Effect               |
 +-----------------------+------------+-------------------------------------+
-| ATTACH_BARCODESCANNER | true/false | Attach barcodescanner               |
+| ATTACH_BARCODESCANNER | true/false | Attach barcode scanner              |
 +-----------------------+------------+-------------------------------------+
 | IGNORE_SSL_CA         | true/false | Accept self-signed SSL certificates |
 +-----------------------+------------+-------------------------------------+
@@ -113,11 +113,12 @@ Installation
 
 It is strongly recommended to change ``pm.max_children`` to a value of 10 or higher in ``/etc/php7/php-fpm.d/www.conf`` (path might be different, depending on PHP version and distribution; for Ubuntu 18.04 it is ``/etc/php/7.2/fpm/pool.d/www.conf``).
 
+.. _webserverinit:
 
 Webserver setup
 """""""""""""""""
 
-This guide is written for a Debian based server, including Ubuntu. If you already have a webserver setup, you can skip this section.
+This guide is written for a Debian based server, including Ubuntu. If you already have a webserver setup, please make sure to have a look at the `Nginx example file <https://github.com/Forceu/barcodebuddy/blob/master/example/nginxConfiguration.conf>`_, as for the folder /api/ a rewrite rule has to be added.
 
 Installing NGINX
 ------------------
@@ -138,6 +139,28 @@ Installing NGINX
 * Restart NGINX ``service nginx restart``
 
 
+
+Configuring Apache2
+--------------------
+
+We recommend using Nginx. If you are already an Apache2 user, follow these steps to make sure that Barcode Buddy is working correctly:
+
+* Execute ``a2enmod rewrite`` to make sure that the rewrite module is active
+* Make sure that you can use .htaccess files for rewriting. For that the option ``AllowOverride`` for the directory must be set to ``All``. You can normally find this configuration in the ``apache2.conf`` file. For Ubuntu this file is located at ``/etc/apache2/apache2.conf``. Search for ``AllowOverride`` and set it to ``All`` for the root directory where Barcode Buddy is installed.
+
+Example:
+::
+
+ [...]
+ <Directory /var/www/>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+ </Directory>
+ [...]
+
+
+
 Stable version
 """""""""""""""""
 `Download the project <https://github.com/Forceu/barcodebuddy/releases/>`_ and copy all files into your webserver.
@@ -147,15 +170,15 @@ Unstable version
 Execute 
 ::
 
- git clone https://github.com/Forceu/barcodebuddy.git
+ git clone https://github.com/Forceu/barcodebuddy.git .
 
-and move the folder into your webserver directory.
+in the folder where you want to install Barcode Buddy to.
 
 
 Starting the websocket service
 """"""""""""""""""""""""""""""
 
-If you have access to your webservers command line, make sure to start the websocket server. This way you can use the Screen module and if there are any changes, BarcodeBuddy will automatically refresh.
+If you have access to your webservers command line, make sure to start the websocket server. This way you can use the Screen module and if there are any changes, Barcode Buddy will automatically refresh.
 
 Navigate to your installation folder and execute ``php wsserver.php`` to start the server. To have it run in the background, either use the screen application (recommended)
 ::
@@ -167,27 +190,17 @@ or the following command:
 
  nohup php wsserver.php &
 
+To start the websocket server after a reboot, you can use cron. Make sure to use the crontab for the webserver user (on Debian/Ubuntu this the user ``www-data``.
 
+Open the crontab for the user:
+::
 
-Further Setup
-^^^^^^^^^^^^^^
+ sudo crontab -e -u www-data
 
-You will find the file ``config.php`` in the folder "incl". This file is for further configuration - the following values can be changed:
+And insert the following new line (you might need to adjust the paths):
+::
 
-
-+------------------------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-|           Argument           |      Value      |                                                                        Effect                                                                       |
-+------------------------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-|     PORT_WEBSOCKET_SERVER    |    1024-65535   | The port that the websocket server listens to. Change if you running multiple instances or the default port is already used by another application. |
-+------------------------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-|         DATABASE_PATH        | A writable path | The path were the database file is written to. Make sure that the webserver does not allow the download of the file.                                |
-+------------------------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-|        CURL_TIMEOUT_S        |       5-60      | How long to wait for a request                                                                                                                      |
-+------------------------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-|  CURL_ALLOW_INSECURE_SSL_CA  |    true/false   | Accept self-signed SSL certificates                                                                                                                 |
-+------------------------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-| CURL_ALLOW_INSECURE_SSL_HOST |    true/false   | Accept SSL certificates where the host does not match                                                                                               |
-+------------------------------+-----------------+-----------------------------------------------------------------------------------------------------------------------------------------------------+
+ @reboot /usr/bin/screen -S wsserver -d -m /usr/bin/php /var/www/html/barcodebuddy/wsserver.php
 
 
 
@@ -205,7 +218,7 @@ Open VirtualBox, and go to ``File/Host Network Manager``. If there is no network
 
 Start the image - once it is completely running, you will see a login prompt. Above that, you will see two IP addresses. Normally with the second one you can reach the server, so simply connect in your webbrowser to ``http://THE_IP/``.
 
-If you need to log in to the image, the default username is ``root`` and the default password is ``barcode``.
+If you need to log in to the image, the default username is ``root`` and the default password is ``barcode``. For security reasons, SSH is disabled, to enable it, execute  ``rc-update add sshd`` (make sure to change your password and to add a non-root user!)
 
 
 ********
@@ -216,6 +229,4 @@ Hass.IO
 Connecting to Grocy
 ^^^^^^^^^^^^^^^^^^^^
 
-If you are running Grocy in a HASS.io container, further configuration is needed. Open HASS and go to the Grocy plugin section (not Grocy itself). Scroll down and enter ``9192`` in the ``Network`` section and press save. Make sure that you disable SSL in the Grocy config section above, if you are not using a proper certificate. Then restart Grocy. You will now be able to access Grocy under the URL ``http://hassio.local:9192``. In BarcodeBuddy setup, enter ``http://hassio.local:9192/api/`` as URL.  
-
-
+If you are running Grocy in a HASS.io container, further configuration is needed. Open HASS and go to the Grocy plugin section (not Grocy itself). Scroll down and enter ``9192`` in the ``Network`` section and press save. Make sure that you disable SSL in the Grocy config section above, if you are not using a proper certificate. Then restart Grocy. You will now be able to access Grocy under the URL ``http://hassio.local:9192``. In Barcode Buddy setup, enter ``http://hassio.local:9192/api/`` as URL.  

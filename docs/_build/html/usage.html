@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Usage &mdash; Barcode Buddy Documentation 1.4.0.0 documentation</title>
+  <title>Usage &mdash; Barcode Buddy Documentation 1.5.0.0 documentation</title>
   
 
   
@@ -92,31 +92,37 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#adding-barcodes">Adding Barcodes</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#adding-barcodes-manually">Adding Barcodes Manually</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#adding-barcodes-automatically">Adding Barcodes automatically</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#adding-barcodes-automatically">Adding Barcodes Automatically</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#using-a-physical-barcode-scanner">Using a physical barcode scanner</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#using-barcode-buddy-app-for-android">Using Barcode Buddy app for Android</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#using-a-3rd-party-application-script">Using a 3rd party application / script</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#using-a-3rd-party-mobile-app">Using a 3rd party mobile app</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#web-ui-settings-menu">Web UI: Settings menu</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#general-settings">General Settings</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#grocy-api">Grocy API</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#websocket-status">Websocket Status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#menus">Menus</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#settings-menu">Settings menu</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#general-settings">General Settings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#grocy-api">Grocy API</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#websocket-status">Websocket Status</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#web-ui-settings-chores">Web UI: Settings Chores</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#web-ui-tags">Web UI: Tags</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#adding-tags">Adding tags</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#managing-tags">Managing tags</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#chores">Chores</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#tags">Tags</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#adding-tags">Adding tags</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#managing-tags">Managing tags</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#web-ui-quantities">Web UI: Quantities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#quantities">Quantities</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#api">API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#admin">Admin</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="update.html">Updating Barcode Buddy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plugins.html">Plugins</a></li>
+<li class="toctree-l1"><a class="reference internal" href="advanced.html">Advanced usage and configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributions.html">Contributions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 </ul>
@@ -187,7 +193,7 @@
 <span id="id1"></span><h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="first-start">
 <span id="firststart"></span><h2>First Start<a class="headerlink" href="#first-start" title="Permalink to this headline">¶</a></h2>
-<p>Open your Grocy website. Click on Settings in the top right corner and then click on <em>Manage API keys</em>. Click on <em>add</em> and copy the long API key to your clipboard. You can now open Barcode Buddy by visiting your webservers URL. The setup will ask you to enter the API details. Make sure to have the trailing “/api/” for your Grocy URL at the end.</p>
+<p>Open your Grocy website. Click on Settings in the top right corner and then click on <em>Manage API keys</em>. Click on <em>add</em> and copy the long API key to your clipboard. You can now open Barcode Buddy by visiting your webservers URL. The setup will first let you create a user and then ask you to enter the API details. Make sure to have the trailing “/api/” for your Grocy URL at the end.</p>
 </div>
 <div class="section" id="using-the-web-ui">
 <h2>Using The Web UI<a class="headerlink" href="#using-the-web-ui" title="Permalink to this headline">¶</a></h2>
@@ -197,12 +203,13 @@
 <ul class="simple">
 <li><p>New Barcodes: Barcodes that are unknown to Grocy, but the name could be looked up</p></li>
 <li><p>Unknown Barcodes: Barcodes that are unknown to Grocy and could not be looked up</p></li>
-<li><p>Processed Barcodes: A history of all barcodes that were processed by BarcodeBuddy</p></li>
+<li><p>Processed Barcodes: A history of all barcodes that were processed by Barcode Buddy</p></li>
 </ul>
+<p>If you have entered a barcode that is linked to a Grocy product with the tare feature enabled, a fourth section will popup named “Actions required”, where you can enter the weight for the product.</p>
 </div>
 <div class="section" id="special-barcodes">
 <h3>Special Barcodes<a class="headerlink" href="#special-barcodes" title="Permalink to this headline">¶</a></h3>
-<p>There are seven special barcodes - if you scan the barcode, BarcodeBuddy goes into a different mode: Eg. in Purchase mode all barcodes that are scanned will be added to Grocys inventory.</p>
+<p>There are seven special barcodes - if you scan the barcode, Barcode Buddy goes into a different mode: Eg. in Purchase mode all barcodes that are scanned will be added to Grocys inventory.</p>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 17%" />
@@ -260,25 +267,25 @@ time you scan the carton barcode, it will register as 10 units.</p></td>
 <div class="section" id="adding-barcodes-manually">
 <h3>Adding Barcodes Manually<a class="headerlink" href="#adding-barcodes-manually" title="Permalink to this headline">¶</a></h3>
 <p>The easiest option, ideally for testing out Barcode Buddy: Simply open the web ui and click on “Add barcode”. Enter the barcode (use one line per barcode) and click on “Add”.</p>
-<p>If you are using a barcode scanner, but don’t want to attach it to BarcodeBuddy (yet), you can also plug it into the device that runs the webbrowser and use it to enter the barcodes in the textfield. Each line is parsed as a barcode.</p>
+<p>If you are using a barcode scanner, but don’t want to attach it to Barcode Buddy (yet), you can also plug it into the device that runs the webbrowser and use it to enter the barcodes in the textfield. Each line is parsed as a barcode.</p>
 </div>
 <div class="section" id="adding-barcodes-automatically">
-<h3>Adding Barcodes automatically<a class="headerlink" href="#adding-barcodes-automatically" title="Permalink to this headline">¶</a></h3>
+<h3>Adding Barcodes Automatically<a class="headerlink" href="#adding-barcodes-automatically" title="Permalink to this headline">¶</a></h3>
 <p>The preferred way. Most barcode scanners register as a USB keyboard. That way, it is possible to grab the input and send it to Barcode Buddy.</p>
 <div class="section" id="using-a-physical-barcode-scanner">
 <span id="attachingscanner"></span><h4>Using a physical barcode scanner<a class="headerlink" href="#using-a-physical-barcode-scanner" title="Permalink to this headline">¶</a></h4>
-<p>Plug in your barcode scanner to the linux computer / server you will be using. Run the command <code class="docutils literal notranslate"><span class="pre">evtest</span></code> as root. You will see a list of devices, select the one that is your barcode scanner and remember the number (eg. event6). Scan a barcode. You will now see output in the evtest programm. If not, you have selected the wrong source.</p>
+<p>Plug in your barcode scanner to the linux computer / server you will be using. Run the command <code class="docutils literal notranslate"><span class="pre">evtest</span></code> as root. You will see a list of devices, select the one that is your barcode scanner and remember the number (eg. event6). Scan a barcode. You will now see output in the evtest program. If not, you have selected the wrong source.</p>
 <div class="section" id="docker">
 <h5>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h5>
 <p>Create a docker container with</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">v</span> <span class="n">bbconfig</span><span class="p">:</span><span class="o">/</span><span class="n">config</span> <span class="o">-</span><span class="n">e</span> <span class="n">ATTACH_BARCODESCANNER</span><span class="o">=</span><span class="n">true</span> <span class="o">-</span><span class="n">p</span> <span class="mi">80</span><span class="p">:</span><span class="mi">80</span> <span class="o">-</span><span class="n">p</span> <span class="mi">443</span><span class="p">:</span><span class="mi">443</span> <span class="o">--</span><span class="n">device</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="nb">input</span><span class="o">/</span><span class="n">eventX</span> <span class="n">f0rc3</span><span class="o">/</span><span class="n">barcodebuddy</span><span class="o">-</span><span class="n">docker</span><span class="p">:</span><span class="n">YOURTAG</span>
 </pre></div>
 </div>
-<p>where X in <code class="docutils literal notranslate"><span class="pre">--device</span> <span class="pre">/dev/input/eventX</span></code> is the number of your event you selected previously. You might need to change the values for the ports. Scan a barcode - it should be sent directly to BarcodeBuddy.</p>
+<p>where X in <code class="docutils literal notranslate"><span class="pre">--device</span> <span class="pre">/dev/input/eventX</span></code> is the number of your event you selected previously. You might need to change the values for the ports. Scan a barcode - it should be sent directly to Barcode Buddy.</p>
 </div>
 <div class="section" id="bare-metal">
 <h5>Bare Metal<a class="headerlink" href="#bare-metal" title="Permalink to this headline">¶</a></h5>
-<p>Navigate to the example folder in the BarcodeBuddy directory. In the file <code class="docutils literal notranslate"><span class="pre">grabInput.sh</span></code> edit the following values:</p>
+<p>Navigate to the example folder in the Barcode Buddy directory. In the file <code class="docutils literal notranslate"><span class="pre">grabInput.sh</span></code> edit the following values:</p>
 <ul class="simple">
 <li><dl class="simple">
 <dt>If your barcode scanner is attached to the same computer / server:</dt><dd><ul>
@@ -307,45 +314,34 @@ time you scan the carton barcode, it will register as 10 units.</p></td>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bash</span> <span class="n">grabInput</span><span class="o">.</span><span class="n">sh</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="nb">input</span><span class="o">/</span><span class="n">eventX</span>
 </pre></div>
 </div>
-<p>where X is the number of your event you selected previously. Scan a barcode - it should be sent directly to BarcodeBuddy.</p>
+<p>where X is the number of your event you selected previously. Scan a barcode - it should be sent directly to Barcode Buddy.</p>
 <p>To run the script in the background, run</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">screen</span> <span class="o">-</span><span class="n">S</span> <span class="n">barcodegrabber</span> <span class="o">-</span><span class="n">d</span> <span class="o">-</span><span class="n">m</span> <span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">the</span><span class="o">/</span><span class="n">barcodebuddy</span><span class="o">/</span><span class="n">folder</span><span class="o">/</span><span class="n">example</span><span class="o">/</span><span class="n">grabInput</span><span class="o">.</span><span class="n">sh</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="nb">input</span><span class="o">/</span><span class="n">eventX</span>
 </pre></div>
 </div>
 </div>
 </div>
+<div class="section" id="using-barcode-buddy-app-for-android">
+<h4>Using Barcode Buddy app for Android<a class="headerlink" href="#using-barcode-buddy-app-for-android" title="Permalink to this headline">¶</a></h4>
+<p>Download the app here: <a class="reference external" href="https://play.google.com/store/apps/details?id=de.bulling.barcodebuddyscanner">Google Play Store</a></p>
+<p>Once installed, open Barcode Buddy and navigate to the menu <code class="docutils literal notranslate"><span class="pre">API</span></code>. There click on the three dots in the top right corner and select <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">mobile</span> <span class="pre">app</span></code>. Open your Barcode Buddy app and then scan the displayed QR code.</p>
+</div>
 <div class="section" id="using-a-3rd-party-application-script">
 <h4>Using a 3rd party application / script<a class="headerlink" href="#using-a-3rd-party-application-script" title="Permalink to this headline">¶</a></h4>
-<p>If you want to write your own script, there are two ways to send the barcodes to Barcode Buddy: either by calling <code class="docutils literal notranslate"><span class="pre">php</span> <span class="pre">index.php</span> <span class="pre">yourBarcode</span></code> or by calling the URL: <code class="docutils literal notranslate"><span class="pre">https://url.to.barcode.buddy/index.php?add=123456789</span></code>. Only one barcode can be given with each call. You will only receive a return value if there was an error. If you are using the URL method, you can display the UI with the additional parameter <code class="docutils literal notranslate"><span class="pre">showui</span></code>. For example:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://your.webhost.com/index.php?showui&amp;add=123456789
-</pre></div>
-</div>
-<p>You can also specify the mode for each barcode with a GET parameter. Simply add <code class="docutils literal notranslate"><span class="pre">&amp;mode=NEWMODE</span></code> and replace <code class="docutils literal notranslate"><span class="pre">NEWMODE</span></code> with one of the following modes:</p>
-<ul class="simple">
-<li><p>consume</p></li>
-<li><p>consume_s (Consume spoiled)</p></li>
-<li><p>purchase</p></li>
-<li><p>open</p></li>
-<li><p>inventory</p></li>
-</ul>
-<div class="section" id="example">
-<h5>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h5>
-<p>To show the current stock on the webui of the Product “Pizza” which already has the barcode “123456” assigned:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://your.webhost.com/index.php?showui&amp;add=123456&amp;mode=inventory
-</pre></div>
-</div>
-</div>
+<p>If you want to write your own script, there are two ways to send the barcodes to Barcode Buddy: either by calling <code class="docutils literal notranslate"><span class="pre">php</span> <span class="pre">index.php</span> <span class="pre">yourBarcode</span></code> or by calling the URL: <code class="docutils literal notranslate"><span class="pre">https://your.bbuddy.url/api/action/scan?apikey=myApiKey&amp;add=123456</span></code>. Only one barcode can be given with each call. Replace myApiKey with an API key generated in the main menu. For more information about the API visit <a class="reference internal" href="advanced.html#api"><span class="std std-ref">API</span></a>.</p>
 </div>
 <div class="section" id="using-a-3rd-party-mobile-app">
 <h4>Using a 3rd party mobile app<a class="headerlink" href="#using-a-3rd-party-mobile-app" title="Permalink to this headline">¶</a></h4>
-<p>Although we have not released an app (yet), you can use the <a class="reference external" href="https://play.google.com/store/apps/details?id=com.scanner.kataykin.icamesscaner.free">Android app QR &amp; Barcode Scanner</a> and point it to the index.php file. BarcodeBuddy supports the <code class="docutils literal notranslate"><span class="pre">text</span></code> GET variable that is used by the app since version 1.4.1.0.</p>
+<p>Although we have not released an app (yet), you can use the <a class="reference external" href="https://play.google.com/store/apps/details?id=com.scanner.kataykin.icamesscaner.free">Android app QR &amp; Barcode Scanner</a> and point it to <code class="docutils literal notranslate"><span class="pre">/api/action/scan</span></code>. Make sure to add the paramter <code class="docutils literal notranslate"><span class="pre">apikey</span></code> with the correct API key.</p>
 </div>
 </div>
 </div>
-<div class="section" id="web-ui-settings-menu">
-<h2>Web UI: Settings menu<a class="headerlink" href="#web-ui-settings-menu" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="menus">
+<h2>Menus<a class="headerlink" href="#menus" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="settings-menu">
+<h3>Settings menu<a class="headerlink" href="#settings-menu" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="general-settings">
-<h3>General Settings<a class="headerlink" href="#general-settings" title="Permalink to this headline">¶</a></h3>
+<h4>General Settings<a class="headerlink" href="#general-settings" title="Permalink to this headline">¶</a></h4>
 <p>In this tab you can set the barcodes for changing Barcode Buddy modes. For example, if you scan the barcode “BBUDDY-P”, Barcode Buddy will change to “Purchase” mode and add all following items to your Grocy inventory. By default it is in “Consume” mode. The edit field below allows you to set the time in minutes, which is required to pass in order to revert back to the default “Consume” mode. E.g. if “Purchase” mode is active and the field is set to 10 minutes, Barcode Buddy will revert back to “Consume” mode 10 minutes later.</p>
 <p>If you scan the “Inventory” barcode, Barcode Buddy will simply output the current stock, but not change any values. If an unknown barcode is scanned, it is added to the regular list.</p>
 <p>The “Add to shopping list” barcode adds all future barcodes to the default shopping list.</p>
@@ -354,34 +350,44 @@ time you scan the carton barcode, it will register as 10 units.</p></td>
 <p>When “more verbose logs” is disabled, only barcode scans are logged in the log part of the main page.</p>
 </div>
 <div class="section" id="grocy-api">
-<h3>Grocy API<a class="headerlink" href="#grocy-api" title="Permalink to this headline">¶</a></h3>
+<h4>Grocy API<a class="headerlink" href="#grocy-api" title="Permalink to this headline">¶</a></h4>
 <p>Here you can change your Grocy API details. Refer to <a class="reference internal" href="#firststart"><span class="std std-ref">First Start</span></a>.</p>
 </div>
 <div class="section" id="websocket-status">
-<h3>Websocket Status<a class="headerlink" href="#websocket-status" title="Permalink to this headline">¶</a></h3>
-<p>This section gives the status of the websocket server and if BarcodeBuddy is able to connect to it</p>
+<h4>Websocket Status<a class="headerlink" href="#websocket-status" title="Permalink to this headline">¶</a></h4>
+<p>This section gives the status of the websocket server and if Barcode Buddy is able to connect to it</p>
 </div>
 </div>
-<div class="section" id="web-ui-settings-chores">
-<h2>Web UI: Settings Chores<a class="headerlink" href="#web-ui-settings-chores" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="chores">
+<h3>Chores<a class="headerlink" href="#chores" title="Permalink to this headline">¶</a></h3>
 <p>This menu lists all available Grocy chores. Simply enter a barcode for a chore and press “Add”. The next time you scan this barcode, the chore will be executed. To change the barcode, simply edit it and press “Edit”. To remove, delete the barcode and press “Edit”.</p>
 </div>
-<div class="section" id="web-ui-tags">
-<h2>Web UI: Tags<a class="headerlink" href="#web-ui-tags" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="tags">
+<h3>Tags<a class="headerlink" href="#tags" title="Permalink to this headline">¶</a></h3>
 <p>All saved tags are listed here</p>
 <div class="section" id="adding-tags">
-<h3>Adding tags<a class="headerlink" href="#adding-tags" title="Permalink to this headline">¶</a></h3>
+<h4>Adding tags<a class="headerlink" href="#adding-tags" title="Permalink to this headline">¶</a></h4>
 <p>Scan a barcode that was not recognized by Grocy yet, but could be looked up. Before pressing “Add” or “Consume” in the main menu, select a word from the list to the right. The next time a barcode is looked up that contains the word, the product is preselected.</p>
 </div>
 <div class="section" id="managing-tags">
-<h3>Managing tags<a class="headerlink" href="#managing-tags" title="Permalink to this headline">¶</a></h3>
+<h4>Managing tags<a class="headerlink" href="#managing-tags" title="Permalink to this headline">¶</a></h4>
 <p>The list shows an overview of the tags. Click on “Delete” to remove the tag.</p>
 </div>
 </div>
-<div class="section" id="web-ui-quantities">
-<h2>Web UI: Quantities<a class="headerlink" href="#web-ui-quantities" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="quantities">
+<h3>Quantities<a class="headerlink" href="#quantities" title="Permalink to this headline">¶</a></h3>
 <p>This features is for products that come in packs containing more than one item.</p>
 <p>In the settings you see the quantity barcode (default “BBUDDY-Q-“). If you scan a barcode that starts with this text and has a number at the end, Barcode Buddy sets the quantity of the units from the previously scanned barcode to the number. For example: You scan Barcode “123”, which is a pack of 6 eggs. Then you scan the barcode “BBUDDY-Q-6”. The next time you scan the barcode “123” in purchase mode, Barcode Buddy will automatically add 6 eggs.</p>
+</div>
+<div class="section" id="api">
+<h3>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h3>
+<p>In this menu you can create and revoke Barcode Buddy API keys. Refer to <a class="reference internal" href="advanced.html#api"><span class="std std-ref">API</span></a></p>
+</div>
+<div class="section" id="admin">
+<h3>Admin<a class="headerlink" href="#admin" title="Permalink to this headline">¶</a></h3>
+<p>In this menu you can download a backup of your database file. To restore a backup, simply overwrite your current database file (default: <code class="docutils literal notranslate"><span class="pre">/data/barcodebuddy.db</span></code>.</p>
+<p>It is also possible to logout, so that you need to enter your username and password again.</p>
+</div>
 </div>
 </div>
 

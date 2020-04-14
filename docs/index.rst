@@ -8,7 +8,7 @@ Barcode Buddy for Grocy is an extension for `Grocy`_, allowing to pass barcodes 
 Why use Barcode Buddy and how does it work
 ---------------------------------------------
 
-Barcode Buddy makes using a barcode scanner a lot easier - ideally the barcode scanner is connected to a server / computer so it can send the barcodes to the programm. Alternatively the barcodes can be manually added with the web ui.
+Barcode Buddy makes using a barcode scanner a lot easier - ideally the barcode scanner is connected to a server / computer so it can send the barcodes to the program. Alternatively the barcodes can be manually added with the web UI.
 In contrast to Grocy, unknown barcodes are looked up with OpenFoodFacts.org first, in order to find out the product name / category. If found, Barcode Buddy checks if the user has stored any tags associated with the name: For example, if the name is "Chocolate bar", it can automatically be set to the Grocy product "Chocolate".
 
 A known barcode will be processed, so it reduces / increases the inventory or manipulates the shopping list.
@@ -29,6 +29,6 @@ Contents
    setup
    usage
    update
-   plugins
+   advanced
    contributions
    changelog
