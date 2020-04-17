@@ -161,6 +161,10 @@ With the "Revert after single item scan in "Open" or "Spoiled" mode" checkbox ti
 
 With "Remove purchased items from shoppinglist" enabled, items that are scanned in purchase mode are removed from all Grocy shopping lists.
 
+With "Consume amount of quantity saved for barcode" enabled, Barcode Buddy will check if you saved a quantity for this barcode with the default barcode BBUDDY-Q-[X]. Normally, it will only use this amount for adding products to the inventory, with this option however it will also remove the same amount from the inventory when you are scanning the barcode in Consume mode.
+
+The option "Use generic names for lookup" makes it easier to tag products. If found, it will use the generic name for a product instead of a brandname. For example instead of using "GreatCompany extra virgin oil", Barcode Buddy will name the product "Olive Oil".
+
 When "more verbose logs" is disabled, only barcode scans are logged in the log part of the main page.
 
 Grocy API

@@ -25,7 +25,7 @@ v1.5.0.0: 14 Apr 2020
 * Python barcode grabber script for devices that disconnect frequently. Thanks @vondit
 * Main ui refreshes through AJAX now without reloading
 * Better support for iOS13
-* Created robots.txt. Thanks @bbrenton09
+* Created robots.txt. Thanks @bbreton09
 * Added favicon
 * Added admin menu for dowloading database backup
 * Refactoring / Minor fixes
