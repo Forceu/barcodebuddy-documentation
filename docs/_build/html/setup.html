@@ -103,6 +103,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#id6">Installation</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#reverse-proxy">Reverse Proxy</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#hass-io">Hass.IO</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#connecting-to-grocy">Connecting to Grocy</a></li>
 </ul>
@@ -402,6 +403,11 @@ host does not match</p></td>
 <p>Start the image - once it is completely running, you will see a login prompt. Above that, you will see two IP addresses. Normally with the second one you can reach the server, so simply connect in your webbrowser to <code class="docutils literal notranslate"><span class="pre">http://THE_IP/</span></code>.</p>
 <p>If you need to log in to the image, the default username is <code class="docutils literal notranslate"><span class="pre">root</span></code> and the default password is <code class="docutils literal notranslate"><span class="pre">barcode</span></code>. For security reasons, SSH is disabled, to enable it, execute  <code class="docutils literal notranslate"><span class="pre">rc-update</span> <span class="pre">add</span> <span class="pre">sshd</span></code> (make sure to change your password and to add a non-root user!)</p>
 </div>
+</div>
+<div class="section" id="reverse-proxy">
+<h2>Reverse Proxy<a class="headerlink" href="#reverse-proxy" title="Permalink to this headline">¶</a></h2>
+<p>If you would like to run Barcode Buddy behind a reverse proxy, you can find an <a class="reference external" href="https://github.com/Forceu/barcodebuddy/blob/master/example/nginxReverseProxy.conf">Nginx configuration</a> in the example folder.</p>
+<p>Make sure that you set <code class="docutils literal notranslate"><span class="pre">fastcgi_pass_header</span> <span class="pre">&quot;X-Accel-Buffering&quot;</span></code> in the Barcode Buddy host Nginx configuration, or <code class="docutils literal notranslate"><span class="pre">proxy_buffering</span> <span class="pre">off</span></code> in the reverse proxy configuration.</p>
 </div>
 <div class="section" id="hass-io">
 <h2>Hass.IO<a class="headerlink" href="#hass-io" title="Permalink to this headline">¶</a></h2>

@@ -7,8 +7,17 @@ Changelog
 Overview of all Changes
 -----------------------
 
+v1.5.0.2: 15 Apr 2020
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-v1.5.0.0: 14 Apr 2020
+* Fixed API call state/setmode
+* Environment variable for CONFIG_PATH was not parsed
+* Added variables to hide Grocy and Screen module links
+* Other minor changes
+
+
+
+v1.5.0.1: 14 Apr 2020
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 * Added authentication, can be disabled through config.php

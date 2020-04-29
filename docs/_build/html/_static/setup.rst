@@ -220,6 +220,13 @@ Start the image - once it is completely running, you will see a login prompt. Ab
 
 If you need to log in to the image, the default username is ``root`` and the default password is ``barcode``. For security reasons, SSH is disabled, to enable it, execute  ``rc-update add sshd`` (make sure to change your password and to add a non-root user!)
 
+**************
+Reverse Proxy
+**************
+
+If you would like to run Barcode Buddy behind a reverse proxy, you can find an `Nginx configuration <https://github.com/Forceu/barcodebuddy/blob/master/example/nginxReverseProxy.conf>`_ in the example folder.
+
+Make sure that you set ``fastcgi_pass_header "X-Accel-Buffering"`` in the Barcode Buddy host Nginx configuration, or ``proxy_buffering off`` in the reverse proxy configuration.
 
 ********
 Hass.IO
