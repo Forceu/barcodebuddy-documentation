@@ -96,7 +96,6 @@
 <li class="toctree-l4"><a class="reference internal" href="#using-a-physical-barcode-scanner">Using a physical barcode scanner</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#using-barcode-buddy-app-for-android">Using Barcode Buddy app for Android</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#using-a-3rd-party-application-script">Using a 3rd party application / script</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#using-a-3rd-party-mobile-app">Using a 3rd party mobile app</a></li>
 </ul>
 </li>
 </ul>
@@ -229,23 +228,27 @@
 <td><p>BBUDDY-CS</p></td>
 <td><p>All items scanned in this mode will be removed from the inventory and marked as spoiled</p></td>
 </tr>
-<tr class="row-even"><td><p>Purchase</p></td>
+<tr class="row-even"><td><p>Consume all</p></td>
+<td><p>BBUDDY-CA</p></td>
+<td><p>All products scanned in this mode will have all stock removed from their inventory</p></td>
+</tr>
+<tr class="row-odd"><td><p>Purchase</p></td>
 <td><p>BBUDDY-P</p></td>
 <td><p>All items scanned in this mode will be added to the inventory</p></td>
 </tr>
-<tr class="row-odd"><td><p>Open</p></td>
+<tr class="row-even"><td><p>Open</p></td>
 <td><p>BBUDDY-O</p></td>
 <td><p>All items scanned in this mode will be marked as opened</p></td>
 </tr>
-<tr class="row-even"><td><p>Inventory</p></td>
+<tr class="row-odd"><td><p>Inventory</p></td>
 <td><p>BBUDDY-I</p></td>
 <td><p>Displays the current amount of items in stock of that product</p></td>
 </tr>
-<tr class="row-odd"><td><p>Add to shoppinglist</p></td>
+<tr class="row-even"><td><p>Add to shoppinglist</p></td>
 <td><p>BBUDDY-AS</p></td>
 <td><p>All items scanned in this mode will be added to the default shopping list</p></td>
 </tr>
-<tr class="row-even"><td><p>Quantity</p></td>
+<tr class="row-odd"><td><p>Quantity</p></td>
 <td><p>BBUDDY-Q-?</p></td>
 <td><p>Sets a quantity for a barcode. Replace ? with number of items. Eg. if you have a carton
 with 10 eggs, scan the barcode BBUDDY-Q-10 and then the barcode of the carton. The next
@@ -274,9 +277,15 @@ time you scan the carton barcode, it will register as 10 units.</p></td>
 <p>The preferred way. Most barcode scanners register as a USB keyboard. That way, it is possible to grab the input and send it to Barcode Buddy.</p>
 <div class="section" id="using-a-physical-barcode-scanner">
 <span id="attachingscanner"></span><h4>Using a physical barcode scanner<a class="headerlink" href="#using-a-physical-barcode-scanner" title="Permalink to this headline">¶</a></h4>
-<p>Plug in your barcode scanner to the linux computer / server you will be using. Run the command <code class="docutils literal notranslate"><span class="pre">evtest</span></code> as root. You will see a list of devices, select the one that is your barcode scanner and remember the number (eg. event6). Scan a barcode. You will now see output in the evtest program. If not, you have selected the wrong source.</p>
+<div class="section" id="barcode-scanner-connected-to-an-android-device">
+<h5>Barcode scanner connected to an Android device<a class="headerlink" href="#barcode-scanner-connected-to-an-android-device" title="Permalink to this headline">¶</a></h5>
+<p>If you use a barcode scanner that is connected to your Android device, you can use the <a class="reference external" href="https://play.google.com/store/apps/details?id=de.bulling.barcodebuddyscanner">Android App</a> to send all input to Barcode Buddy. Open the app, go to Settings and activate <code class="docutils literal notranslate"><span class="pre">Enable</span> <span class="pre">Bluetooth</span> <span class="pre">Barcode</span> <span class="pre">Scanner</span></code>. Then return to the main menu. Every time you scan a barcode while being in the app’s main menu, all input is sent to Barcode Buddy. For more info, refer to <a class="reference internal" href="#androidapp"><span class="std std-ref">Using Barcode Buddy app for Android</span></a>.</p>
+</div>
+<div class="section" id="barcode-scanner-connected-to-a-linux-device">
+<h5>Barcode scanner connected to a Linux device<a class="headerlink" href="#barcode-scanner-connected-to-a-linux-device" title="Permalink to this headline">¶</a></h5>
+<p>Plug in your barcode scanner to the Linux computer / server you will be using. Run the command <code class="docutils literal notranslate"><span class="pre">evtest</span></code> as root. You will see a list of devices, select the one that is your barcode scanner and remember the number (eg. event6). Scan a barcode. You will now see output in the evtest program. If not, you have selected the wrong source.</p>
 <div class="section" id="docker">
-<h5>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h5>
+<h6>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h6>
 <p>Create a docker container with</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">v</span> <span class="n">bbconfig</span><span class="p">:</span><span class="o">/</span><span class="n">config</span> <span class="o">-</span><span class="n">e</span> <span class="n">ATTACH_BARCODESCANNER</span><span class="o">=</span><span class="n">true</span> <span class="o">-</span><span class="n">p</span> <span class="mi">80</span><span class="p">:</span><span class="mi">80</span> <span class="o">-</span><span class="n">p</span> <span class="mi">443</span><span class="p">:</span><span class="mi">443</span> <span class="o">--</span><span class="n">device</span> <span class="o">/</span><span class="n">dev</span><span class="o">/</span><span class="nb">input</span><span class="o">/</span><span class="n">eventX</span> <span class="n">f0rc3</span><span class="o">/</span><span class="n">barcodebuddy</span><span class="o">-</span><span class="n">docker</span><span class="p">:</span><span class="n">YOURTAG</span>
 </pre></div>
@@ -284,7 +293,7 @@ time you scan the carton barcode, it will register as 10 units.</p></td>
 <p>where X in <code class="docutils literal notranslate"><span class="pre">--device</span> <span class="pre">/dev/input/eventX</span></code> is the number of your event you selected previously. You might need to change the values for the ports. Scan a barcode - it should be sent directly to Barcode Buddy.</p>
 </div>
 <div class="section" id="bare-metal">
-<h5>Bare Metal<a class="headerlink" href="#bare-metal" title="Permalink to this headline">¶</a></h5>
+<h6>Bare Metal<a class="headerlink" href="#bare-metal" title="Permalink to this headline">¶</a></h6>
 <p>Navigate to the example folder in the Barcode Buddy directory. In the file <code class="docutils literal notranslate"><span class="pre">grabInput.sh</span></code> edit the following values:</p>
 <ul class="simple">
 <li><dl class="simple">
@@ -321,18 +330,15 @@ time you scan the carton barcode, it will register as 10 units.</p></td>
 </div>
 </div>
 </div>
+</div>
 <div class="section" id="using-barcode-buddy-app-for-android">
-<h4>Using Barcode Buddy app for Android<a class="headerlink" href="#using-barcode-buddy-app-for-android" title="Permalink to this headline">¶</a></h4>
+<span id="androidapp"></span><h4>Using Barcode Buddy app for Android<a class="headerlink" href="#using-barcode-buddy-app-for-android" title="Permalink to this headline">¶</a></h4>
 <p>Download the app here: <a class="reference external" href="https://play.google.com/store/apps/details?id=de.bulling.barcodebuddyscanner">Google Play Store</a></p>
-<p>Once installed, open Barcode Buddy and navigate to the menu <code class="docutils literal notranslate"><span class="pre">API</span></code>. There click on the three dots in the top right corner and select <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">mobile</span> <span class="pre">app</span></code>. Open your Barcode Buddy app and then scan the displayed QR code.</p>
+<p>Once installed, open Barcode Buddy and navigate to the menu <code class="docutils literal notranslate"><span class="pre">API</span></code>. There click on the three dots in the top right corner and select <code class="docutils literal notranslate"><span class="pre">Add</span> <span class="pre">mobile</span> <span class="pre">app</span></code>. Open your Barcode Buddy app and then scan the displayed QR code. Once the automatic setup is complete, tap on the barcode symbol to start scanning.</p>
 </div>
 <div class="section" id="using-a-3rd-party-application-script">
 <h4>Using a 3rd party application / script<a class="headerlink" href="#using-a-3rd-party-application-script" title="Permalink to this headline">¶</a></h4>
 <p>If you want to write your own script, there are two ways to send the barcodes to Barcode Buddy: either by calling <code class="docutils literal notranslate"><span class="pre">php</span> <span class="pre">index.php</span> <span class="pre">yourBarcode</span></code> or by calling the URL: <code class="docutils literal notranslate"><span class="pre">https://your.bbuddy.url/api/action/scan?apikey=myApiKey&amp;add=123456</span></code>. Only one barcode can be given with each call. Replace myApiKey with an API key generated in the main menu. For more information about the API visit <a class="reference internal" href="advanced.html#api"><span class="std std-ref">API</span></a>.</p>
-</div>
-<div class="section" id="using-a-3rd-party-mobile-app">
-<h4>Using a 3rd party mobile app<a class="headerlink" href="#using-a-3rd-party-mobile-app" title="Permalink to this headline">¶</a></h4>
-<p>Although we have not released an app (yet), you can use the <a class="reference external" href="https://play.google.com/store/apps/details?id=com.scanner.kataykin.icamesscaner.free">Android app QR &amp; Barcode Scanner</a> and point it to <code class="docutils literal notranslate"><span class="pre">/api/action/scan</span></code>. Make sure to add the paramter <code class="docutils literal notranslate"><span class="pre">apikey</span></code> with the correct API key.</p>
 </div>
 </div>
 </div>

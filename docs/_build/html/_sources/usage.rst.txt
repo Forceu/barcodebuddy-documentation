@@ -37,6 +37,8 @@ There are seven special barcodes - if you scan the barcode, Barcode Buddy goes i
 +---------------------+-----------------+-----------------------------------------------------------------------------------------+
 | Consume (spoiled)   | BBUDDY-CS       | All items scanned in this mode will be removed from the inventory and marked as spoiled |
 +---------------------+-----------------+-----------------------------------------------------------------------------------------+
+| Consume all         | BBUDDY-CA       | All products scanned in this mode will have all stock removed from their inventory      |
++---------------------+-----------------+-----------------------------------------------------------------------------------------+
 | Purchase            | BBUDDY-P        | All items scanned in this mode will be added to the inventory                           |
 +---------------------+-----------------+-----------------------------------------------------------------------------------------+
 | Open                | BBUDDY-O        | All items scanned in this mode will be marked as opened                                 |
@@ -84,10 +86,22 @@ Using a physical barcode scanner
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-Plug in your barcode scanner to the linux computer / server you will be using. Run the command ``evtest`` as root. You will see a list of devices, select the one that is your barcode scanner and remember the number (eg. event6). Scan a barcode. You will now see output in the evtest program. If not, you have selected the wrong source.
+Barcode scanner connected to an Android device
+""""""""""""""""""""""""""""""""""""""""""""""""
+
+
+If you use a barcode scanner that is connected to your Android device, you can use the `Android App <https://play.google.com/store/apps/details?id=de.bulling.barcodebuddyscanner>`_ to send all input to Barcode Buddy. Open the app, go to Settings and activate ``Enable Bluetooth Barcode Scanner``. Then return to the main menu. Every time you scan a barcode while being in the app's main menu, all input is sent to Barcode Buddy. For more info, refer to :ref:`androidapp`.
+
+
+Barcode scanner connected to a Linux device
+"""""""""""""""""""""""""""""""""""""""""""""
+
+
+Plug in your barcode scanner to the Linux computer / server you will be using. Run the command ``evtest`` as root. You will see a list of devices, select the one that is your barcode scanner and remember the number (eg. event6). Scan a barcode. You will now see output in the evtest program. If not, you have selected the wrong source.
+
 
 Docker
-"""""""""""""""""
+******
 
 Create a docker container with
 ::
@@ -97,7 +111,7 @@ Create a docker container with
 where X in ``--device /dev/input/eventX`` is the number of your event you selected previously. You might need to change the values for the ports. Scan a barcode - it should be sent directly to Barcode Buddy.
 
 Bare Metal
-"""""""""""""""""
+************
 
 Navigate to the example folder in the Barcode Buddy directory. In the file ``grabInput.sh`` edit the following values:
 
@@ -122,24 +136,20 @@ To run the script in the background, run
  screen -S barcodegrabber -d -m /bin/bash /path/to/the/barcodebuddy/folder/example/grabInput.sh /dev/input/eventX
 
 
+.. _androidapp:
+
 Using Barcode Buddy app for Android
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Download the app here: `Google Play Store <https://play.google.com/store/apps/details?id=de.bulling.barcodebuddyscanner>`_
 
-Once installed, open Barcode Buddy and navigate to the menu ``API``. There click on the three dots in the top right corner and select ``Add mobile app``. Open your Barcode Buddy app and then scan the displayed QR code.
+Once installed, open Barcode Buddy and navigate to the menu ``API``. There click on the three dots in the top right corner and select ``Add mobile app``. Open your Barcode Buddy app and then scan the displayed QR code. Once the automatic setup is complete, tap on the barcode symbol to start scanning.
 
 
 Using a 3rd party application / script
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 If you want to write your own script, there are two ways to send the barcodes to Barcode Buddy: either by calling ``php index.php yourBarcode`` or by calling the URL: ``https://your.bbuddy.url/api/action/scan?apikey=myApiKey&add=123456``. Only one barcode can be given with each call. Replace myApiKey with an API key generated in the main menu. For more information about the API visit :ref:`api`.
-
-
-Using a 3rd party mobile app
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Although we have not released an app (yet), you can use the `Android app QR & Barcode Scanner <https://play.google.com/store/apps/details?id=com.scanner.kataykin.icamesscaner.free>`_ and point it to ``/api/action/scan``. Make sure to add the paramter ``apikey`` with the correct API key.
 
 
 Menus
