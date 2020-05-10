@@ -126,7 +126,7 @@ Installing NGINX
 * Get root, ideally with ``sudo -i``
 * Install nginx: ``apt-get install nginx``
 * If you are running a server with ufw active, run ``ufw allow 'Nginx Full'``
-* Install all php modules and other requirements ``apt-get install php-fpm php-curl php-date php-json php-sqlite sudo screen evtest``
+* Install all php modules and other requirements ``apt-get install php php-fpm php-curl php-date php-json php-sqlite3 sudo screen evtest``
 * Check what PHP version you are using with ``php --version`` (eg. "7.2").
 * Copy the `Nginx example file <https://github.com/Forceu/barcodebuddy/blob/master/example/nginxConfiguration.conf>`_ to ``/etc/nginx/sites-enabled/``
 * Adjust the new file:
