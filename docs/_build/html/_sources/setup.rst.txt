@@ -231,7 +231,7 @@ Reverse Proxy
 
 If you would like to run Barcode Buddy behind a reverse proxy, you can find an `Nginx configuration <https://github.com/Forceu/barcodebuddy/blob/master/example/nginxReverseProxy.conf>`_ in the example folder.
 
-Make sure that you set ``fastcgi_pass_header "X-Accel-Buffering"`` in the Barcode Buddy host Nginx configuration, or ``proxy_buffering off`` in the reverse proxy configuration.
+Make sure that you set ``fastcgi_pass_header "X-Accel-Buffering"`` in the Barcode Buddy host Nginx configuration, or ``proxy_buffering off`` in the reverse proxy configuration. If buffering is enabled for your reverse proxy, Server-Sent Events (SSE) might not be available and would break the Screen module.
 
 ********
 Hass.IO

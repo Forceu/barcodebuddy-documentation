@@ -415,7 +415,7 @@ host does not match</p></td>
 <div class="section" id="reverse-proxy">
 <h2>Reverse Proxy<a class="headerlink" href="#reverse-proxy" title="Permalink to this headline">¶</a></h2>
 <p>If you would like to run Barcode Buddy behind a reverse proxy, you can find an <a class="reference external" href="https://github.com/Forceu/barcodebuddy/blob/master/example/nginxReverseProxy.conf">Nginx configuration</a> in the example folder.</p>
-<p>Make sure that you set <code class="docutils literal notranslate"><span class="pre">fastcgi_pass_header</span> <span class="pre">&quot;X-Accel-Buffering&quot;</span></code> in the Barcode Buddy host Nginx configuration, or <code class="docutils literal notranslate"><span class="pre">proxy_buffering</span> <span class="pre">off</span></code> in the reverse proxy configuration.</p>
+<p>Make sure that you set <code class="docutils literal notranslate"><span class="pre">fastcgi_pass_header</span> <span class="pre">&quot;X-Accel-Buffering&quot;</span></code> in the Barcode Buddy host Nginx configuration, or <code class="docutils literal notranslate"><span class="pre">proxy_buffering</span> <span class="pre">off</span></code> in the reverse proxy configuration. If buffering is enabled for your reverse proxy, Server-Sent Events (SSE) might not be available and would break the Screen module.</p>
 </div>
 <div class="section" id="hass-io">
 <h2>Hass.IO<a class="headerlink" href="#hass-io" title="Permalink to this headline">¶</a></h2>
