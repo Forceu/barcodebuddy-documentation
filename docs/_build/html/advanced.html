@@ -177,17 +177,19 @@
 <p>Once you started Barcode Buddy for the first time, you will find the file <code class="docutils literal notranslate"><span class="pre">config.php</span></code> in the folder <code class="docutils literal notranslate"><span class="pre">data</span></code>. This file is for further configuration - the following values can be changed:</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 14%" />
-<col style="width: 8%" />
-<col style="width: 68%" />
-<col style="width: 11%" />
+<col style="width: 12%" />
+<col style="width: 7%" />
+<col style="width: 71%" />
+<col style="width: 10%" />
 </colgroup>
-<tbody>
-<tr class="row-odd"><td><p>Argument</p></td>
-<td><p>Value</p></td>
-<td><p>Effect</p></td>
-<td><p>Default</p></td>
+<thead>
+<tr class="row-odd"><th class="head"><p>Argument</p></th>
+<th class="head"><p>Value</p></th>
+<th class="head"><p>Effect</p></th>
+<th class="head"><p>Default</p></th>
 </tr>
+</thead>
+<tbody>
 <tr class="row-even"><td><p>PORT_WEBSOCKET_SERVER</p></td>
 <td><p>1024-65535</p></td>
 <td><p>The port that the websocket server listens to. Change if you running multiple instances or the default port is already used by another application.</p></td>
@@ -228,7 +230,22 @@
 <td><p>Enable verbose error messages. If you think something is wrong, you can enable this and send a bugreport</p></td>
 <td><p>false</p></td>
 </tr>
-<tr class="row-even"><td><p>OVERRIDDEN_USER_CONFIG</p></td>
+<tr class="row-even"><td><p>HIDE_LINK_GROCY</p></td>
+<td><p>true/false</p></td>
+<td><p>Set to true to remove the link to Grocy in the top header</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-odd"><td><p>HIDE_LINK_SCREEN</p></td>
+<td><p>true/false</p></td>
+<td><p>Set to true to remove the link to the Screen module in the top header</p></td>
+<td><p>false</p></td>
+</tr>
+<tr class="row-even"><td><p>EXTERNAL_GROCY_URL</p></td>
+<td><p>null or URL</p></td>
+<td><p>If you are using an internal URL for API communication to Grocy, but require a different URL for external access, you can enter the URL here. (Replaces URL in top header)</p></td>
+<td><p>null</p></td>
+</tr>
+<tr class="row-odd"><td><p>OVERRIDDEN_USER_CONFIG</p></td>
 <td><p>mapped array</p></td>
 <td><p>To override settings that can be set in the UI, uncomment the specific line. Overridden values cannot be changed in the UI afterwards</p></td>
 <td><p>empty</p></td>
@@ -247,12 +264,14 @@
 <col style="width: 75%" />
 <col style="width: 10%" />
 </colgroup>
-<tbody>
-<tr class="row-odd"><td><p>Argument</p></td>
-<td><p>Value</p></td>
-<td><p>Effect</p></td>
-<td><p>Default</p></td>
+<thead>
+<tr class="row-odd"><th class="head"><p>Argument</p></th>
+<th class="head"><p>Value</p></th>
+<th class="head"><p>Effect</p></th>
+<th class="head"><p>Default</p></th>
 </tr>
+</thead>
+<tbody>
 <tr class="row-even"><td><p>CONFIG_PATH</p></td>
 <td><p>A writable path</p></td>
 <td><p>The path were the config.php file is written to. Path includes filename.</p></td>

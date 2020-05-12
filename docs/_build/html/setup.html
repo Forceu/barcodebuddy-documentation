@@ -202,11 +202,13 @@
 <col style="width: 32%" />
 <col style="width: 23%" />
 </colgroup>
-<tbody>
-<tr class="row-odd"><td><p>Tag</p></td>
-<td><p>Architecture</p></td>
-<td><p>Version</p></td>
+<thead>
+<tr class="row-odd"><th class="head"><p>Tag</p></th>
+<th class="head"><p>Architecture</p></th>
+<th class="head"><p>Version</p></th>
 </tr>
+</thead>
+<tbody>
 <tr class="row-even"><td><p>latest</p></td>
 <td><p>x86-64</p></td>
 <td><p>stable</p></td>
@@ -255,11 +257,13 @@
 <col style="width: 17%" />
 <col style="width: 51%" />
 </colgroup>
-<tbody>
-<tr class="row-odd"><td><p>Argument</p></td>
-<td><p>Value</p></td>
-<td><p>Effect</p></td>
+<thead>
+<tr class="row-odd"><th class="head"><p>Argument</p></th>
+<th class="head"><p>Value</p></th>
+<th class="head"><p>Effect</p></th>
 </tr>
+</thead>
+<tbody>
 <tr class="row-even"><td><p>ATTACH_BARCODESCANNER</p></td>
 <td><p>true/false</p></td>
 <td><p>Attach barcode scanner</p></td>
@@ -278,6 +282,10 @@ host does not match</p></td>
 <p><em>For more information on how to attach a barcode scanner, see</em> <a class="reference internal" href="usage.html#attachingscanner"><span class="std std-ref">Using a physical barcode scanner</span></a></p>
 <p>To pass an argument, use the -e function, eg:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">d</span> <span class="o">-</span><span class="n">v</span> <span class="n">bbconfig</span><span class="p">:</span><span class="o">/</span><span class="n">config</span> <span class="o">-</span><span class="n">e</span> <span class="n">ATTACH_BARCODESCANNER</span><span class="o">=</span><span class="n">true</span> <span class="o">-</span><span class="n">p</span> <span class="mi">80</span><span class="p">:</span><span class="mi">80</span> <span class="o">-</span><span class="n">p</span> <span class="mi">443</span><span class="p">:</span><span class="mi">443</span> <span class="n">f0rc3</span><span class="o">/</span><span class="n">barcodebuddy</span><span class="o">-</span><span class="n">docker</span><span class="p">:</span><span class="n">latest</span>
+</pre></div>
+</div>
+<p>If you want to use a different internal URL for connecting to Grocy, enter the internal URL in during the setup. You can then set an external URL for links on the website with the argument</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">-</span><span class="n">e</span> <span class="n">BBUDDY_EXTERNAL_GROCY_URL</span><span class="o">=</span><span class="n">your</span><span class="o">.</span><span class="n">url</span>
 </pre></div>
 </div>
 </div>
@@ -407,7 +415,7 @@ host does not match</p></td>
 <div class="section" id="reverse-proxy">
 <h2>Reverse Proxy<a class="headerlink" href="#reverse-proxy" title="Permalink to this headline">¶</a></h2>
 <p>If you would like to run Barcode Buddy behind a reverse proxy, you can find an <a class="reference external" href="https://github.com/Forceu/barcodebuddy/blob/master/example/nginxReverseProxy.conf">Nginx configuration</a> in the example folder.</p>
-<p>Make sure that you set <code class="docutils literal notranslate"><span class="pre">fastcgi_pass_header</span> <span class="pre">&quot;X-Accel-Buffering&quot;</span></code> in the Barcode Buddy host Nginx configuration, or <code class="docutils literal notranslate"><span class="pre">proxy_buffering</span> <span class="pre">off</span></code> in the reverse proxy configuration.</p>
+<p>Make sure that you set <code class="docutils literal notranslate"><span class="pre">fastcgi_pass_header</span> <span class="pre">&quot;X-Accel-Buffering&quot;</span></code> in the Barcode Buddy host Nginx configuration, or <code class="docutils literal notranslate"><span class="pre">proxy_buffering</span> <span class="pre">off</span></code> in the reverse proxy configuration. If buffering is enabled for your reverse proxy, Server-Sent Events (SSE) might not be available and would break the Screen module.</p>
 </div>
 <div class="section" id="hass-io">
 <h2>Hass.IO<a class="headerlink" href="#hass-io" title="Permalink to this headline">¶</a></h2>

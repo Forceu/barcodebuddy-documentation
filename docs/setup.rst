@@ -27,7 +27,7 @@ To download, run the following command, and replace YOURTAG with one from the li
 
 +--------------------+--------------+----------+
 |         Tag        | Architecture |  Version |
-+--------------------+--------------+----------+
++====================+==============+==========+
 |       latest       |    x86-64    |  stable  |
 +--------------------+--------------+----------+
 |   arm32v7-latest   |     armhf    |  stable  |
@@ -64,7 +64,7 @@ The following arguments can also be passed:
 
 +-----------------------+------------+-------------------------------------+
 |        Argument       |    Value   |                Effect               |
-+-----------------------+------------+-------------------------------------+
++=======================+============+=====================================+
 | ATTACH_BARCODESCANNER | true/false | Attach barcode scanner              |
 +-----------------------+------------+-------------------------------------+
 | IGNORE_SSL_CA         | true/false | Accept self-signed SSL certificates |
@@ -79,6 +79,11 @@ To pass an argument, use the -e function, eg:
 ::
 
  docker run -d -v bbconfig:/config -e ATTACH_BARCODESCANNER=true -p 80:80 -p 443:443 f0rc3/barcodebuddy-docker:latest
+
+If you want to use a different internal URL for connecting to Grocy, enter the internal URL in during the setup. You can then set an external URL for links on the website with the argument
+::
+
+ -e BBUDDY_EXTERNAL_GROCY_URL=your.url
 
 **********
 Bare Metal
@@ -226,7 +231,7 @@ Reverse Proxy
 
 If you would like to run Barcode Buddy behind a reverse proxy, you can find an `Nginx configuration <https://github.com/Forceu/barcodebuddy/blob/master/example/nginxReverseProxy.conf>`_ in the example folder.
 
-Make sure that you set ``fastcgi_pass_header "X-Accel-Buffering"`` in the Barcode Buddy host Nginx configuration, or ``proxy_buffering off`` in the reverse proxy configuration.
+Make sure that you set ``fastcgi_pass_header "X-Accel-Buffering"`` in the Barcode Buddy host Nginx configuration, or ``proxy_buffering off`` in the reverse proxy configuration. If buffering is enabled for your reverse proxy, Server-Sent Events (SSE) might not be available and would break the Screen module.
 
 ********
 Hass.IO

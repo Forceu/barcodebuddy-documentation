@@ -32,7 +32,7 @@ There are seven special barcodes - if you scan the barcode, Barcode Buddy goes i
 
 +---------------------+-----------------+-----------------------------------------------------------------------------------------+
 | Mode                | Default Barcode | Explanation                                                                             |
-+---------------------+-----------------+-----------------------------------------------------------------------------------------+
++=====================+=================+=========================================================================================+
 | Consume             | BBUDDY-C        | All items scanned in this mode will be removed from the inventory                       |
 +---------------------+-----------------+-----------------------------------------------------------------------------------------+
 | Consume (spoiled)   | BBUDDY-CS       | All items scanned in this mode will be removed from the inventory and marked as spoiled |
