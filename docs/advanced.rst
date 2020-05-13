@@ -19,7 +19,7 @@ Once you started Barcode Buddy for the first time, you will find the file ``conf
 
 +------------------------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------+
 | Argument                     | Value           | Effect                                                                                                                                                                     | Default                |
-+==============================+=================+============================================================================================================================================================================+========================+
++------------------------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------+
 | PORT_WEBSOCKET_SERVER        | 1024-65535      | The port that the websocket server listens to. Change if you running multiple instances or the default port is already used by another application.                        | 47631                  |
 +------------------------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------+
 | DATABASE_PATH                | A writable path | The path were the database file is written to. Make sure that the webserver does not allow the download of the file. Path includes filename.                               | ./data/barcodebuddy.db |
@@ -42,9 +42,9 @@ Once you started Barcode Buddy for the first time, you will find the file ``conf
 +------------------------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------+
 | EXTERNAL_GROCY_URL           | null or URL     | If you are using an internal URL for API communication to Grocy, but require a different URL for external access, you can enter the URL here. (Replaces URL in top header) | null                   |
 +------------------------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------+
-| AUTHENTICATION_BYPASS_NETS   | mapped array    | List of IPs and subnets that can bypass authentication. If using with a reverse proxy, ensure TRUSTED_PROXIES is set correctly | empty                   |
+| AUTHENTICATION_BYPASS_NETS   | array           | List of IPs and subnets that can bypass authentication. If using with a reverse proxy, ensure TRUSTED_PROXIES is set correctly                                             | empty                  |
 +------------------------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------+
-| TRUSTED_PROXIES              | mapped array     | List of IPs and subnets that will be trusted for X-Forwarded-For header information | empty                   |
+| TRUSTED_PROXIES              | array           | List of IPs and subnets that will be trusted for X-Forwarded-For header information                                                                                        | empty                  |
 +------------------------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------+
 | OVERRIDDEN_USER_CONFIG       | mapped array    | To override settings that can be set in the UI, uncomment the specific line. Overridden values cannot be changed in the UI afterwards                                      | empty                  |
 +------------------------------+-----------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+------------------------+
@@ -149,7 +149,7 @@ Barcode Buddy offers an API that can be reached at ``http(s)://your.bbinstall.ur
 
 
 Interacting with the API
--------------------------
+============================
 
 
 Unless disabled, all API calls will need an API key as authentication. A key can be generated in the web UI in the menu "API". The API key needs to be passed in the body or can be added as a GET variable. Example getting info with curl:
@@ -171,7 +171,7 @@ Example: Setting the current mode to STATE_PURCHASE(2):
 
 
 Non-standard API: /action/scan
--------------------------------
+===================================
 
 As mentioned above, the ``/action/scan`` also looks for GET parameters, in addition to the regular form/post parameters. This is to make it easier for scripts / apps to pass barcodes to Barcode Buddy.
 
