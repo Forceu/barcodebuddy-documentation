@@ -7,6 +7,31 @@ Changelog
 Overview of all Changes
 -----------------------
 
+
+v1.5.0.4: 13 May 2020
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+* Grocy version 2.7.1+ now required
+* Sped up Screen module to display output (up to 3 times faster now)
+* Added barcode BBUDDY-CA to consume all items in stock
+* Added authentication by IP/IP range - Thanks @cyberjacob
+* No API key required if already authorised in web UI
+* Added option to consume the same quantity as stored with BBUDDY-Q barcode
+* Added example and documentation for Nginx reverse proxy
+* API: price and best before date can be passed
+* Added option to set external Grocy URL 
+* Added option to respect grocys quantity conversion
+* API menu is now always shown
+* Fixed "Add" button not showing on small screens
+* Fixed JS problems in Screen module
+* Fixed SSE reconnection issue - Thanks @glaaze
+* Fixed that barcodes were associated with a product multiple times
+* Fixed that tags were not found if the name was using hyphens or other characters
+* UI enhancements
+
+
+
 v1.5.0.2: 15 Apr 2020
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
