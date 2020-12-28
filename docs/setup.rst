@@ -101,6 +101,7 @@ Requirements
   * curl
   * date
   * json
+  * redis
   * sqlite3
   * sockets
 * When using a barcode scanner:
@@ -131,7 +132,8 @@ Installing NGINX
 * Get root, ideally with ``sudo -i``
 * Install nginx: ``apt-get install nginx``
 * If you are running a server with ufw active, run ``ufw allow 'Nginx Full'``
-* Install all php modules and other requirements ``apt-get install php php-fpm php-curl php-date php-json php-sqlite3 sudo screen evtest``
+* Install all php modules and other requirements ``apt-get install php php-fpm php-curl php-date php-json php-sqlite3 php-redis redis redis-server sudo screen evtest``
+* If some of the packages are not found, try again including the php version, eg. ``apt-get install php7.2-curl ...`` (see next point)
 * Check what PHP version you are using with ``php --version`` (eg. "7.2").
 * Copy the `Nginx example file <https://github.com/Forceu/barcodebuddy/blob/master/example/nginxConfiguration.conf>`_ to ``/etc/nginx/sites-enabled/``
 * Adjust the new file:

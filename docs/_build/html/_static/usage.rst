@@ -181,10 +181,16 @@ Grocy API
 ^^^^^^^^^^^
 Here you can change your Grocy API details. Refer to :ref:`firststart`.
 
+
+Redis Status
+^^^^^^^^^^^^^^^^^^^^^^
+If you have installed a redis server (:ref:`setup`), you can enable it here. Once it is enabled, it will cache the Grocy products and therefore speed up Barcode Buddy a lot. It is recommended to use a redis server, but not required.
+
+
+
 Websocket Status
 ^^^^^^^^^^^^^^^^^^^^^^
 This section gives the status of the websocket server and if Barcode Buddy is able to connect to it
-
 
 Chores
 --------------------------

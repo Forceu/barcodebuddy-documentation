@@ -8,6 +8,23 @@ Overview of all Changes
 -----------------------
 
 
+
+v1.6.0.0: 22 Dec 2020
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Grocy >= 3.0.0 required
+* Update API for Grocy 3.0.0 (#99)
+* Added UPCDatabase.org as a provider (#97) @Teagan42
+* Added jumbo.com as provider #96
+* Add baseURL config (#93)
+* Check if word is used multiple times when creating possible tags, ignore case
+* Add to "action required" if unknown barcode associated with item is tare #100 (#101)
+* Refactor Provider Lookups for Scalability (#97) @Teagan42
+* Added overflow for item name #88, removed X-Frame-Options to work in iframe
+* Added min-width for wrapping
+* Change Google URL to HTTPS
+
+
 v1.5.0.4: 13 May 2020
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
