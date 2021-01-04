@@ -8,6 +8,17 @@ Overview of all Changes
 -----------------------
 
 
+v1.6.5.0: 04 Jan 2021
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* PHP 7.2 and php-redis now required
+* Added option for Redis caching, which significantly increases performance
+* Added drag & drop for lookup providers to change the lookup order
+* Product locations are displayed now in Inventory Mode
+* Added AlbertHeijn Lookup
+* With Grocy 3.0, prefilling a barcode is not possible any more when creating a new product. Barcode Buddy now uses the last created product.
+* Fixed adding items to shopping list
+* Minor changes and bugfixes 
 
 v1.6.0.0: 22 Dec 2020
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
