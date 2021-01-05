@@ -7,6 +7,11 @@ Changelog
 Overview of all Changes
 -----------------------
 
+v1.6.5.1: 05 Jan 2021
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Grocy >= 3.0.1 required
+* When creating a new Grocy product, creation time is checked with Grocy's server time
 
 v1.6.5.0: 04 Jan 2021
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
