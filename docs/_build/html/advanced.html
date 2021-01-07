@@ -368,7 +368,7 @@ location ~ \.php$ {
 <div class="section" id="interacting-with-the-api">
 <h3>Interacting with the API<a class="headerlink" href="#interacting-with-the-api" title="Permalink to this headline">¶</a></h3>
 <p>Unless disabled, all API calls will need an API key as authentication. A key can be generated in the web UI in the menu “API”. The API key needs to be passed in the body or can be added as a GET variable. Example getting info with curl:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">GET</span> <span class="o">-</span><span class="n">H</span> <span class="s2">&quot;BBUDDY_API_KEY: myApiKey&quot;</span> <span class="s2">&quot;https://your.bbuddy.url/api/system/info&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">GET</span> <span class="o">-</span><span class="n">H</span> <span class="s2">&quot;BBUDDY-API-KEY: myApiKey&quot;</span> <span class="s2">&quot;https://your.bbuddy.url/api/system/info&quot;</span>
 </pre></div>
 </div>
 <p>Manually getting the info by adding the GET variable:</p>
@@ -377,7 +377,7 @@ location ~ \.php$ {
 </div>
 <p>All functions that require parameters <em>(except</em> <code class="docutils literal notranslate"><span class="pre">/action/scan</span></code> <em>)</em>, expect them as a form/post parameter.
 Example: Setting the current mode to STATE_PURCHASE(2):</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="o">-</span><span class="n">H</span> <span class="s2">&quot;BBUDDY_API_KEY: [[apiKey]]&quot;</span> <span class="o">-</span><span class="n">F</span> <span class="s1">&#39;state=2&#39;</span> <span class="s2">&quot;https://your.bbuddy.url/api/state/setmode&quot;</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">POST</span> <span class="o">-</span><span class="n">H</span> <span class="s2">&quot;BBUDDY-API-KEY: [[apiKey]]&quot;</span> <span class="o">-</span><span class="n">F</span> <span class="s1">&#39;state=2&#39;</span> <span class="s2">&quot;https://your.bbuddy.url/api/state/setmode&quot;</span>
 </pre></div>
 </div>
 </div>

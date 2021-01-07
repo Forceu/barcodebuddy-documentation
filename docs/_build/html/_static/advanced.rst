@@ -158,7 +158,7 @@ Interacting with the API
 Unless disabled, all API calls will need an API key as authentication. A key can be generated in the web UI in the menu "API". The API key needs to be passed in the body or can be added as a GET variable. Example getting info with curl:
 ::
 
- curl -X GET -H "BBUDDY_API_KEY: myApiKey" "https://your.bbuddy.url/api/system/info"
+ curl -X GET -H "BBUDDY-API-KEY: myApiKey" "https://your.bbuddy.url/api/system/info"
 
 Manually getting the info by adding the GET variable:
 ::
@@ -170,7 +170,7 @@ All functions that require parameters *(except* ``/action/scan`` *)*, expect the
 Example: Setting the current mode to STATE_PURCHASE(2):
 ::
 
- curl -X POST -H "BBUDDY_API_KEY: [[apiKey]]" -F 'state=2' "https://your.bbuddy.url/api/state/setmode" 
+ curl -X POST -H "BBUDDY-API-KEY: [[apiKey]]" -F 'state=2' "https://your.bbuddy.url/api/state/setmode" 
 
 
 Non-standard API: /action/scan
