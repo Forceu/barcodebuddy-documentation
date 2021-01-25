@@ -7,6 +7,20 @@ Changelog
 Overview of all Changes
 -----------------------
 
+
+v1.8.0.0: 25 Jan 2021
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+* Added Barcode Buddy Federation
+* Replaced internal quantity management completely with Grocys barcode quantity management. On first startup all your existing quantities will be added to the corresponding Grocy barcode. 
+* Added back button and mode selection in screen module
+* Added opengtindb.org lookup provider
+* Tags for deleted Grocy products are shown now as "inactive tags" and can be deleted
+* Cache is now synced in background, increasing performance
+* All fonts are now hosted locally
+* Fixed crash when using Barcode "Consume all"
+* Minor fixes and improvements
+
 v1.6.5.1: 05 Jan 2021
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

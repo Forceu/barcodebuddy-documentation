@@ -167,7 +167,7 @@ Manually getting the info by adding the GET variable:
 
 
 All functions that require parameters *(except* ``/action/scan`` *)*, expect them as a form/post parameter.
-Example: Setting the current mode to STATE_PURCHASE(2):
+Example: Setting the current mode to STATE_PURCHASE (2):
 ::
 
  curl -X POST -H "BBUDDY-API-KEY: [[apiKey]]" -F 'state=2' "https://your.bbuddy.url/api/state/setmode" 

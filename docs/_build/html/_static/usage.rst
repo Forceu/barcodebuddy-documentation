@@ -23,7 +23,7 @@ When you open the web ui, you will see three cards:
 * Unknown Barcodes: Barcodes that are unknown to Grocy and could not be looked up
 * Processed Barcodes: A history of all barcodes that were processed by Barcode Buddy
 
-If you have entered a barcode that is linked to a Grocy product with the tare feature enabled, a fourth section will popup named "Actions required", where you can enter the weight for the product.
+If you have entered a barcode that is linked to a Grocy product with the tare feature enabled, a fourth section will pop-up named "Actions required", where you can enter the weight for the product.
 
 Special Barcodes
 ----------------
@@ -73,7 +73,7 @@ Adding Barcodes Manually
 
 The easiest option, ideally for testing out Barcode Buddy: Simply open the web ui and click on "Add barcode". Enter the barcode (use one line per barcode) and click on "Add".
 
-If you are using a barcode scanner, but don't want to attach it to Barcode Buddy (yet), you can also plug it into the device that runs the webbrowser and use it to enter the barcodes in the textfield. Each line is parsed as a barcode.
+If you are using a barcode scanner, but don't want to attach it to Barcode Buddy (yet), you can also plug it into the device that runs the webbrowser and use it to enter the barcodes in the text field. Each line is parsed as a barcode.
 
 Adding Barcodes Automatically
 -----------------------------
@@ -97,7 +97,7 @@ Barcode scanner connected to a Linux device
 """""""""""""""""""""""""""""""""""""""""""""
 
 
-Plug in your barcode scanner to the Linux computer / server you will be using. Run the command ``evtest`` as root. You will see a list of devices, select the one that is your barcode scanner and remember the number (eg. event6). Scan a barcode. You will now see output in the evtest program. If not, you have selected the wrong source.
+Plug in your barcode scanner to the Linux computer / server you will be using. Run the command ``evtest`` as root. You will see a list of devices, select the one that is your barcode scanner and remember the number (e.g.. event6). Scan a barcode. You will now see output in the evtest program. If not, you have selected the wrong source.
 
 
 Docker
@@ -120,7 +120,7 @@ Navigate to the example folder in the Barcode Buddy directory. In the file ``gra
 * If the scanner is attached to a different computer / server:
    * ``SERVER_ADDRESS``: Replace with the URL where your index.php file can be accessed from
    * ``USE_CURL``: Set to "true"
-* If the webserver does not run as user www-data (uncommon):
+* If the web server does not run as user www-data (uncommon):
    * ``WWW_USER``: Set to the name of the user
 
 Then run as root
@@ -169,13 +169,17 @@ The "Add to shopping list" barcode adds all future barcodes to the default shopp
 
 With the "Revert after single item scan in "Open" or "Spoiled" mode" checkbox ticked, Barcode Buddy only stays in this mode for one scan and then reverts back to the default "Consume" mode. It does not affect the "Purchase" mode however!
 
-With "Remove purchased items from shoppinglist" enabled, items that are scanned in purchase mode are removed from all Grocy shopping lists.
+With "Remove purchased items from shopping list" enabled, items that are scanned in purchase mode are removed from all Grocy shopping lists.
 
 With "Consume amount of quantity saved for barcode" enabled, Barcode Buddy will check if you saved a quantity for this barcode with the default barcode BBUDDY-Q-[X]. Normally, it will only use this amount for adding products to the inventory, with this option however it will also remove the same amount from the inventory when you are scanning the barcode in Consume mode.
 
 The option "Use generic names for lookup" makes it easier to tag products. If found, it will use the generic name for a product instead of a brandname. For example instead of using "GreatCompany extra virgin oil", Barcode Buddy will name the product "Olive Oil".
 
 When "more verbose logs" is disabled, only barcode scans are logged in the log part of the main page.
+
+You will also find several checkboxes to enable / disable lookup providers. Some might require an API key, which can be entered at the lower section. The lookup order can also be changed by clicking on a provider and moving it to a different position without releasing the mouse key.
+
+The more providers you have activated, the slower the lookup will be (especially for failed lookups). However using more providers also means having higher chances of a successful lookup.
 
 Grocy API
 ^^^^^^^^^^^
@@ -219,7 +223,7 @@ Quantities
 
 This features is for products that come in packs containing more than one item.
 
-In the settings you see the quantity barcode (default "BBUDDY-Q-"). If you scan a barcode that starts with this text and has a number at the end, Barcode Buddy sets the quantity of the units from the previously scanned barcode to the number. For example: You scan Barcode "123", which is a pack of 6 eggs. Then you scan the barcode "BBUDDY-Q-6". The next time you scan the barcode "123" in purchase mode, Barcode Buddy will automatically add 6 eggs.
+In the settings you see the quantity barcode (default "BBUDDY-Q-"). If you scan a barcode that starts with this text and has a number at the end, Barcode Buddy sets the quantity of the units from the previously scanned barcode to the number. For example: You scan Barcode "123", which is a pack of 6 eggs. Then you scan the barcode "BBUDDY-Q-6". The next time you scan the barcode "123" in purchase mode, Barcode Buddy will automatically add 6 eggs. All barcodes are synced with Grocy. Deleting a quantity in this menu will also unlink the quantity in Grocy.
 
 API
 --------------------
@@ -233,3 +237,43 @@ Admin
 In this menu you can download a backup of your database file. To restore a backup, simply overwrite your current database file (default: ``/data/barcodebuddy.db``.
 
 It is also possible to logout, so that you need to enter your username and password again.
+
+
+Barcode Buddy Federation
+=========================
+
+
+Overview
+----------------
+
+Barcode Buddy Federation is an external service, which enables the user to search the Barcode Buddy Federation database for unknown barcodes. By default it is turned off.
+
+It works by sending all barcodes that are associated with a Grocy product to an external server, so that other users can look them up. No personal data will be stored in this process and no data will be used for commercial purposes.
+
+Enabling Federation Lookup
+----------------------------
+
+The Federation lookup can be enabled and disabled in the menu "Federation". There you will find a button to enable / disable this feature.
+
+
+How to use Federation Lookup
+------------------------------
+
+
+Barcode Lookup
+^^^^^^^^^^^^^^^^^^^
+
+In order to use the lookup feature, Federation must be enabled. If a lookup was unsuccessful with other lookup providers, Barcode Buddy will connect to the Federation database and request the name of the product. If found, the name will be used for the barcode and displayed in the main page under "New Barcodes".
+You can also change the lookup order in the settings menu.
+
+
+Multiple names
+^^^^^^^^^^^^^^^^
+
+Sometimes you might notice that a blue button appears next to the name. This is the case if multiple names were returned by the Federation server. Click on the button to change the name to another one displayed on the selection. Note: By selecting a new name, you actually vote for the name. So if more people select a better fitting name, this name will be the top result the next time.
+
+
+Reporting Barcode Names
+^^^^^^^^^^^^^^^^^^^^^^^
+
+In case you encounter an offensive or malicious name, you can report it by clicking on the flag next to the name in the main menu. This flag is only visible if the name was actually provided by a Federation lookup.
