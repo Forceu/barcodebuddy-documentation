@@ -62,16 +62,19 @@ You can now open ``http://DOCKER_HOST_IP/`` to set up BarcodeBuddy. If you are a
 
 The following arguments can also be passed:
 
-+-----------------------+------------+-------------------------------------+
-|        Argument       |    Value   |                Effect               |
-+=======================+============+=====================================+
-| ATTACH_BARCODESCANNER | true/false | Attach barcode scanner              |
-+-----------------------+------------+-------------------------------------+
-| IGNORE_SSL_CA         | true/false | Accept self-signed SSL certificates |
-+-----------------------+------------+-------------------------------------+
-| IGNORE_SSL_HOST       | true/false | Accept SSL certificates where the   |
-|                       |            | host does not match                 |
-+-----------------------+------------+-------------------------------------+
++-----------------------+------------+-------------------------------------------------------+
+| Argument              | Value      | Effect                                                |
++=======================+============+=======================================================+
+| ATTACH_BARCODESCANNER | true/false | Use attached barcode scanner                          |
++-----------------------+------------+-------------------------------------------------------+
+| IGNORE_SSL_CA         | true/false | Accept self-signed SSL certificates                   |
++-----------------------+------------+-------------------------------------------------------+
+| IGNORE_SSL_HOST       | true/false | Accept SSL certificates where the host does not match |
++-----------------------+------------+-------------------------------------------------------+
+| PUID                  | 0-65536    | Sets user ID for container                            |
++-----------------------+------------+-------------------------------------------------------+
+| PGID                  | 0-65536    | Sets group ID for container                           |
++-----------------------+------------+-------------------------------------------------------+
 
 *For more information on how to attach a barcode scanner, see* :ref:`attachingscanner`
 
