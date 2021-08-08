@@ -98,7 +98,7 @@ Requirements
 * webserver (eg. NGINX, Apache)
 * curl
 * Access to the command line
-* PHP 7.2 or higher
+* PHP 7.2 or higher (PHP 8.0 **not** supported at the moment)
 * The following PHP modules:
 
   * curl
