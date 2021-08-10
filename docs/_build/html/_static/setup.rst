@@ -65,6 +65,8 @@ The following arguments can also be passed:
 +-----------------------+------------+-------------------------------------------------------+
 | Argument              | Value      | Effect                                                |
 +=======================+============+=======================================================+
+| TZ                    | string     | Set the container timezone (eg. "Europe/Berlin")      |
++-----------------------+------------+-------------------------------------------------------+
 | ATTACH_BARCODESCANNER | true/false | Use attached barcode scanner                          |
 +-----------------------+------------+-------------------------------------------------------+
 | IGNORE_SSL_CA         | true/false | Accept self-signed SSL certificates                   |
@@ -98,7 +100,7 @@ Requirements
 * webserver (eg. NGINX, Apache)
 * curl
 * Access to the command line
-* PHP 7.2 or higher
+* PHP 7.2 or higher (PHP 8.0 **not** supported at the moment)
 * The following PHP modules:
 
   * curl

@@ -65,6 +65,8 @@ The following arguments can also be passed:
 +-----------------------+------------+-------------------------------------------------------+
 | Argument              | Value      | Effect                                                |
 +=======================+============+=======================================================+
+| TZ                    | string     | Set the container timezone (eg. "Europe/Berlin")      |
++-----------------------+------------+-------------------------------------------------------+
 | ATTACH_BARCODESCANNER | true/false | Use attached barcode scanner                          |
 +-----------------------+------------+-------------------------------------------------------+
 | IGNORE_SSL_CA         | true/false | Accept self-signed SSL certificates                   |

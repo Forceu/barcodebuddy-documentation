@@ -264,23 +264,27 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>ATTACH_BARCODESCANNER</p></td>
+<tr class="row-even"><td><p>TZ</p></td>
+<td><p>string</p></td>
+<td><p>Set the container timezone (eg. “Europe/Berlin”)</p></td>
+</tr>
+<tr class="row-odd"><td><p>ATTACH_BARCODESCANNER</p></td>
 <td><p>true/false</p></td>
 <td><p>Use attached barcode scanner</p></td>
 </tr>
-<tr class="row-odd"><td><p>IGNORE_SSL_CA</p></td>
+<tr class="row-even"><td><p>IGNORE_SSL_CA</p></td>
 <td><p>true/false</p></td>
 <td><p>Accept self-signed SSL certificates</p></td>
 </tr>
-<tr class="row-even"><td><p>IGNORE_SSL_HOST</p></td>
+<tr class="row-odd"><td><p>IGNORE_SSL_HOST</p></td>
 <td><p>true/false</p></td>
 <td><p>Accept SSL certificates where the host does not match</p></td>
 </tr>
-<tr class="row-odd"><td><p>PUID</p></td>
+<tr class="row-even"><td><p>PUID</p></td>
 <td><p>0-65536</p></td>
 <td><p>Sets user ID for container</p></td>
 </tr>
-<tr class="row-even"><td><p>PGID</p></td>
+<tr class="row-odd"><td><p>PGID</p></td>
 <td><p>0-65536</p></td>
 <td><p>Sets group ID for container</p></td>
 </tr>
@@ -305,7 +309,7 @@
 <li><p>webserver (eg. NGINX, Apache)</p></li>
 <li><p>curl</p></li>
 <li><p>Access to the command line</p></li>
-<li><p>PHP 7.2 or higher</p></li>
+<li><p>PHP 7.2 or higher (PHP 8.0 <strong>not</strong> supported at the moment)</p></li>
 <li><p>The following PHP modules:</p>
 <ul>
 <li><p>curl</p></li>
