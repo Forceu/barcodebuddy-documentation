@@ -161,7 +161,7 @@ Settings menu
 General Settings
 ^^^^^^^^^^^^^^^^^^^^^^
 
-In this tab you can set the barcodes for changing Barcode Buddy modes. For example, if you scan the barcode "BBUDDY-P", Barcode Buddy will change to "Purchase" mode and add all following items to your Grocy inventory. By default it is in "Consume" mode. The edit field below allows you to set the time in minutes, which is required to pass in order to revert back to the default "Consume" mode. E.g. if "Purchase" mode is active and the field is set to 10 minutes, Barcode Buddy will revert back to "Consume" mode 10 minutes later.
+In this tab you can set the barcodes for changing Barcode Buddy modes. For example, if you scan the barcode "BBUDDY-P", Barcode Buddy will change to "Purchase" mode and add all following items to your Grocy inventory. By default it is in "Consume" mode. The edit field below allows you to set the time in minutes, which is required to pass in order to revert back to the default "Consume" mode. E.g. if "Purchase" mode is active and the field is set to 10 minutes, Barcode Buddy will revert back to "Consume" mode 10 minutes later. If set to 0, reverting is disabled.
 
 If you scan the "Inventory" barcode, Barcode Buddy will simply output the current stock, but not change any values. If an unknown barcode is scanned, it is added to the regular list.
 
