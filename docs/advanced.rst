@@ -187,5 +187,12 @@ Instead of the POST parameter ``barcode`` you can also pass the GET parameter ``
 Plugins
 *******
 
-Barcode Buddy offers plugin support. All PHP scripts in the folder ``plugins`` are automatically loaded. See also the `example script <https://github.com/Forceu/barcodebuddy/blob/master/plugins/EventReceiver.php>`_
-.
+Barcode Buddy offers plugin support. All PHP scripts in the folder ``plugins`` are automatically loaded. See also the `example script <https://github.com/Forceu/barcodebuddy/blob/master/plugins/EventReceiver.php>`_.
+
+
+Third party plugins
+============================
+
+- `MQTT Plugin <https://github.com/PiAir/bbuddy-plugin-MQTT>`_
+
+If you developed a plugin and would like to feature it here, please open an issue on Github to have it added.

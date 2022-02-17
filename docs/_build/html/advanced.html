@@ -1,67 +1,32 @@
-
-
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html class="writer-html4" lang="en" >
 <head>
-  <meta charset="utf-8">
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  <title>Advanced usage and configuration &mdash; Barcode Buddy Documentation 1.5.0.0 documentation</title>
-  
-
-  
-  
-  
-  
-
-  
-  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
-
-  
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advanced usage and configuration &mdash; Barcode Buddy Documentation 1.5.0.0 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Contributions" href="contributions.html" />
     <link rel="prev" title="Updating Barcode Buddy" href="update.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="index.html" class="icon icon-home"> Barcode Buddy Documentation
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -69,17 +34,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="setup.html">Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage.html">Usage</a></li>
@@ -103,222 +58,187 @@
 <li class="toctree-l3"><a class="reference internal" href="#non-standard-api-action-scan">Non-standard API: /action/scan</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#plugins">Plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#plugins">Plugins</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#third-party-plugins">Third party plugins</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="contributions.html">Contributions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
 </ul>
 
-            
-          
         </div>
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">Barcode Buddy Documentation</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html">Docs</a> &raquo;</li>
-        
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
       <li>Advanced usage and configuration</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-            
             <a href="_sources/advanced.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
+             
   <div class="section" id="advanced-usage-and-configuration">
-<span id="advanced"></span><h1>Advanced usage and configuration<a class="headerlink" href="#advanced-usage-and-configuration" title="Permalink to this headline">¶</a></h1>
+<span id="advanced"></span><h1>Advanced usage and configuration<a class="headerlink" href="#advanced-usage-and-configuration" title="Permalink to this headline"></a></h1>
 <div class="section" id="further-configuration">
-<h2>Further configuration<a class="headerlink" href="#further-configuration" title="Permalink to this headline">¶</a></h2>
+<h2>Further configuration<a class="headerlink" href="#further-configuration" title="Permalink to this headline"></a></h2>
 <div class="section" id="config-php">
-<span id="configphp"></span><h3>config.php<a class="headerlink" href="#config-php" title="Permalink to this headline">¶</a></h3>
+<span id="configphp"></span><h3>config.php<a class="headerlink" href="#config-php" title="Permalink to this headline"></a></h3>
 <p>Once you started Barcode Buddy for the first time, you will find the file <code class="docutils literal notranslate"><span class="pre">config.php</span></code> in the folder <code class="docutils literal notranslate"><span class="pre">data</span></code>. This file is for further configuration - the following values can be changed:</p>
-<table class="docutils align-default">
+<table border="1" class="docutils">
 <colgroup>
-<col style="width: 12%" />
-<col style="width: 7%" />
-<col style="width: 69%" />
-<col style="width: 12%" />
+<col width="12%" />
+<col width="7%" />
+<col width="69%" />
+<col width="12%" />
 </colgroup>
-<tbody>
-<tr class="row-odd"><td><p>Argument</p></td>
-<td><p>Value</p></td>
-<td><p>Effect</p></td>
-<td><p>Default</p></td>
+<tbody valign="top">
+<tr class="row-odd"><td>Argument</td>
+<td>Value</td>
+<td>Effect</td>
+<td>Default</td>
 </tr>
-<tr class="row-even"><td><p>PORT_WEBSOCKET_SERVER</p></td>
-<td><p>1024-65535</p></td>
-<td><p>The port that the websocket server listens to. Change if you running multiple instances or the default port is already used by another application.</p></td>
-<td><p>47631</p></td>
+<tr class="row-even"><td>PORT_WEBSOCKET_SERVER</td>
+<td>1024-65535</td>
+<td>The port that the websocket server listens to. Change if you running multiple instances or the default port is already used by another application.</td>
+<td>47631</td>
 </tr>
-<tr class="row-odd"><td><p>DATABASE_PATH</p></td>
-<td><p>A writable path</p></td>
-<td><p>The path were the database file is written to. Make sure that the webserver does not allow the download of the file. Path includes filename.</p></td>
-<td><p>./data/barcodebuddy.db</p></td>
+<tr class="row-odd"><td>DATABASE_PATH</td>
+<td>A writable path</td>
+<td>The path were the database file is written to. Make sure that the webserver does not allow the download of the file. Path includes filename.</td>
+<td>./data/barcodebuddy.db</td>
 </tr>
-<tr class="row-even"><td><p>CURL_TIMEOUT_S</p></td>
-<td><p>5-60</p></td>
-<td><p>How long to wait for a request</p></td>
-<td><p>20</p></td>
+<tr class="row-even"><td>CURL_TIMEOUT_S</td>
+<td>5-60</td>
+<td>How long to wait for a request</td>
+<td>20</td>
 </tr>
-<tr class="row-odd"><td><p>CURL_ALLOW_INSECURE_SSL_CA</p></td>
-<td><p>true/false</p></td>
-<td><p>Accept self-signed SSL certificates</p></td>
-<td><p>false</p></td>
+<tr class="row-odd"><td>CURL_ALLOW_INSECURE_SSL_CA</td>
+<td>true/false</td>
+<td>Accept self-signed SSL certificates</td>
+<td>false</td>
 </tr>
-<tr class="row-even"><td><p>CURL_ALLOW_INSECURE_SSL_HOST</p></td>
-<td><p>true/false</p></td>
-<td><p>Accept SSL certificates where the host does not match</p></td>
-<td><p>false</p></td>
+<tr class="row-even"><td>CURL_ALLOW_INSECURE_SSL_HOST</td>
+<td>true/false</td>
+<td>Accept SSL certificates where the host does not match</td>
+<td>false</td>
 </tr>
-<tr class="row-odd"><td><p>REQUIRE_API_KEY</p></td>
-<td><p>true/false</p></td>
-<td><p>Require API key for authentication when using API</p></td>
-<td><p>true</p></td>
+<tr class="row-odd"><td>REQUIRE_API_KEY</td>
+<td>true/false</td>
+<td>Require API key for authentication when using API</td>
+<td>true</td>
 </tr>
-<tr class="row-even"><td><p>DISABLE_AUTHENTICATION</p></td>
-<td><p>true/false</p></td>
-<td><p>Disables user management, if enabled, Barcode Buddy will not ask for local username/password</p></td>
-<td><p>false</p></td>
+<tr class="row-even"><td>DISABLE_AUTHENTICATION</td>
+<td>true/false</td>
+<td>Disables user management, if enabled, Barcode Buddy will not ask for local username/password</td>
+<td>false</td>
 </tr>
-<tr class="row-odd"><td><p>IS_DEBUG</p></td>
-<td><p>true/false</p></td>
-<td><p>Enable verbose error messages. If you think something is wrong, you can enable this and send a bugreport</p></td>
-<td><p>false</p></td>
+<tr class="row-odd"><td>IS_DEBUG</td>
+<td>true/false</td>
+<td>Enable verbose error messages. If you think something is wrong, you can enable this and send a bugreport</td>
+<td>false</td>
 </tr>
-<tr class="row-even"><td><p>HIDE_LINK_GROCY</p></td>
-<td><p>true/false</p></td>
-<td><p>Set to true to remove the link to Grocy in the top header</p></td>
-<td><p>false</p></td>
+<tr class="row-even"><td>HIDE_LINK_GROCY</td>
+<td>true/false</td>
+<td>Set to true to remove the link to Grocy in the top header</td>
+<td>false</td>
 </tr>
-<tr class="row-odd"><td><p>HIDE_LINK_SCREEN</p></td>
-<td><p>true/false</p></td>
-<td><p>Set to true to remove the link to the Screen module in the top header</p></td>
-<td><p>false</p></td>
+<tr class="row-odd"><td>HIDE_LINK_SCREEN</td>
+<td>true/false</td>
+<td>Set to true to remove the link to the Screen module in the top header</td>
+<td>false</td>
 </tr>
-<tr class="row-even"><td><p>EXTERNAL_GROCY_URL</p></td>
-<td><p>null or URL</p></td>
-<td><p>If you are using an internal URL for API communication to Grocy, but require a different URL for external access, you can enter the URL here. (Replaces URL in top header)</p></td>
-<td><p>null</p></td>
+<tr class="row-even"><td>EXTERNAL_GROCY_URL</td>
+<td>null or URL</td>
+<td>If you are using an internal URL for API communication to Grocy, but require a different URL for external access, you can enter the URL here. (Replaces URL in top header)</td>
+<td>null</td>
 </tr>
-<tr class="row-odd"><td><p>AUTHENTICATION_BYPASS_NETS</p></td>
-<td><p>array</p></td>
-<td><p>List of IPs and subnets that can bypass authentication. If using with a reverse proxy, ensure TRUSTED_PROXIES is set correctly</p></td>
-<td><p>empty</p></td>
+<tr class="row-odd"><td>AUTHENTICATION_BYPASS_NETS</td>
+<td>array</td>
+<td>List of IPs and subnets that can bypass authentication. If using with a reverse proxy, ensure TRUSTED_PROXIES is set correctly</td>
+<td>empty</td>
 </tr>
-<tr class="row-even"><td><p>TRUSTED_PROXIES</p></td>
-<td><p>array</p></td>
-<td><p>List of IPs and subnets that will be trusted for X-Forwarded-For header information</p></td>
-<td><p>empty</p></td>
+<tr class="row-even"><td>TRUSTED_PROXIES</td>
+<td>array</td>
+<td>List of IPs and subnets that will be trusted for X-Forwarded-For header information</td>
+<td>empty</td>
 </tr>
-<tr class="row-odd"><td><p>SEARCH_ENGINE</p></td>
-<td><p>String</p></td>
-<td><p>URL for searchengine to use when manually looking up barcode</p></td>
-<td><p><a class="reference external" href="https://google.com/search?q=">https://google.com/search?q=</a></p></td>
+<tr class="row-odd"><td>SEARCH_ENGINE</td>
+<td>String</td>
+<td>URL for searchengine to use when manually looking up barcode</td>
+<td><a class="reference external" href="https://google.com/search?q=">https://google.com/search?q=</a></td>
 </tr>
-<tr class="row-even"><td><p>BASEURL</p></td>
-<td><p>String</p></td>
-<td><p>Option to add a baseurl if you are running Barcode Buddy behind a proxy</p></td>
-<td><p>/</p></td>
+<tr class="row-even"><td>BASEURL</td>
+<td>String</td>
+<td>Option to add a baseurl if you are running Barcode Buddy behind a proxy</td>
+<td>/</td>
 </tr>
-<tr class="row-odd"><td><p>OVERRIDDEN_USER_CONFIG</p></td>
-<td><p>mapped array</p></td>
-<td><p>To override settings that can be set in the UI, uncomment the specific line. Overridden values cannot be changed in the UI afterwards</p></td>
-<td><p>empty</p></td>
+<tr class="row-odd"><td>OVERRIDDEN_USER_CONFIG</td>
+<td>mapped array</td>
+<td>To override settings that can be set in the UI, uncomment the specific line. Overridden values cannot be changed in the UI afterwards</td>
+<td>empty</td>
 </tr>
 </tbody>
 </table>
 <p><em>Note:</em> <code class="docutils literal notranslate"><span class="pre">config.php</span></code> <em>is a copy of</em> <code class="docutils literal notranslate"><span class="pre">config-dist.php</span></code> <em>in the root directory, which is tracked by version control, but not included by php. Any changes in</em> <code class="docutils literal notranslate"><span class="pre">config-dist.php</span></code> <em>will be ignored by Barcode Buddy</em></p>
 </div>
 <div class="section" id="configprocessing-inc-php">
-<h3>configProcessing.inc.php<a class="headerlink" href="#configprocessing-inc-php" title="Permalink to this headline">¶</a></h3>
+<h3>configProcessing.inc.php<a class="headerlink" href="#configprocessing-inc-php" title="Permalink to this headline"></a></h3>
 <p>If you need to change the paths of the <code class="docutils literal notranslate"><span class="pre">config.php</span></code> or the user database location, you can do this in the <code class="docutils literal notranslate"><span class="pre">configProcessing.inc.php</span></code> file, found in the <code class="docutils literal notranslate"><span class="pre">incl</span></code> folder. As editing the file might break updating Barcode Buddy, it is rather recommended to use <a class="reference internal" href="#envvar"><span class="std std-ref">Environment variables</span></a> instead of editing this file. The following values can be changed:</p>
-<table class="docutils align-default">
+<table border="1" class="docutils">
 <colgroup>
-<col style="width: 7%" />
-<col style="width: 9%" />
-<col style="width: 75%" />
-<col style="width: 10%" />
+<col width="7%" />
+<col width="9%" />
+<col width="75%" />
+<col width="10%" />
 </colgroup>
-<thead>
-<tr class="row-odd"><th class="head"><p>Argument</p></th>
-<th class="head"><p>Value</p></th>
-<th class="head"><p>Effect</p></th>
-<th class="head"><p>Default</p></th>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Argument</th>
+<th class="head">Value</th>
+<th class="head">Effect</th>
+<th class="head">Default</th>
 </tr>
 </thead>
-<tbody>
-<tr class="row-even"><td><p>CONFIG_PATH</p></td>
-<td><p>A writable path</p></td>
-<td><p>The path were the config.php file is written to. Path includes filename.</p></td>
-<td><p>./data/config.php</p></td>
+<tbody valign="top">
+<tr class="row-even"><td>CONFIG_PATH</td>
+<td>A writable path</td>
+<td>The path were the config.php file is written to. Path includes filename.</td>
+<td>./data/config.php</td>
 </tr>
-<tr class="row-odd"><td><p>AUTHDB_PATH</p></td>
-<td><p>A writable path</p></td>
-<td><p>The path were the user database file is written to. Make sure that the webserver does not allow the download of the file. Path includes filename.</p></td>
-<td><p>./data/users.db</p></td>
+<tr class="row-odd"><td>AUTHDB_PATH</td>
+<td>A writable path</td>
+<td>The path were the user database file is written to. Make sure that the webserver does not allow the download of the file. Path includes filename.</td>
+<td>./data/users.db</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 <div class="section" id="environment-variables">
-<span id="envvar"></span><h2>Environment variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline">¶</a></h2>
+<span id="envvar"></span><h2>Environment variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline"></a></h2>
 <p>Environment variables can be passed to Barcode Buddy - that way you can configure it without editing any files.</p>
 <p>All <code class="docutils literal notranslate"><span class="pre">const</span></code> declarations found in <a class="reference internal" href="#configphp"><span class="std std-ref">config.php</span></a> can be passed as an environment variable, but must have the prefix <code class="docutils literal notranslate"><span class="pre">BBUDDY_</span></code>.</p>
 <p>Example: To disable authentication, you need to set <code class="docutils literal notranslate"><span class="pre">DISABLE_AUTHENTICATION</span></code> to <code class="docutils literal notranslate"><span class="pre">true</span></code>. Therefore you need to pass the variable <code class="docutils literal notranslate"><span class="pre">BBUDDY_DISABLE_AUTHENTICATION</span></code> with the value <code class="docutils literal notranslate"><span class="pre">true</span></code> (see <a class="reference internal" href="#passingenv"><span class="std std-ref">Passing environment variables to Barcode Buddy</span></a>)</p>
 <p><strong>Note:</strong> <code class="docutils literal notranslate"><span class="pre">OVERRIDDEN_USER_CONFIG</span></code> is declared as an array in <code class="docutils literal notranslate"><span class="pre">config.php</span></code>. This is the only environment variable you need to pass as an array with the delimiter <code class="docutils literal notranslate"><span class="pre">;</span></code>.</p>
 <p>Example: To set the Grocy API details you need to declare <code class="docutils literal notranslate"><span class="pre">GROCY_API_URL</span></code> and <code class="docutils literal notranslate"><span class="pre">GROCY_API_KEY</span></code>. As you can see in <code class="docutils literal notranslate"><span class="pre">config.php</span></code>, they are part of the <code class="docutils literal notranslate"><span class="pre">OVERRIDDEN_USER_CONFIG</span></code> declaration (basically all configurations that can be changed through the web ui are part of that). You therefore need to pass the environment variable <code class="docutils literal notranslate"><span class="pre">OVERRIDDEN_USER_CONFIG</span></code> with the value <code class="docutils literal notranslate"><span class="pre">GROCY_API_URL=https://myurl/api/;GROCY_API_KEY=1234</span></code></p>
 <div class="section" id="passing-environment-variables-to-barcode-buddy">
-<span id="passingenv"></span><h3>Passing environment variables to Barcode Buddy<a class="headerlink" href="#passing-environment-variables-to-barcode-buddy" title="Permalink to this headline">¶</a></h3>
+<span id="passingenv"></span><h3>Passing environment variables to Barcode Buddy<a class="headerlink" href="#passing-environment-variables-to-barcode-buddy" title="Permalink to this headline"></a></h3>
 <div class="section" id="docker">
-<h4>Docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h4>
+<h4>Docker<a class="headerlink" href="#docker" title="Permalink to this headline"></a></h4>
 <p>Pass the variable with the <code class="docutils literal notranslate"><span class="pre">-e</span></code> argument. Example for disabling authentication and setting curl timeout to 30:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">d</span> <span class="o">-</span><span class="n">v</span> <span class="n">bbconfig</span><span class="p">:</span><span class="o">/</span><span class="n">config</span> <span class="o">-</span><span class="n">e</span> <span class="n">BBUDDY_DISABLE_AUTHENTICATION</span><span class="o">=</span><span class="n">true</span> <span class="o">-</span><span class="n">e</span> <span class="n">BBUDDY_CURL_TIMEOUT_S</span><span class="o">=</span><span class="mi">30</span> <span class="o">-</span><span class="n">p</span> <span class="mi">80</span><span class="p">:</span><span class="mi">80</span> <span class="n">f0rc3</span><span class="o">/</span><span class="n">barcodebuddy</span><span class="o">-</span><span class="n">docker</span><span class="p">:</span><span class="n">latest</span>
 </pre></div>
@@ -329,7 +249,7 @@
 </div>
 </div>
 <div class="section" id="bare-metal">
-<h4>Bare Metal<a class="headerlink" href="#bare-metal" title="Permalink to this headline">¶</a></h4>
+<h4>Bare Metal<a class="headerlink" href="#bare-metal" title="Permalink to this headline"></a></h4>
 <p>You need to add the variable to your Nginx configuration that you created in <a class="reference internal" href="setup.html#webserverinit"><span class="std std-ref">Webserver setup</span></a>. For each environment variable, add the following line in the <code class="docutils literal notranslate"><span class="pre">location</span> <span class="pre">~</span> <span class="pre">\.php$</span></code> block:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fastcgi_param</span> <span class="n">BBUDDY_XXXXX</span> <span class="s1">&#39;value&#39;</span><span class="p">;</span>
 </pre></div>
@@ -363,10 +283,10 @@ location ~ \.php$ {
 </div>
 </div>
 <div class="section" id="api">
-<span id="id1"></span><h2>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
+<span id="id1"></span><h2>API<a class="headerlink" href="#api" title="Permalink to this headline"></a></h2>
 <p>Barcode Buddy offers an API that can be reached at <code class="docutils literal notranslate"><span class="pre">http(s)://your.bbinstall.url/api</span></code>. By visiting the URL, you will get current the documentation website with an overview of all API functions.</p>
 <div class="section" id="interacting-with-the-api">
-<h3>Interacting with the API<a class="headerlink" href="#interacting-with-the-api" title="Permalink to this headline">¶</a></h3>
+<h3>Interacting with the API<a class="headerlink" href="#interacting-with-the-api" title="Permalink to this headline"></a></h3>
 <p>Unless disabled, all API calls will need an API key as authentication. A key can be generated in the web UI in the menu “API”. The API key needs to be passed in the body or can be added as a GET variable. Example getting info with curl:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">curl</span> <span class="o">-</span><span class="n">X</span> <span class="n">GET</span> <span class="o">-</span><span class="n">H</span> <span class="s2">&quot;BBUDDY-API-KEY: myApiKey&quot;</span> <span class="s2">&quot;https://your.bbuddy.url/api/system/info&quot;</span>
 </pre></div>
@@ -382,7 +302,7 @@ Example: Setting the current mode to STATE_PURCHASE (2):</p>
 </div>
 </div>
 <div class="section" id="non-standard-api-action-scan">
-<h3>Non-standard API: /action/scan<a class="headerlink" href="#non-standard-api-action-scan" title="Permalink to this headline">¶</a></h3>
+<h3>Non-standard API: /action/scan<a class="headerlink" href="#non-standard-api-action-scan" title="Permalink to this headline"></a></h3>
 <p>As mentioned above, the <code class="docutils literal notranslate"><span class="pre">/action/scan</span></code> also looks for GET parameters, in addition to the regular form/post parameters. This is to make it easier for scripts / apps to pass barcodes to Barcode Buddy.</p>
 <p>Instead of the POST parameter <code class="docutils literal notranslate"><span class="pre">barcode</span></code> you can also pass the GET parameter <code class="docutils literal notranslate"><span class="pre">add</span></code> or <code class="docutils literal notranslate"><span class="pre">text</span></code> instead. Example Passing the barcode 123456 by just requesting the URL:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>https://your.bbuddy.url/api/action/scan?apikey=myApiKey&amp;add=123456
@@ -391,59 +311,47 @@ Example: Setting the current mode to STATE_PURCHASE (2):</p>
 </div>
 </div>
 <div class="section" id="plugins">
-<h2>Plugins<a class="headerlink" href="#plugins" title="Permalink to this headline">¶</a></h2>
-<p>Barcode Buddy offers plugin support. All PHP scripts in the folder <code class="docutils literal notranslate"><span class="pre">plugins</span></code> are automatically loaded. See also the <a class="reference external" href="https://github.com/Forceu/barcodebuddy/blob/master/plugins/EventReceiver.php">example script</a>
-.</p>
+<h2>Plugins<a class="headerlink" href="#plugins" title="Permalink to this headline"></a></h2>
+<p>Barcode Buddy offers plugin support. All PHP scripts in the folder <code class="docutils literal notranslate"><span class="pre">plugins</span></code> are automatically loaded. See also the <a class="reference external" href="https://github.com/Forceu/barcodebuddy/blob/master/plugins/EventReceiver.php">example script</a>.</p>
+<div class="section" id="third-party-plugins">
+<h3>Third party plugins<a class="headerlink" href="#third-party-plugins" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/PiAir/bbuddy-plugin-MQTT">MQTT Plugin</a></li>
+</ul>
+<p>If you developed a plugin and would like to feature it here, please open an issue on Github to have it added.</p>
+</div>
 </div>
 </div>
 
 
            </div>
-           
           </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="contributions.html" class="btn btn-neutral float-right" title="Contributions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="update.html" class="btn btn-neutral float-left" title="Updating Barcode Buddy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="update.html" class="btn btn-neutral float-left" title="Updating Barcode Buddy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="contributions.html" class="btn btn-neutral float-right" title="Contributions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &copy; Copyright 2020, Marc Ole Bulling
-
-    </p>
+    <p>&#169; Copyright 2020, Marc Ole Bulling.</p>
   </div>
-  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
-
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>
