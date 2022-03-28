@@ -171,7 +171,16 @@ Example:
  </Directory>
  [...]
 
+If you are using PHP-FPM you need to disable fcgi cache for the screen module to work correctly. Add the following to VirtualHost section:
+::
 
+ [...]
+ <Proxy "fcgi://localhost/">
+        ProxySet flushpackets=on
+ </Proxy>
+ [...]
+ 
+See `mod_proxy documentation <https://httpd.apache.org/docs/2.4/mod/mod_proxy.html#proxypass>`_ for more details.
 
 Stable version
 """""""""""""""""
