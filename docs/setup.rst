@@ -100,7 +100,7 @@ Requirements
 * webserver (eg. NGINX, Apache)
 * curl
 * Access to the command line
-* PHP 7.2 or higher (PHP 8.0 **not** supported at the moment)
+* PHP 8.0 or higher
 * The following PHP modules:
 
   * curl
@@ -122,7 +122,7 @@ Installation
 
 *Stable* indicates, that you are using the latest release which should work without any bugs. *Unstable* is the latest developer version, which might include more features, but could also contain bugs.
 
-It is strongly recommended to change ``pm.max_children`` to a value of 10 or higher in ``/etc/php7/php-fpm.d/www.conf`` (path might be different, depending on PHP version and distribution; for Ubuntu 18.04 it is ``/etc/php/7.2/fpm/pool.d/www.conf``).
+It is strongly recommended to change ``pm.max_children`` to a value of 10 or higher in ``/etc/php8/php-fpm.d/www.conf`` (path might be different, depending on PHP version and distribution; for Ubuntu 22.04 it is ``/etc/php/8.1/fpm/pool.d/www.conf``).
 
 .. _webserverinit:
 
@@ -138,16 +138,16 @@ Installing NGINX
 * Install nginx: ``apt-get install nginx``
 * If you are running a server with ufw active, run ``ufw allow 'Nginx Full'``
 * Install all php modules and other requirements ``apt-get install php php-fpm php-curl php-date php-json php-sqlite3 php-redis redis redis-server sudo screen evtest``
-* If some of the packages are not found, try again including the php version, eg. ``apt-get install php7.2-curl ...`` (see next point)
-* Check what PHP version you are using with ``php --version`` (eg. "7.2").
+* If some of the packages are not found, try again including the php version, eg. ``apt-get install php8.1-curl ...`` (see next point)
+* Check what PHP version you are using with ``php --version`` (eg. "8.1").
 * Copy the `Nginx example file <https://github.com/Forceu/barcodebuddy/blob/master/example/nginxConfiguration.conf>`_ to ``/etc/nginx/sites-enabled/``
 * Adjust the new file:
 
-   * If you are not using PHP7.2, change the line  ``fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;`` to your PHP version
+   * If you are not using PHP8.1, change the line  ``fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;`` to your PHP version
    * If you are not installing Barcode Buddy to /var/www/html/barcodebuddy/, change the line ``root /var/www/html/barcodebuddy/;`` to your directory
 * Follow the steps below to download either the stable or unstable version
 * Execute the command ``chown www-data:www-data -R /path/to/the/barcodebuddy/folder`` for the folder that you just created
-* Change ``pm.max_children`` to a value of 10 in ``/etc/php/7.2/fpm/pool.d/www.conf`` (adjust path for your PHP version)
+* Change ``pm.max_children`` to a value of 10 in ``/etc/php/8.1/fpm/pool.d/www.conf`` (adjust path for your PHP version)
 * Restart NGINX ``service nginx restart``
 
 
