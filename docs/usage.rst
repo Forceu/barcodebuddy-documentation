@@ -106,7 +106,7 @@ Docker
 Create a docker container with
 ::
 
- docker run -v bbconfig:/config -e ATTACH_BARCODESCANNER=true -p 80:80 -p 443:443 --device /dev/input/eventX f0rc3/barcodebuddy-docker:YOURTAG
+ docker run -v bbconfig:/config -e ATTACH_BARCODESCANNER=true -p 80:80 -p 443:443 --device /dev/input/eventX f0rc3/barcodebuddy:YOURTAG
 
 where X in ``--device /dev/input/eventX`` is the number of your event you selected previously. You might need to change the values for the ports. Scan a barcode - it should be sent directly to Barcode Buddy.
 
@@ -114,7 +114,7 @@ If you would like to bind the barcode scanner by ID (eg. if your input event ide
 
 ::
 
- docker run -v bbconfig:/config -e ATTACH_BARCODESCANNER=true -p 80:80 -p 443:443 --device /dev/input/by-id/usb-ID-event-kbd:/dev/input/event0 f0rc3/barcodebuddy-docker:YOURTAG
+ docker run -v bbconfig:/config -e ATTACH_BARCODESCANNER=true -p 80:80 -p 443:443 --device /dev/input/by-id/usb-ID-event-kbd:/dev/input/event0 f0rc3/barcodebuddy:YOURTAG
 
 and replace ``usb-ID-event-kbd`` with the actual ID. 
 

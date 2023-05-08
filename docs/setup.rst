@@ -23,25 +23,17 @@ Installation
 To download, run the following command, and replace YOURTAG with one from the list below:
 ::
 
-  docker pull f0rc3/barcodebuddy-docker:YOURTAG
+  docker pull f0rc3/barcodebuddy:YOURTAG
 
-+--------------------+--------------+----------+
-|         Tag        | Architecture |  Version |
-+====================+==============+==========+
-|       latest       |    x86-64    |  stable  |
-+--------------------+--------------+----------+
-|   arm32v7-latest   |     armhf    |  stable  |
-+--------------------+--------------+----------+
-|   arm64v8-latest   |     arm64    |  stable  |
-+--------------------+--------------+----------+
-|     latest-dev     |    x86-64    | unstable |
-+--------------------+--------------+----------+
-| arm32v7-latest-dev |     armhf    | unstable |
-+--------------------+--------------+----------+
-| arm64v8-latest-dev |     arm64    | unstable |
-+--------------------+--------------+----------+
++--------------------+-----------+
+|         Tag        |   Version |
++====================+===========+
+|       latest       |   stable  |
++--------------------+-----------+
+|     latest-dev     |  unstable |
++--------------------+-----------+
 
-Most of the time, you will need the *latest* tag. If you are running docker on a Raspberry Pi, you will need the *arm32v7-latest* tag.
+Most of the time, you will need the *latest* tag.
 
 *Stable* indicates, that you are using the latest release which should work without any bugs. *Unstable* is the latest developer version, which might include more features, but could also contain bugs.
 
@@ -53,12 +45,12 @@ Starting the Container
 
 To start the container, run the following command: ::
 
- docker run -d -v bbconfig:/config -p 80:80 -p 443:443 f0rc3/barcodebuddy-docker:YOURTAG
+ docker run -d -v bbconfig:/config -p 80:80 -p 443:443 f0rc3/barcodebuddy:YOURTAG
 
 You can now open ``http://DOCKER_HOST_IP/`` to set up BarcodeBuddy. If you are already serving a webserver on your Docker host, you need to change the ports, eg.:
 ::
 
- docker run -d -v bbconfig:/config -p 8080:80 -p 9443:443 f0rc3/barcodebuddy-docker:latest
+ docker run -d -v bbconfig:/config -p 8080:80 -p 9443:443 f0rc3/barcodebuddy:latest
 
 The following arguments can also be passed:
 
@@ -83,7 +75,7 @@ The following arguments can also be passed:
 To pass an argument, use the -e function, eg:
 ::
 
- docker run -d -v bbconfig:/config -e ATTACH_BARCODESCANNER=true -p 80:80 -p 443:443 f0rc3/barcodebuddy-docker:latest
+ docker run -d -v bbconfig:/config -e ATTACH_BARCODESCANNER=true -p 80:80 -p 443:443 f0rc3/barcodebuddy:latest
 
 If you want to use a different internal URL for connecting to Grocy, enter the internal URL in during the setup. You can then set an external URL for links on the website with the argument
 ::

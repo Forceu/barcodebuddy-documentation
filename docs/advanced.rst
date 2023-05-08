@@ -98,12 +98,12 @@ Docker
 Pass the variable with the ``-e`` argument. Example for disabling authentication and setting curl timeout to 30:
 ::
 
- docker run -d -v bbconfig:/config -e BBUDDY_DISABLE_AUTHENTICATION=true -e BBUDDY_CURL_TIMEOUT_S=30 -p 80:80 f0rc3/barcodebuddy-docker:latest
+ docker run -d -v bbconfig:/config -e BBUDDY_DISABLE_AUTHENTICATION=true -e BBUDDY_CURL_TIMEOUT_S=30 -p 80:80 f0rc3/barcodebuddy:latest
 
 Example for passing API details:
 ::
 
- docker run -d -v bbconfig:/config -e BBUDDY_OVERRIDDEN_USER_CONFIG="GROCY_API_URL=https://myurl/api/;GROCY_API_KEY=1234" -p 80:80 f0rc3/barcodebuddy-docker:latest
+ docker run -d -v bbconfig:/config -e BBUDDY_OVERRIDDEN_USER_CONFIG="GROCY_API_URL=https://myurl/api/;GROCY_API_KEY=1234" -p 80:80 f0rc3/barcodebuddy:latest
 
 
 Bare Metal
