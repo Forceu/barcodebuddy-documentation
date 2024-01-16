@@ -18,11 +18,11 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Barcode Buddy Documentation'
-copyright = '2020, Marc Ole Bulling'
+copyright = '2024, Marc Ole Bulling'
 author = 'Marc Ole Bulling'
 
 # The full version, including alpha/beta/rc tags
-release = '1.5.0.0'
+release = '1.8.1.7'
 
 
 # -- General configuration ---------------------------------------------------
